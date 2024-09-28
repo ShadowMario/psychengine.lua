@@ -1,0 +1,55 @@
+*
+{
+	font-family: 'Franklin Gothic Book';
+	scroll-padding-top: 90px;
+}
+
+@media (prefers-color-scheme: dark) {
+	*
+	{
+		color-scheme: dark;
+	}
+}
+
+hr
+{
+	border-color: lightslategray;
+}
+
+.logoImage
+{
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 20px;
+}
+
+.infobox
+{
+	width: max(calc(50% - 20px), 400px);
+	margin-left: calc(15% + 200px);
+	margin-top: 100px;
+	padding: 0px 20px 10px;
+	float: left;
+	border: 2px solid lightslategray;
+	border-radius: 10px;
+	margin-bottom: 80px;
+}
+
+.methodbox
+{
+	padding: 5px;
+	border: 2px solid #0000003F;
+	width: fit-content;
+}
+
+.methoddiv
+{
+	line-height: 25px;
+}
+
+.methodexample
+{
+	padding: 5px;
+	background-color: #7F7F7F5F;
+	width: fit-content;
+}

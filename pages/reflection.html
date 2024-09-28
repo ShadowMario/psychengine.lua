@@ -1,0 +1,201 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Psych Engine - Reflection Functions</title>
+		<link rel="stylesheet" href="../css/main.css">
+		<link rel="stylesheet" href="../css/header.css">
+		<link rel="stylesheet" href="../css/search.css">
+		<link rel="stylesheet" href="../css/theme.css">
+		<link rel="icon" href="../assets/icon.ico" type="image/x-icon">
+	</head>
+
+	<body>
+		<!-- Create Search Bar and Theme Boxes-->
+		<div class="sidebar"></div>
+		<div class="themeBox" onclick="switchTheme()">
+			<div class="themeDot"></div>
+			<div class="themeDot" style="margin-left: 70px"></div>
+			<button class="themeBtn" id="themeSelector"></button>
+		</div>
+
+		<!-- Load JavaScript-->
+		<script src="../js/selector.js"></script>
+		<script>createSidebarContent();</script>
+		<script src="../js/searchbar.js"></script>
+		<script src="../js/theme.js"></script>
+
+		<!-- Header -->
+		<div class="headerbox">
+			<div class="header">
+				<a href="../index.html">
+					<img width="64" src="../assets/icon.ico" alt="Psych Engine Logo" draggable="false">
+					<div class="headertext">Psych Engine - Lua Script API</div>
+				</a>
+			</div>
+		</div>
+
+		<!-- Page Info -->
+		<div class="infobox">
+			<h1>Reflection Functions</h1><hr>
+
+			<h2 id="getProperty">getProperty</h2>
+			<p class="methodbox">getProperty(<span style="color:#6666CF">variable</span>:String, <span style="color:#999999">?</span><span style="color:#6666CF">allowMaps</span>:Bool = false):Dynamic</p>
+			<p>Returns the value of a property or variable inside PlayState, a variable saved through setVar or a Lua Sprite/Text.</p>
+			<ul>
+				<li><b><span style="color: #6666CF">variable</span></b> - Variable or Property.</li>
+				<li><b><span style="color: #6666CF">allowMaps</span> (Optional)</b> - Allows for Map access in properties, disabled by default for optimization.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li style="padding-bottom: 8px"><span class="methodexample">getProperty('dad.scale.x')</span> - Can return "1.0", for example.</li>
+				<li style="padding-bottom: 8px"><span class="methodexample">getProperty('singAnimations[0]')</span> - Normally returns "singLEFT".</li>
+				<li style="padding-bottom: 8px"><span class="methodexample">getProperty('boyfriend.animOffsets.idle', true)</span> - Can return a table of "{0, 0}", for example.</li>
+			</ul><hr>
+
+			<h2 id="getPropertyFromGroup">getPropertyFromGroup</h2>
+			<p class="methodbox">getPropertyFromGroup(<span style="color:#6666CF">variable</span>:String, <span style="color:#6666CF">index</span>:Int, <span style="color:#6666CF">property</span>:Dynamic, <span style="color:#999999">?</span><span style="color:#6666CF">allowMaps</span>:Bool = false):Dynamic</p>
+			<p>Returns the value of a property of a member inside a FlxTypedGroup/FlxSpriteGroup.</p>
+			<ul>
+				<li><b><span style="color: #6666CF">variable</span></b> - Group variable.</li>
+				<li><b><span style="color: #6666CF">index</span></b> - Index of a member of the group you put in the previous argument.</li>
+				<li><b><span style="color: #6666CF">property</span></b> - Property of the selected member of the group.</li>
+				<li><b><span style="color: #6666CF">allowMaps</span> (Optional)</b> - Allows for Map access in properties, disabled by default for optimization.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li style="padding-bottom: 8px"><span class="methodexample">getPropertyFromGroup('playerStrums', 1, 'animation.curAnim.name')</span> - Will return the current animation name of the Player's Down Note.</li>
+				<li style="padding-bottom: 8px"><span class="methodexample">getPropertyFromGroup('unspawnNotes', 0, 'extraData.testVar', true)</span> - Lua equivalent of <b>unspawnNotes[0].extraData.get('testVar')</b>.</li>
+			</ul><hr>
+
+			<h2 id="getPropertyFromClass">getPropertyFromClass</h2>
+			<p class="methodbox">getPropertyFromClass(<span style="color:#6666CF">classVar</span>:String, <span style="color:#6666CF">variable</span>:String, <span style="color:#999999">?</span><span style="color:#6666CF">allowMaps</span>:Bool = false):Dynamic</p>
+			<p>Returns the value of a property inside a class.</p>
+			<ul>
+				<li><b><span style="color: #6666CF">classVar</span></b> - Class variable based on the source folder structure.</li>
+				<li><b><span style="color: #6666CF">variable</span></b> - Variable or Property.</li>
+				<li><b><span style="color: #6666CF">allowMaps</span> (Optional)</b> - Allows for Map access in properties, disabled by default for optimization.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li style="padding-bottom: 8px"><span class="methodexample">getPropertyFromClass('backend.ClientPrefs', 'data.downScroll')</span> - Will return the current Downscroll option value, either "true" or "false".</li>
+				<li style="padding-bottom: 8px"><span class="methodexample">getPropertyFromClass('states.PlayState', 'SONG.player1')</span> - Will return the Player character's name from the Chart, can be "true" or "false".</li>
+			</ul><hr>
+
+			<h2 id="setProperty">setProperty</h2>
+			<p class="methodbox">setProperty(<span style="color:#6666CF">variable</span>:String, <span style="color:#6666CF">value</span>:Dynamic, </span><span style="color:#999999">?</span><span style="color:#6666CF">allowMaps</span>:Bool = false):Dynamic</p>
+			<p>Sets the value of a property or variable inside PlayState, a variable saved through setVar or a Lua Sprite/Text.<br>Returns "value".</p>
+			<ul>
+				<li><b><span style="color: #6666CF">variable</span></b> - Variable or Property.</li>
+				<li><b><span style="color: #6666CF">value</span></b> - Value to set.</li>
+				<li><b><span style="color: #6666CF">allowMaps</span> (Optional)</b> - Allows for Map access in properties, disabled by default for optimization.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li style="padding-bottom: 8px"><span class="methodexample">setProperty('boyfriend.stunned', true)</span> - Stuns player.</li>
+				<li style="padding-bottom: 8px"><span class="methodexample">setProperty('singAnimations[3]', 'singLEFT')</span> - Will force Right sing animation to be "singLEFT".</li>
+				<li style="padding-bottom: 8px"><span class="methodexample">setProperty('boyfriend.animOffsets.idle', {-200, 100}, true)</span> - Changes Player's Idle offsets to X -200, Y 100.</li>
+			</ul><hr>
+
+			<h2 id="setPropertyFromGroup">setPropertyFromGroup</h2>
+			<p class="methodbox">setPropertyFromGroup(<span style="color:#6666CF">variable</span>:String, <span style="color:#6666CF">index</span>:Int, <span style="color:#6666CF">property</span>:Dynamic, <span style="color:#6666CF">value</span>:Dynamic, <span style="color:#999999">?</span><span style="color:#6666CF">allowMaps</span>:Bool = false):Dynamic</p>
+			<p>Sets the value of a property of a member inside a FlxTypedGroup/FlxSpriteGroup.
+			<br>Returns "value".</p>
+			<ul>
+				<li><b><span style="color: #6666CF">variable</span></b> - Group variable.</li>
+				<li><b><span style="color: #6666CF">index</span></b> - Index of a member of the group you put in the previous argument.</li>
+				<li><b><span style="color: #6666CF">property</span></b> - Property of the selected member of the group.</li>
+				<li><b><span style="color: #6666CF">value</span></b> - Value to set.</li>
+				<li><b><span style="color: #6666CF">allowMaps</span> (Optional)</b> - Allows for Map access in properties, disabled by default for optimization.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li style="padding-bottom: 8px"><span class="methodexample">setPropertyFromGroup('playerStrums', 2, 'visible', false)</span> - Hides Player's Up note.</li>
+				<li style="padding-bottom: 8px"><span class="methodexample">setPropertyFromGroup('unspawnNotes', 0, 'extraData.testVar', true)</span> - Lua equivalent of <b>unspawnNotes[0].extraData.set('testVar', true)</b>.</li>
+			</ul><hr>
+
+			<h2 id="setPropertyFromClass">setPropertyFromClass</h2>
+			<p class="methodbox">setPropertyFromClass(<span style="color:#6666CF">classVar</span>:String, <span style="color:#6666CF">variable</span>:String, <span style="color:#6666CF">value</span>:Dynamic, <span style="color:#999999">?</span><span style="color:#6666CF">allowMaps</span>:Bool = false):Dynamic</p>
+			<p>Sets the value of a property inside a class.
+			<br>Returns "value".</p>
+			<ul>
+				<li><b><span style="color: #6666CF">classVar</span></b> - Class variable based on the source folder structure.</li>
+				<li><b><span style="color: #6666CF">variable</span></b> - Variable or Property.</li>
+				<li><b><span style="color: #6666CF">value</span></b> - Value to set.</li>
+				<li><b><span style="color: #6666CF">allowMaps</span> (Optional)</b> - Allows for Map access in properties, disabled by default for optimization.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li style="padding-bottom: 8px"><span class="methodexample">setPropertyFromClass('states.PlayState', 'SONG.player1', 'pico-playable')</span> - Force set Player character to "pico-playable".</li>
+			</ul><hr>
+
+			<h2 id="callMethod">callMethod</h2>
+			<p class="methodbox">callMethod(<span style="color:#6666CF">funcToRun</span>:String, <span style="color:#999999">?</span></span><span style="color:#6666CF">args</span>:Array&lt;Dynamic&gt; = null):Dynamic</p>
+			<p>Calls a function and returns its value.</p>
+			<ul>
+				<li><b><span style="color: #6666CF">funcToRun</span></b> - Name of the function you want to run.</li>
+				<li><b><span style="color: #6666CF">args</span> (Optional)</b> - Optional table of arguments.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li style="padding-bottom: 8px"><span class="methodexample">callMethod('KillNotes')</span> - Clear all notes.</li>
+				<li style="padding-bottom: 8px"><span class="methodexample">callMethod('boyfriend.isAnimationNull')</span> - Returns "true" or "false" about if the Player's Animation is null.</li>
+				<li style="padding-bottom: 8px"><span class="methodexample">callMethod('iconP1.changeIcon', {'bf-old'})</span> - Change Player's icon to "bf-old".</li>
+			</ul><hr>
+
+			<h2 id="callMethodFromClass">callMethodFromClass</h2>
+			<p class="methodbox">callMethodFromClass(<span style="color:#6666CF">classVar</span>:String, <span style="color:#6666CF">funcToRun</span>:String, <span style="color:#999999">?</span></span><span style="color:#6666CF">args</span>:Array&lt;Dynamic&gt; = null):Dynamic</p>
+			<p>Calls a function inside a Class and returns its value.</p>
+			<ul>
+				<li><b><span style="color: #6666CF">classVar</span></b> - Class variable based on the source folder structure.</li>
+				<li><b><span style="color: #6666CF">funcToRun</span></b> - Name of the function you want to run.</li>
+				<li><b><span style="color: #6666CF">args</span> (Optional)</b> - Optional table of arguments.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li style="padding-bottom: 8px"><span class="methodexample">callMethodFromClass('backend.CoolUtil', 'browserLoad', {'https://ko-fi.com/shadowmario'})</span> - Opens my Ko-Fi page in browser, give me money.</li>
+			</ul><hr>
+			<h2 id="instanceArg">instanceArg</h2>
+			<p class="methodbox">instanceArg(<span style="color:#6666CF">instanceName</span>:String, <span style="color:#999999">?</span><span style="color:#6666CF">classVar</span>:String = null):String</p>
+			<p>Meant to be used with <a href="#callMethod">"callMethod"</a> and <a href="#callMethodFromClass">"callMethodFromClass"</a>.
+			<br>Formats a String in a specific way to tell the previously mentioned functions that the string is meant to be an instance.</p>
+			<ul>
+				<li><b><span style="color: #6666CF">instanceName</span></b> - Self explanatory.</li>
+				<li><b><span style="color: #6666CF">classVar</span> (Optional)</b> - Class variable based on the source folder structure.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li style="padding-bottom: 8px"><span class="methodexample">callMethod('spawnNoteSplashOnNote', {instanceArg('notes.members[0]')})</span> - Will spawn a Note splash in the first note on screen.</li>
+			</ul><hr>
+
+			<h2 id="createInstance">createInstance</h2>
+			<p class="methodbox">createInstance(<span style="color:#6666CF">variableToSave</span>:String, <span style="color:#6666CF">classVar</span>:String, <span style="color:#999999">?</span></span><span style="color:#6666CF">args</span>:Array&lt;Dynamic&gt; = null):Bool</p>
+			<p>Creates an instance of a Class and saves it to a lua variable nametag that allows you to use <a href="#setProperty">setProperty</a> and other functions on it.
+			<br>Returns "true" or "false" for if it was created successfully.</p>
+			<ul></ul>
+				<li><b><span style="color: #6666CF">variableToSave</span></b> - Variable name to save the created instance to.</li>
+				<li><b><span style="color: #6666CF">classVar</span></b> - Class variable based on the source folder structure.</li>
+				<li><b><span style="color: #6666CF">args</span> (Optional)</b> - Optional table of arguments.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li style="padding-bottom: 8px"><span class="methodexample">createInstance('testIcon', 'objects.HealthIcon', {'gf'})</span> - Creates a GF Health Icon.</li>
+			</ul>
+			<p style="color: gray">Note: In most cases you still have to add the created instance with <a href="#addInstance">"addInstance"</a>.</p>
+			<hr>
+
+			<h2 id="addInstance">addInstance</h2>
+			<p class="methodbox">addInstance(<span style="color:#6666CF">objectName</span>:String, <span style="color:#999999">?</span></span><span style="color:#6666CF">inFront</span>:Bool = false):Void</p>
+			<p>Adds the instance to the scene.<p>
+			<ul></ul>
+				<li><b><span style="color: #6666CF">objectName</span></b> - Variable name of the instance.</li>
+				<li><b><span style="color: #6666CF">inFront</span> (Optional)</b> - If true, the instance is added at the top of everything in its camera, if false, it will be added behind all characters.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li style="padding-bottom: 8px"><span class="methodexample">addInstance('testIcon', true)</span> - Adds an instance with the tag "testIcon" at the top of everything.</li>
+			</ul>
+			<p style="color: gray">Note: As of 1.0, this function is redundant as it does nearly the same thing as <a href="sprite.html#addLuaSprite">"addLuaSprite"</a></p>
+		</div>
+	</body>
+</html>

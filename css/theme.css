@@ -1,0 +1,45 @@
+.themeBox
+{
+	width: 100px;
+	height: 50px;
+	position: fixed;
+	margin-top: calc(100vh - 120px);
+	margin-left: calc(100vw - 200px);
+	outline: 10px;
+	border: 3px solid lightslategray;
+	border-radius: 60px;
+}
+
+.themeBtn
+{
+	position: fixed;
+	margin-left: 5px;
+	margin-top: 5px;
+	width: 40px;
+	height: 40px;
+	background-color: lightslategray;
+	outline: 0;
+	border: 0;
+	border-radius: 50px;
+	transition: 0.2s;
+}
+.themeBtn:hover
+{
+	background-color: #99AABB;
+}
+
+.themeBtn:active
+{
+	background-color: #556677;
+}
+
+.themeDot
+{
+	position: fixed;
+	background-color: #7788997F;
+	border-radius: 2px;
+	width: 10px;
+	height: 10px;
+	margin-top: 20px;
+	margin-left: 20px;
+}

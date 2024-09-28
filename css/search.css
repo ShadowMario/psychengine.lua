@@ -1,0 +1,59 @@
+.sidebar
+{
+	float:left;
+	width: 200px;
+	margin: 100px 0px 0px 10%;
+	padding-top: 10px;
+	border: 2px solid lightslategray;
+	border-radius: 10px;
+	position: absolute;
+	background-color: var(--primary);
+}
+
+.selectable-link
+{
+	color: inherit;
+	text-decoration: none;
+	font: inherit;
+}
+
+.selectables
+{
+	max-height: max(calc(100% - 100px), 150px);
+	overflow-y: auto;
+	margin: 10px 0px 0px 0px;
+	border-radius: 6px;
+	scrollbar-color: lightslategray var(--primary);
+}
+
+input[type='text']
+{
+	font-size: 16px;
+	margin-left: 10px;
+	width: 176px;
+	border: 0;
+	outline: 0;
+}
+input[type='text']:focus
+{
+	border: 0;
+	outline: 0;
+}
+
+ul[class="searchbar-child"]
+{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+li[class="searchbar-child"]
+{
+	padding: 8px 10px;
+	background-color: var(--primary);
+	border-top: 1px solid lightslategray;
+}
+li[class="searchbar-child"]:hover
+{
+	background-color: cornflowerblue;
+	color: white;
+}

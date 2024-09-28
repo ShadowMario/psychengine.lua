@@ -1,0 +1,78 @@
+<html lang="en"></html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Psych Engine - Discord Functions</title>
+		<link rel="stylesheet" href="../css/main.css">
+		<link rel="stylesheet" href="../css/header.css">
+		<link rel="stylesheet" href="../css/search.css">
+		<link rel="stylesheet" href="../css/theme.css">
+		<link rel="icon" href="../assets/icon.ico" type="image/x-icon">
+	</head>
+
+	<body>
+		<!-- Create Search Bar and Theme Boxes-->
+		<div class="sidebar"></div>
+		<div class="themeBox" onclick="switchTheme()">
+			<div class="themeDot"></div>
+			<div class="themeDot" style="margin-left: 70px"></div>
+			<button class="themeBtn" id="themeSelector"></button>
+		</div>
+
+		<!-- Load JavaScript-->
+		<script src="../js/selector.js"></script>
+		<script>createSidebarContent();</script>
+		<script src="../js/searchbar.js"></script>
+		<script src="../js/theme.js"></script>
+
+		<!-- Header -->
+		<div class="headerbox">
+			<div class="header">
+				<a href="../index.html">
+					<img width="64" src="../assets/icon.ico" alt="Psych Engine Logo" draggable="false">
+					<div class="headertext">Psych Engine - Lua Script API</div>
+				</a>
+			</div>
+		</div>
+
+		<!-- Page Info -->
+		<div class="infobox">
+			<h1>Reflection Functions</h1><hr>
+			<h2 id="changeDiscordPresence">changeDiscordPresence</h2>
+			<p class="methodbox">changeDiscordPresence(<span style="color:#6666CF">details</span>:String = 'In the Menus',
+				<span style="color:#999999">?</span><span style="color:#6666CF">state</span>:String,
+				<span style="color:#999999">?</span><span style="color:#6666CF">smallImageKey</span>:String,
+				<span style="color:#999999">?</span><span style="color:#6666CF">hasStartTimestamp</span>:Bool,
+				<span style="color:#999999">?</span><span style="color:#6666CF">endTimestamp</span>:Float,
+				<span style="color:#999999">?</span><span style="color:#6666CF">largeImageKey</span>:String
+				):Void</p>
+			<p>Change Discord Rich Presence current details, allows you to also set up a timestamp for a timer.</p>
+			<ul>
+				<li><b><span style="color: #6666CF">details</span></b> - Title of the Rich Presence.</li>
+				<li><b><span style="color: #6666CF">state</span> (Optional)</b> - An optional subtitle for the Rich Presence.</li>
+				<li><b><span style="color: #6666CF">smallImageKey</span> (Optional)</b> - Small/Secondary Icon, normally used for having the Opponent's Health Icon on Rich Presence.</li>
+				<li><b><span style="color: #6666CF">hasStartTimestamp</span> (Optional)</b> - Shows a time counter in the Rich Presence.</li>
+				<li><b><span style="color: #6666CF">endTimestamp</span> (Optional)</b> - Requires "hasStartTimestamp" to be "true", counts down starting from this time (in milliseconds).</li>
+				<li><b><span style="color: #6666CF">largeImageKey</span> (Optional)</b> - Rich Presence Main icon.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li style="padding-bottom: 8px"><span class="methodexample">changeDiscordPresence('Waiting...')</span> - Change RPC to "Waiting...", with no subtitles or anything.</li>
+				<li style="padding-bottom: 8px"><span class="methodexample">changeDiscordPresence('Counting Down...', 'Three. Two. One. GO!', 'gf', true, 3000)</span> - Counts down 3 seconds (3000ms)</li>
+			</ul>
+			<p style="color: gray">Note: To upload custom images to use on "smallImageKey" and "largeImageKey" you will need to <a href="#changeDiscordClientID">change the Application ID</a>.</p>
+			<hr>
+
+			<h2 id="changeDiscordClientID">changeDiscordClientID</h2>
+			<p class="methodbox">changeDiscordClientID(<span style="color:#999999">?</span><span style="color:#6666CF">newID</span>:String):Void</p>
+			<p>Changes Discord Rich Presence's Application ID, necessary to change the "Psych Engine" Logo from the RPC.</p>
+			<ul>
+				<li><b><span style="color: #6666CF">newID</span> (Optional)</b> - Application ID, you can get it from an <a href="https://discord.com/developers/applications">application you create</a>.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li style="padding-bottom: 8px"><span class="methodexample">changeDiscordClientID()</span> - Set Discord Client ID to Psych Engine's default.</li>
+				<li style="padding-bottom: 8px"><span class="methodexample">changeDiscordClientID('843895042442657792')</span> - Set Discord Client ID to Mind Games Mod's.</li>
+			</ul>
+	</body>
+</html>

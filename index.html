@@ -1,0 +1,64 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Psych Engine - Lua Script API</title>
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/header.css">
+		<link rel="stylesheet" href="css/search.css">
+		<link rel="stylesheet" href="css/theme.css">
+		<link rel="icon" href="assets/icon.ico" type="image/x-icon">
+	</head>
+
+	<body>
+		<!-- Create Search Bar and Theme Boxes-->
+		<div class="sidebar"></div>
+		<div class="themeBox" onclick="switchTheme()">
+			<div class="themeDot"></div>
+			<div class="themeDot" style="margin-left: 70px"></div>
+			<button class="themeBtn" id="themeSelector"></button>
+		</div>
+
+		<!-- Load JavaScript-->
+		<script src="js/selector.js"></script>
+		<script>createSidebarContent('pages/');</script>
+		<script src="js/searchbar.js"></script>
+		<script src="js/theme.js"></script>
+
+		<!-- Header -->
+		<div class="headerbox">
+			<div class="header">
+				<a href="index.html">
+					<img width="64" src="assets/icon.ico" alt="Psych Engine Logo" draggable="false">
+					<div class="headertext">Psych Engine - Lua Script API</div>
+				</a>
+			</div>
+		</div>
+
+		<!-- Page Info -->
+		<div class="infobox">
+			<h1>Home Page</h1>
+			<hr>
+			<p>This site is highly inspired by Flixel API's site, so huge props to them.</p>
+			<p>These pages are intended for Psych Engine 1.0+, so it might not be reliable for older versions.
+			<br>Support for other versions has been abandoned and will not be added to these pages.
+			</p>
+			<img width="400" src="assets/logo.png" alt="Psych Engine Logo" class="logoImage" draggable="false">
+			
+			<hr>
+			<h3>There are 10 pages available:</h2>
+			<ul>
+				<li><a href="pages/reflection.html">Reflection Functions</a></li>
+				<li><a href="pages/sprite.html">Sprite Functions</a></li>
+				<li><a href="pages/text.html">Text Functions</a></li>
+				<li><a href="pages/substate.html">Substate Functions</a></li>
+				<li><a href="pages/flxanimate.html">FlxAnimate Functions</a></li>
+				<li><a href="pages/shaders.html">Shaders Functions</a></li>
+				<li><a href="pages/discord.html">Discord Functions</a></li>
+				<li><a href="pages/achievements.html">Achievements Functions</a></li>
+				<li><a href="pages/translations.html">Language/Translation Functions</a></li>
+				<li><a href="pages/uncategorized.html">Uncategorized Functions</a></li>
+			</ul>
+		</div>
+	</body>
+</html>
