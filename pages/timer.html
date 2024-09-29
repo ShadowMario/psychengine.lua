@@ -1,0 +1,67 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Psych Engine - Timer Functions</title>
+		<link rel="stylesheet" href="../css/main.css">
+		<link rel="stylesheet" href="../css/header.css">
+		<link rel="stylesheet" href="../css/search.css">
+		<link rel="stylesheet" href="../css/theme.css">
+		<link rel="icon" href="../assets/icon.ico" type="image/x-icon">
+	</head>
+
+	<body>
+		<!-- Create Search Bar and Theme Boxes-->
+		<div class="sidebar"></div>
+		<div class="themeBox" onclick="switchTheme()">
+			<div class="themeDot"></div>
+			<div class="themeDot" style="margin-left: 70px"></div>
+			<button class="themeBtn" id="themeSelector"></button>
+		</div>
+
+		<!-- Load JavaScript-->
+		<script src="../js/selector.js"></script>
+		<script>createSidebarContent();</script>
+		<script src="../js/searchbar.js"></script>
+		<script src="../js/theme.js"></script>
+
+		<!-- Header -->
+		<div class="headerbox">
+			<div class="header">
+				<a href="../index.html">
+					<img width="64" src="../assets/icon.ico" alt="Psych Engine Logo" draggable="false">
+					<div class="headertext">Psych Engine - Lua Script API</div>
+				</a>
+			</div>
+		</div>
+
+		<!-- Page Info -->
+		<div class="infobox">
+			<h1>Timer Functions</h1><hr>
+			<h2 id="runTimer">runTimer</h2>
+			<p class="methodbox">runTimer(<span class="variablemarkup">tmrTag</span>:String, <span class="isoptional">?</span><span class="variablemarkup">time</span>:Float = 1.0, <span class="isoptional">?</span><span class="variablemarkup">loops</span>:Int = 1):Void</p>
+			<p>Change Discord Rich Presence current details, allows you to also set up a timestamp for a timer.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tmrTag</span></b> - Title of the Rich Presence.</li>
+				<li><b><span class="variablemarkup">time</span> (Optional)</b> - How much time it should take per loop (in seconds).</li>
+				<li><b><span class="variablemarkup">loops</span> (Optional)</b> - How many times the Timer should loop, every loop calls onTimerCompleted, set to zero to repeat indefinitely.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">runTimer('myTimer')</span> - Creates a timer that lasts 1 second and calls <span class="methodexample">onTimerCompleted('myTimer', 1, 0)</span> when completed.</li>
+				<li class="exampleitem"><span class="methodexample">runTimer('myTimer', 0.5, 3)</span> - Creates a timer that lasts a half second and repeats thrice.</li>
+			</ul>
+			<hr>
+
+			<h2 id="cancelTimer">cancelTimer</h2>
+			<p class="methodbox">cancelTimer(<span class="variablemarkup">tmrTag</span>:String):Void</p>
+			<p>Cancels a Timer created with <a href="#runTimer">"runTimer"</a>.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tmrTag</span></b> - Timer's Lua name tag.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">cancelTimer('myTimer')</span> - Cancels the timer created with <span class="methodexample">runTimer('myTimer', 5.0)</span>.</li>
+			</ul>
+	</body>
+</html>

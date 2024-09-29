@@ -1,0 +1,275 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Psych Engine - Text Functions</title>
+		<link rel="stylesheet" href="../css/main.css">
+		<link rel="stylesheet" href="../css/header.css">
+		<link rel="stylesheet" href="../css/search.css">
+		<link rel="stylesheet" href="../css/theme.css">
+		<link rel="icon" href="../assets/icon.ico" type="image/x-icon">
+	</head>
+
+	<body>
+		<!-- Create Search Bar and Theme Boxes-->
+		<div class="sidebar"></div>
+		<div class="themeBox" onclick="switchTheme()">
+			<div class="themeDot"></div>
+			<div class="themeDot" style="margin-left: 70px"></div>
+			<button class="themeBtn" id="themeSelector"></button>
+		</div>
+
+		<!-- Load JavaScript-->
+		<script src="../js/selector.js"></script>
+		<script>createSidebarContent();</script>
+		<script src="../js/searchbar.js"></script>
+		<script src="../js/theme.js"></script>
+
+		<!-- Header -->
+		<div class="headerbox">
+			<div class="header">
+				<a href="../index.html">
+					<img width="64" src="../assets/icon.ico" alt="Psych Engine Logo" draggable="false">
+					<div class="headertext">Psych Engine - Lua Script API</div>
+				</a>
+			</div>
+		</div>
+
+		<!-- Page Info -->
+		<div class="infobox">
+			<h1>Text Functions</h1><hr>
+			<h2 id="makeLuaText">makeLuaText</h2>
+			<p class="methodbox">makeLuaText(<span class="variablemarkup">tag</span>:String,
+				<span class="isoptional">?</span><span class="variablemarkup">text</span>:String = '',
+				<span class="isoptional">?</span><span class="variablemarkup">width</span>:Int = 0,
+				<span class="isoptional">?</span><span class="variablemarkup">x</span>:Float = 0,
+				<span class="isoptional">?</span><span class="variablemarkup">y</span>:Float = 0):Void</p>
+			<p>Creates a Lua Text and store it as the name input in "tag".</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Lua Text nametag to save.</li>
+				<li><b><span class="variablemarkup">text</span> (Optional)</b> - Text to display.</li>
+				<li><b><span class="variablemarkup">width</span> (Optional)</b> - Set to zero to make it automatic, but will cause memory leaks if you change the text constantly, defaults to 0.</li>
+				<li><b><span class="variablemarkup">x</span> (Optional)</b> - Defaults to 0.</li>
+				<li><b><span class="variablemarkup">y</span> (Optional)</b> - Defaults to 0.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">makeLuaText('myText', 'This is a Test')</span> - Create a simple text displaying "This is a Test".</li>
+				<li class="exampleitem"><span class="methodexample">makeLuaText('myText', 'Hello World!', 300, 400, 320)</span>Creates a text displaying "Hello World!" with a defined width, X and Y.</li>
+			</ul>
+			<p style="color: gray">Note: You will still have to add the Lua Text to the scene with <a href="#addLuaText">addLuaText</a> or it won't be visible.</p>
+			<hr>
+
+			<h2 id="addLuaText">addLuaText</h2>
+			<p class="methodbox">addLuaText(<span class="variablemarkup">tag</span>:String):Void</p>
+			<p>Adds a previously created Lua Text to the top of the scene.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Lua Text nametag.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">addLuaText('myText')</span> - Adds to the scene a Lua Text created with <span class="methodexample">makeLuaText('myText', 'This is a Test')</span>.</li>
+			</ul>
+			<hr>
+
+			<h2 id="removeLuaText">removeLuaText</h2>
+			<p class="methodbox">removeLuaText(<span class="variablemarkup">tag</span>:String, <span class="isoptional">?</span><span class="variablemarkup">destroy</span>:Bool = true):Void</p>
+			<p>Removes a previously added Lua Text.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Lua Text nametag.</li>
+				<li><b><span class="variablemarkup">destroy</span></b> (Optional) - If enabled, clears the text object from memory once removed, do not disable unless you know what you're doing.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">removeLuaText('myText')</span> - Removes a Lua Text created with <span class="methodexample">makeLuaText('myText', 'This is a Test')</span>.</li>
+			</ul>
+			<hr>
+
+			<h2 id="setTextString">setTextString</h2>
+			<p class="methodbox">setTextString(<span class="variablemarkup">tag</span>:String, <span class="variablemarkup">text</span>:String):Bool</p>
+			<p>Changes a Text's string.
+			<br>Returns true if the operation was successful, throws an error if text object is missing and returns false.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Text instance variable/Lua Text nametag.</li>
+				<li><b><span class="variablemarkup">text</span></b> - Text to set.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">setTextString('myText', 'Goodbye World!')</span> - Changes the Lua Text's text to "Goodbye World!".</li>
+			</ul>
+			<hr>
+
+			<h2 id="setTextSize">setTextSize</h2>
+			<p class="methodbox">setTextSize(<span class="variablemarkup">tag</span>:String, <span class="variablemarkup">size</span>:Int):Bool</p>
+			<p>Changes a Text's Font size.
+			<br>Returns true if the operation was successful, throws an error if text object is missing and returns false.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Text instance variable/Lua Text nametag.</li>
+				<li><b><span class="variablemarkup">size</span></b> - New font size.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">setTextSize('myText', 32)</span> - Make the text really big.</li>
+				<li class="exampleitem"><span class="methodexample">setTextSize('myText', 4)</span> - Make the text really small.</li>
+			</ul>
+			<hr>
+
+			<h2 id="setTextWidth">setTextWidth</h2>
+			<p class="methodbox">setTextWidth(<span class="variablemarkup">tag</span>:String, <span class="variablemarkup">width</span>:Float):Bool</p>
+			<p>Changes a Text's max width per line (in pixels).
+			<br>Returns true if the operation was successful, throws an error if text object is missing and returns false.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Text instance variable/Lua Text nametag.</li>
+				<li><b><span class="variablemarkup">size</span></b> - New width, set to 0 to make it automatic.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">setTextWidth('myText', 150)</span> - Make the text's max width be 150 pixels.</li>
+			</ul>
+			<hr>
+
+			<h2 id="setTextHeight">setTextHeight</h2>
+			<p class="methodbox">setTextHeight(<span class="variablemarkup">tag</span>:String, <span class="variablemarkup">height</span>:Float):Bool</p>
+			<p>Changes a Text's max height (in pixels).
+			<br>Returns true if the operation was successful, throws an error if text object is missing and returns false.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Text instance variable/Lua Text nametag.</li>
+				<li><b><span class="variablemarkup">size</span></b> - New height, set to 0 to make it automatic.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">setTextHeight('myText', 50)</span> - Make the text's max height be 50 pixels.</li>
+			</ul>
+			<hr>
+
+			<h2 id="setTextAutoSize">setTextAutoSize</h2>
+			<p class="methodbox">setTextAutoSize(<span class="variablemarkup">tag</span>:String, <span class="variablemarkup">value</span>:Bool):Bool</p>
+			<p>Changes a Text's Auto Size property.
+			<br>Returns true if the operation was successful, throws an error if text object is missing and returns false.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Text instance variable/Lua Text nametag.</li>
+				<li><b><span class="variablemarkup">value</span></b> - Value to set it to.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">setTextAutoSize('myText', false)</span> - Disable auto-size.</li>
+			</ul>
+			<hr>
+
+			<h2 id="setTextBorder">setTextBorder</h2>
+			<p class="methodbox">setTextBorder(<span class="variablemarkup">tag</span>:String,
+				<span class="variablemarkup">size</span>:Float,
+				<span class="variablemarkup">color</span>:String,
+				<span class="isoptional">?</span><span class="variablemarkup">style</span>:String = 'outline'):Bool</p>
+			<p>Changes a Text's Border properties.
+			<br>Returns true if the operation was successful, throws an error if text object is missing and returns false.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Text instance variable/Lua Text nametag.</li>
+				<li><b><span class="variablemarkup">size</span></b> - Border thickness.</li>
+				<li><b><span class="variablemarkup">color</span></b> - Color hexadecimal string or <a href="https://api.haxeflixel.com/flixel/util/FlxColor.html">color name</a>.</li>
+				<li><b><span class="variablemarkup">style</span> (Optional)</b> - Can be: "none", "outline", "outline_fast", "shadow".</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">setTextBorder('myText', 3, 'black')</span> - Sets a thick black outline to the text.</li>
+				<li class="exampleitem"><span class="methodexample">setTextBorder('myText', 1, 'FF0000', 'outline_fast')</span> - Sets a Fast/Optimized thin red outline to the text.</li>
+			</ul>
+			<hr>
+
+			<h2 id="setTextColor">setTextColor</h2>
+			<p class="methodbox">setTextColor(<span class="variablemarkup">tag</span>:String, <span class="variablemarkup">color</span>:String):Bool</p>
+			<p>Changes a Text's color.
+			<br>Returns true if the operation was successful, throws an error if text object is missing and returns false.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Text instance variable/Lua Text nametag.</li>
+				<li><b><span class="variablemarkup">color</span></b> - Color hexadecimal string or <a href="https://api.haxeflixel.com/flixel/util/FlxColor.html">color name</a>.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">setTextColor('myText', '7F7F7F')</span> - Makes text gray.</li>
+				<li class="exampleitem"><span class="methodexample">setTextColor('myText', 'red')</span> - Makes text red.</li>
+			</ul>
+			<hr>
+
+			<h2 id="setTextFont">setTextFont</h2>
+			<p class="methodbox">setTextFont(<span class="variablemarkup">tag</span>:String, <span class="variablemarkup">font</span>:String):Bool</p>
+			<p>Changes a Text's font.
+			<br>Returns true if the operation was successful, throws an error if text object is missing and returns false.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Text instance variable/Lua Text nametag.</li>
+				<li><b><span class="variablemarkup">font</span></b> - Text font path.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">setTextFont('myText', 'comicSans.ttf')</span> - Loads font from "mods/My-Mod/fonts/comicSans.ttf" into "myText" Lua Text.</li>
+			</ul>
+			<hr>
+
+			<h2 id="setTextFont">setTextItalic</h2>
+			<p class="methodbox">setTextItalic(<span class="variablemarkup">tag</span>:String, <span class="variablemarkup">italic</span>:Bool):Bool</p>
+			<p>Toggles Italic in a Text.
+			<br>Returns true if the operation was successful, throws an error if text object is missing and returns false.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Text instance variable/Lua Text nametag.</li>
+				<li><b><span class="variablemarkup">italic</span></b> - Value to set it to.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">setTextItalic('myText', true)</span> - Toggle on Italic in a Lua Text.</li>
+			</ul>
+			<hr>
+
+			<h2 id="setTextAlignment">setTextAlignment</h2>
+			<p class="methodbox">setTextAlignment(<span class="variablemarkup">tag</span>:String, <span class="isoptional">?</span><span class="variablemarkup">alignment</span>:String = 'left'):Bool</p>
+			<p>Changes a Text's Alignment.
+			<br>Returns true if the operation was successful, throws an error if text object is missing and returns false.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Text instance variable/Lua Text nametag.</li>
+				<li><b><span class="variablemarkup">alignment</span></b> - Can be: "left", "right", "center", "justify". Defaults to "left".</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">setTextAlignment('myText', 'center')</span> - Makes a Lua Text centered.</li>
+			</ul>
+			<hr>
+
+			<h2 id="getTextString">getTextString</h2>
+			<p class="methodbox">getTextString(<span class="variablemarkup">tag</span>:String):String</p>
+			<p>Returns the Text's string.
+			<br>Throws an error if the text object is missing and returns null.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Text instance variable/Lua Text nametag.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">getTextString('myText')</span> - Returns the Text string from a Lua Text named "myText".</li>
+			</ul>
+			<hr>
+
+			<h2 id="getTextSize">getTextSize</h2>
+			<p class="methodbox">getTextSize(<span class="variablemarkup">tag</span>:String):Int</p>
+			<p>Returns the Text's font size.
+			<br>Throws an error if the text object is missing and returns -1.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Text instance variable/Lua Text nametag.</li>
+			</ul>
+			<hr>
+
+			<h2 id="getTextFont">getTextFont</h2>
+			<p class="methodbox">getTextFont(<span class="variablemarkup">tag</span>:String):String</p>
+			<p>Returns the Text's font path.
+			<br>Throws an error if the text object is missing and returns null.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Text instance variable/Lua Text nametag.</li>
+			</ul>
+			<hr>
+
+			<h2 id="getTextWidth">getTextWidth</h2>
+			<p class="methodbox">getTextWidth(<span class="variablemarkup">tag</span>:String):Int</p>
+			<p>Returns the Text's max width.
+			<br>Throws an error if the text object is missing and returns 0.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Text instance variable/Lua Text nametag.</li>
+			</ul>
+	</body>
+</html>

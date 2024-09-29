@@ -1,0 +1,145 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Psych Engine - Camera Functions</title>
+		<link rel="stylesheet" href="../css/main.css">
+		<link rel="stylesheet" href="../css/header.css">
+		<link rel="stylesheet" href="../css/search.css">
+		<link rel="stylesheet" href="../css/theme.css">
+		<link rel="icon" href="../assets/icon.ico" type="image/x-icon">
+	</head>
+
+	<body>
+		<!-- Create Search Bar and Theme Boxes-->
+		<div class="sidebar"></div>
+		<div class="themeBox" onclick="switchTheme()">
+			<div class="themeDot"></div>
+			<div class="themeDot" style="margin-left: 70px"></div>
+			<button class="themeBtn" id="themeSelector"></button>
+		</div>
+
+		<!-- Load JavaScript-->
+		<script src="../js/selector.js"></script>
+		<script>createSidebarContent();</script>
+		<script src="../js/searchbar.js"></script>
+		<script src="../js/theme.js"></script>
+
+		<!-- Header -->
+		<div class="headerbox">
+			<div class="header">
+				<a href="../index.html">
+					<img width="64" src="../assets/icon.ico" alt="Psych Engine Logo" draggable="false">
+					<div class="headertext">Psych Engine - Lua Script API</div>
+				</a>
+			</div>
+		</div>
+
+		<!-- Page Info -->
+		<div class="infobox">
+			<h1>Camera Functions</h1><hr>
+			<h2 id="setCameraScroll">setCameraScroll</h2>
+			<p class="methodbox">setCameraScroll(<span class="variablemarkup">x</span>:Float, <span class="variablemarkup">y</span>:Float):Void</p>
+			<p>Set the Game Camera's current scroll position.</p>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">setCameraScroll(0.0, 0.0)</span> - Camera Scroll position is set to X: 0 and Y: 0.</li>
+			</ul>
+			<hr>
+
+			<h2 id="setCameraFollowPoint">setCameraFollowPoint</h2>
+			<p class="methodbox">setCameraFollowPoint(<span class="variablemarkup">x</span>:Float, <span class="variablemarkup">y</span>:Float):Void</p>
+			<p>Set the Game Camera's follow point position.</p>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">setCameraFollowPoint(-150.0, 150.0)</span> - Camera Follow point is set to 150 units to the left and 150 units down.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="addCameraScroll">addCameraScroll</h2>
+			<p class="methodbox">addCameraScroll(<span class="isoptional">?</span><span class="variablemarkup">x</span>:Float = 0, <span class="isoptional">?</span><span class="variablemarkup">y</span>:Float = 0):Void</p>
+			<p>Adds X/Y to the Game Camera's current scroll position.
+			<br>All values are optional and defaults to zero.</p>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">addCameraScroll(200.0, -100.0)</span> - Camera Scroll moves 200 units to the right and 100 units up.</li>
+			</ul>
+			<hr>
+
+			<h2 id="addCameraFollowPoint">addCameraFollowPoint</h2>
+			<p class="methodbox">addCameraFollowPoint(<span class="isoptional">?</span><span class="variablemarkup">x</span>:Float = 0, <span class="isoptional">?</span><span class="variablemarkup">y</span>:Float = 0):Void</p>
+			<p>Adds X/Y to the Game Camera's follow point position.
+			<br>All values are optional and defaults to zero.</p>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">addCameraFollowPoint(-600.0, -200.0)</span> - Camera Follow point moves 600 units to the left and 200 units up.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="getCameraScrollX">getCameraScrollX</h2>
+			<p class="methodbox">Usage: <b>getCameraScrollX()</b></p>
+			<p>Returns Game Camera's current scroll X, float value.</p>
+			<hr>
+			
+			<h2 id="getCameraScrollY">getCameraScrollY</h2>
+			<p class="methodbox">Usage: <b>getCameraScrollY()</b></p>
+			<p>Returns Game Camera's current scroll Y, float value.</p>
+			<hr>
+			
+			<h2 id="getCameraFollowX">getCameraFollowX</h2>
+			<p class="methodbox">Usage: <b>getCameraFollowX()</b></p>
+			<p>Returns Game Camera's follow point X, float value.</p>
+			<hr>
+			
+			<h2 id="getCameraFollowY">getCameraFollowY</h2>
+			<p class="methodbox">Usage: <b>getCameraFollowY()</b></p>
+			<p>Returns Game Camera's follow point Y, float value.</p>
+			<hr>
+
+			<h2 id="cameraShake">cameraShake</h2>
+			<p class="methodbox">cameraShake(<span class="variablemarkup">camera</span>:String, <span class="variablemarkup">intensity</span>:Float, <span class="variablemarkup">duration</span>:Float):Void</p>
+			<p>Shakes an identified camera.</p>
+			<ul>
+				<li><b><span class="variablemarkup">camera</span></b> - Can be "game", "hud" or "other".</li>
+				<li><b><span class="variablemarkup">intensity</span></b> - Shake intensity.</li>
+				<li><b><span class="variablemarkup">duration</span></b> - How much time the shake lasts for (in seconds).</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">cameraShake('game', 0.025, 0.35)</span> - Shakes Game Camera for 0.35 seconds, intensity 0.025.</li>
+			</ul>
+			<hr>
+
+			<h2 id="cameraFlash">cameraFlash</h2>
+			<p class="methodbox">cameraFlash(<span class="variablemarkup">camera</span>:String<span class="variablemarkup">color</span>:String, <span class="variablemarkup">duration</span>:Float, <span class="variablemarkup">forceReset</span>:Bool):Void</p>
+			<p>Flashes an identified camera.</p>
+			<ul>
+				<li><b><span class="variablemarkup">camera</span></b> - Can be "game", "hud" or "other".</li>
+				<li><b><span class="variablemarkup">color</span></b> - Color hexadecimal string or <a href="https://api.haxeflixel.com/flixel/util/FlxColor.html">color name</a>.</li>
+				<li><b><span class="variablemarkup">duration</span></b> - How much time the shake lasts for (in seconds).</li>
+				<li><b><span class="variablemarkup">forceReset</span></b> - If false, won't flash if there's still a previous flash active.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">cameraFlash('game', 'FFFFFF', 0.5, true)</span> - Flashbangs you, lasts for 0.5 seconds, color #FFFFFF (White).</li>
+				<li class="exampleitem"><span class="methodexample">cameraFlash('game', 'red', 0.5, true)</span> - Flashes red, lasts for 0.25 seconds.</li>
+			</ul>
+			<hr>
+
+			<h2 id="cameraFlash">cameraFade</h2>
+			<p class="methodbox">cameraFade(<span class="variablemarkup">camera</span>:String<span class="variablemarkup">color</span>:String, <span class="variablemarkup">duration</span>:Float, <span class="variablemarkup">forceReset</span>:Bool, <span class="isoptional">?</span><span class="variablemarkup">fadeOut</span>:Bool = false):Void</p>
+			<p>Flashes an identified camera.</p>
+			<ul>
+				<li><b><span class="variablemarkup">camera</span></b> - Can be "game", "hud" or "other".</li>
+				<li><b><span class="variablemarkup">color</span></b> - Color hexadecimal string or <a href="https://api.haxeflixel.com/flixel/util/FlxColor.html">color name</a>.</li>
+				<li><b><span class="variablemarkup">duration</span></b> - How much time the shake lasts for (in seconds).</li>
+				<li><b><span class="variablemarkup">forceReset</span></b> - If false, won't flash if there's still a previous flash active.</li>
+				<li><b><span class="variablemarkup">fadeOut</span> (Optional)</b> - Fade in/out toggle.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">cameraFade('game', 'FFFFFF', 0.35, true)</span> - Fade in to white in 0.35 seconds.</li>
+				<li class="exampleitem"><span class="methodexample">cameraFade('game', 'FFFFFF', 0.35, true, true)</span> - Fade out to white in 0.35 seconds.</li>
+			</ul>
+	</body>
+</html>

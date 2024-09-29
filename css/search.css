@@ -8,6 +8,7 @@
 	border-radius: 10px;
 	position: absolute;
 	background-color: var(--primary);
+	visibility: hidden;
 }
 
 .selectable-link

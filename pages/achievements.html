@@ -1,0 +1,115 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Psych Engine - Achievements Functions</title>
+		<link rel="stylesheet" href="../css/main.css">
+		<link rel="stylesheet" href="../css/header.css">
+		<link rel="stylesheet" href="../css/search.css">
+		<link rel="stylesheet" href="../css/theme.css">
+		<link rel="icon" href="../assets/icon.ico" type="image/x-icon">
+	</head>
+
+	<body>
+		<!-- Create Search Bar and Theme Boxes-->
+		<div class="sidebar"></div>
+		<div class="themeBox" onclick="switchTheme()">
+			<div class="themeDot"></div>
+			<div class="themeDot" style="margin-left: 70px"></div>
+			<button class="themeBtn" id="themeSelector"></button>
+		</div>
+
+		<!-- Load JavaScript-->
+		<script src="../js/selector.js"></script>
+		<script>createSidebarContent();</script>
+		<script src="../js/searchbar.js"></script>
+		<script src="../js/theme.js"></script>
+
+		<!-- Header -->
+		<div class="headerbox">
+			<div class="header">
+				<a href="../index.html">
+					<img width="64" src="../assets/icon.ico" alt="Psych Engine Logo" draggable="false">
+					<div class="headertext">Psych Engine - Lua Script API</div>
+				</a>
+			</div>
+		</div>
+
+		<!-- Page Info -->
+		<div class="infobox">
+			<h1>Achievements Functions</h1><hr>
+			<h2 id="getAchievementScore">getAchievementScore</h2>
+			<p class="methodbox">getAchievementScore(<span class="variablemarkup">name</span>:String):Float</p>
+			<p>Returns the score for Achievements with counters (like "Roadkill Enthusiast").
+			<br>Returns -1 and throws an error if the Achievement couldn't be found.</p>
+			<ul>
+				<li><b><span class="variablemarkup">name</span></b> - Achievement internal name.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">getAchievementScore('roadkill_enthusiast')</span> - Will Return the current score of "Roadkill Enthusiast".</li>
+			</ul>
+			<hr>
+			
+			<h2 id="setAchievementScore">setAchievementScore</h2>
+			<p class="methodbox">setAchievementScore(<span class="variablemarkup">name</span>:String, <span class="isoptional">?</span><span class="variablemarkup">value</span>:Float = 0, <span class="isoptional">?</span><span class="variablemarkup">saveIfNotUnlocked</span>:Bool = true):Float</p>
+			<p>Sets the score for Achievements with counters (like "Roadkill Enthusiast") and returns its new value.
+			<br>Returns -1 and throws an error if the Achievement couldn't be found.</p>
+			<ul>
+				<li><b><span class="variablemarkup">name</span></b> - Achievement internal name.</li>
+				<li><b><span class="variablemarkup">value</span></b> - Value to set the score to.</li>
+				<li><b><span class="variablemarkup">saveIfNotUnlocked</span></b> - Optimization, in case you constantly change the score, set to false.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">setAchievementScore('my_achievement_name', 25)</span> - Will set the current score of "my_achievement_name" to 25 and save, even if doesn't unlock the achievement.</li>
+				<li class="exampleitem"><span class="methodexample">setAchievementScore('my_achievement_name', 3, false)</span> - Will set the current score of "my_achievement_name" to 3 and save only if it unlocks the achievement</li>
+			</ul>
+			<hr>
+			
+			<h2 id="addAchievementScore">addAchievementScore</h2>
+			<p class="methodbox">addAchievementScore(<span class="variablemarkup">name</span>:String, <span class="isoptional">?</span><span class="variablemarkup">value</span>:Float = 0, <span class="isoptional">?</span><span class="variablemarkup">saveIfNotUnlocked</span>:Bool = true):Float</p>
+			<p>Adds score for Achievements with counters (like "Roadkill Enthusiast") and returns its new value.
+			<br>Returns -1 and throws an error if the Achievement couldn't be found.</p>
+			<ul>
+				<li><b><span class="variablemarkup">name</span></b> - Achievement internal name.</li>
+				<li><b><span class="variablemarkup">value</span></b> - Value to add to the score.</li>
+				<li><b><span class="variablemarkup">saveIfNotUnlocked</span></b> - Optimization, in case you constantly change the score, set to false.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">addAchievementScore('my_achievement_name')</span> - Adds +1 to the score of "my_achievement_name" and save, even if doesn't unlock the achievement.</li>
+				<li class="exampleitem"><span class="methodexample">addAchievementScore('my_achievement_name', 1, false)</span> - Add +1 to the score of "my_achievement_name" and save only if it unlocks the achievement.</li>
+			</ul>
+			<hr>
+
+			<h2 id="unlockAchievement">unlockAchievement</h2>
+			<p class="methodbox">unlockAchievement(<span class="variablemarkup">name</span>:String):String</p>
+			<p>Unlocks a named achievement and returns its name, returns null if already unlocked.
+			<br>Throws an error if achievement doesn't exist and returns null.</p>
+			<ul>
+				<li><b><span class="variablemarkup">name</span></b> - Achievement internal name.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">unlockAchievement('my_achievement_name')</span> - Unlocks "my_achievement_name".</li>
+			</ul>
+			<hr>
+
+			<h2 id="isAchievementUnlocked">isAchievementUnlocked</h2>
+			<p class="methodbox">isAchievementUnlocked(<span class="variablemarkup">name</span>:String):Dynamic</p>
+			<p>Checks if achievement is unlocked and returns true/false for it.
+			<br>Returns null and throws an error if achievement doesn't exist.</p>
+			<ul>
+				<li><b><span class="variablemarkup">name</span></b> - Achievement internal name.</li>
+			</ul>
+			<hr>
+
+			<h2 id="achievementExists">achievementExists</h2>
+			<p class="methodbox">achievementExists(<span class="variablemarkup">name</span>:String):Bool</p>
+			<p>Checks if achievement exists returns true/false for it.
+			<ul>
+				<li><b><span class="variablemarkup">name</span></b> - Achievement internal name.</li>
+			</ul>
+	</body>
+</html>

@@ -22,3 +22,6 @@ function switchTheme() {
 	updatePositionToTheme();
 }
 updatePositionToTheme();
+
+const themeBox = document.getElementsByClassName('themeBox')[0];
+themeBox.style.visibility = 'visible';
