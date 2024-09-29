@@ -1,0 +1,228 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Psych Engine - Precache Functions</title>
+		<link rel="stylesheet" href="../css/main.css">
+		<link rel="stylesheet" href="../css/header.css">
+		<link rel="stylesheet" href="../css/search.css">
+		<link rel="stylesheet" href="../css/theme.css">
+		<link rel="icon" href="../assets/icon.ico" type="image/x-icon">
+	</head>
+
+	<body>
+		<!-- Create Search Bar and Theme Boxes-->
+		<div class="sidebar"></div>
+		<div class="themeBox" onclick="switchTheme()">
+			<div class="themeDot"></div>
+			<div class="themeDot" style="margin-left: 70px"></div>
+			<button class="themeBtn" id="themeSelector"></button>
+		</div>
+
+		<!-- Load JavaScript-->
+		<script src="../js/selector.js"></script>
+		<script>createSidebarContent();</script>
+		<script src="../js/searchbar.js"></script>
+		<script src="../js/theme.js"></script>
+
+		<!-- Header -->
+		<div class="headerbox">
+			<div class="header">
+				<a href="../index.html">
+					<img width="64" src="../assets/icon.ico" alt="Psych Engine Logo" draggable="false">
+					<div class="headertext">Psych Engine - Lua Script API</div>
+				</a>
+			</div>
+		</div>
+
+		<!-- Page Info -->
+		<div class="infobox">
+			<h1>Precache Functions</h1><hr>
+			<h2 id="initLuaShader">initLuaShader</h2>
+			<p class="methodbox">initLuaShader(<span class="variablemarkup">name</span>:String, <span class="isoptional">?</span><span class="variablemarkup">glslVersion</span>:Int = 120):Bool</p>
+			<p>Preloads a Shader .vert/.frag inside "shaders/" folder, might be good for intensive shaders but it's generally not needed.
+			<br>Returns "true" if the operation was successful.</p>
+			<ul>
+				<li><b><span class="variablemarkup">name</span></b> - Shader .vert/.frag name, don't include the extension!</li>
+				<li><b><span class="variablemarkup">glslVersion</span> (Optional)</b> - GLSL Version Integer, defaults to 120 (GLSL 1.20, OpenGL 2.1).</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">initLuaShader('pixelate')</span> - Preloads "mods/My-Mod/shaders/pixelate.frag".</li>
+			</ul>
+			<hr>
+			
+			<h2 id="setSpriteShader">setSpriteShader</h2>
+			<p class="methodbox">setSpriteShader(<span class="variablemarkup">tag</span>:String, <span class="variablemarkup">shaderName</span>:String):Bool</p>
+			<p>Sets a Sprite's Shader to a .frag/.vert file inside "shaders/" folder.
+			<br>Returns "true" if the operation was successful.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Sprite variable name or Lua Sprite nametag.</li>
+				<li><b><span class="variablemarkup">shaderName</span></b> - Shader .vert/.frag name, don't include the extension!</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">setSpriteShader('mySprite', 'pixelate')</span> - Sets Lua Sprite with tag "mySprite" to use "mods/My-Mod/shaders/pixelate.frag" shader.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="removeSpriteShader">removeSpriteShader</h2>
+			<p class="methodbox">removeSpriteShader(<span class="variablemarkup">tag</span>:String):Bool</p>
+			<p>Sets a Sprite's Shader to a .frag/.vert file inside "shaders/" folder.
+			<br>Returns "true" if the operation was successful.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Sprite variable name or Lua Sprite nametag.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">removeSpriteShader('mySprite')</span> - Removes Shader from the Lua Sprite with tag "mySprite".</li>
+			</ul>
+			<hr>
+			
+			<h2 id="getShaderBool">getShaderBool</h2>
+			<p class="methodbox">getShaderBool(<span class="variablemarkup">tag</span>:String, <span class="variablemarkup">prop</span>:String):Bool</p>
+			<p>Returns an "uniform bool" shader variable's value.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Sprite variable name or Lua Sprite nametag.</li>
+				<li><b><span class="variablemarkup">prop</span></b> - Uniform variable name.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">getShaderBool('mySprite', 'iVar')</span> - Returns the value of an uniform variable named "iVar" from a Lua Sprite named "mySprite".</li>
+			</ul>
+			<hr>
+
+			<h2 id="getShaderBoolArray">getShaderBoolArray</h2>
+			<p class="methodbox">getShaderBoolArray(<span class="variablemarkup">tag</span>:String, <span class="variablemarkup">prop</span>:String):Array&lt;Bool&gt;</p>
+			<p>Returns an "uniform bool" shader variable's array values.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Sprite variable name or Lua Sprite nametag.</li>
+				<li><b><span class="variablemarkup">prop</span></b> - Uniform variable name.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="getShaderInt">getShaderInt</h2>
+			<p class="methodbox">getShaderInt(<span class="variablemarkup">tag</span>:String, <span class="variablemarkup">prop</span>:String):Int</p>
+			<p>Returns an "uniform int" shader variable's value.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Sprite variable name or Lua Sprite nametag.</li>
+				<li><b><span class="variablemarkup">prop</span></b> - Uniform variable name.</li>
+			</ul>
+			<hr>
+
+			<h2 id="getShaderIntArray">getShaderIntArray</h2>
+			<p class="methodbox">getShaderIntArray(<span class="variablemarkup">tag</span>:String, <span class="variablemarkup">prop</span>:String):Array&lt;Int&gt;</p>
+			<p>Returns an "uniform int" shader variable's array values.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Sprite variable name or Lua Sprite nametag.</li>
+				<li><b><span class="variablemarkup">prop</span></b> - Uniform variable name.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="getShaderFloat">getShaderFloat</h2>
+			<p class="methodbox">getShaderFloat(<span class="variablemarkup">tag</span>:String, <span class="variablemarkup">prop</span>:String):Float</p>
+			<p>Returns an "uniform float" shader variable's value.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Sprite variable name or Lua Sprite nametag.</li>
+				<li><b><span class="variablemarkup">prop</span></b> - Uniform variable name.</li>
+			</ul>
+			<hr>
+
+			<h2 id="getShaderFloatArray">getShaderFloatArray</h2>
+			<p class="methodbox">getShaderFloatArray(<span class="variablemarkup">tag</span>:String, <span class="variablemarkup">prop</span>:String):Array&lt;Float&gt;</p>
+			<p>Returns an "uniform float", "uniform vec2", "uniform vec3" or "uniform vec4" shader variable's array values.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Sprite variable name or Lua Sprite nametag.</li>
+				<li><b><span class="variablemarkup">prop</span></b> - Uniform variable name.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="setShaderBool">setShaderBool</h2>
+			<p class="methodbox">setShaderBool(<span class="variablemarkup">tag</span>:String, <span class="variablemarkup">prop</span>:String, <span class="variablemarkup">value</span>:Bool):Bool</p>
+			<p>Sets an "uniform bool" shader variable's value.
+			<br>Returns "true" if the operation was successful.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Sprite variable name or Lua Sprite nametag.</li>
+				<li><b><span class="variablemarkup">prop</span></b> - Uniform variable name.</li>
+				<li><b><span class="variablemarkup">value</span></b> - Value to set.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">setShaderBool('mySprite', 'iVar', true)</span> - Sets the value of an uniform variable named "iVar" from a Lua Sprite named "mySprite" to "true".</li>
+			</ul>
+			<hr>
+
+			<h2 id="setShaderBoolArray">setShaderBoolArray</h2>
+			<p class="methodbox">setShaderBoolArray(<span class="variablemarkup">tag</span>:String, <span class="variablemarkup">prop</span>:String, <span class="variablemarkup">value</span>:Array&lt;Bool&gt;):Bool</p>
+			<p>Sets an "uniform bool" shader variable's array values.
+			<br>Returns "true" if the operation was successful.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Sprite variable name or Lua Sprite nametag.</li>
+				<li><b><span class="variablemarkup">prop</span></b> - Uniform variable name.</li>
+				<li><b><span class="variablemarkup">value</span></b> - Value to set.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">setShaderBoolArray('mySprite', 'iVar', {true, false, true})</span> - Sets the value of an uniform variable named "iVar" from a Lua Sprite named "mySprite" to an Array of "[true, false, true]".</li>
+			</ul>
+			<hr>
+			
+			<h2 id="setShaderInt">setShaderInt</h2>
+			<p class="methodbox">setShaderInt(<span class="variablemarkup">tag</span>:String, <span class="variablemarkup">prop</span>:String, <span class="variablemarkup">value</span>:Int):Bool</p>
+			<p>Sets an "uniform int" shader variable's value.
+			<br>Returns "true" if the operation was successful.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Sprite variable name or Lua Sprite nametag.</li>
+				<li><b><span class="variablemarkup">prop</span></b> - Uniform variable name.</li>
+				<li><b><span class="variablemarkup">value</span></b> - Value to set.</li>
+			</ul>
+			<hr>
+
+			<h2 id="setShaderIntArray">setShaderIntArray</h2>
+			<p class="methodbox">setShaderIntArray(<span class="variablemarkup">tag</span>:String, <span class="variablemarkup">prop</span>:String, <span class="variablemarkup">value</span>:Array&lt;Int&gt;):Bool</p>
+			<p>Sets an "uniform int" shader variable's array values.
+			<br>Returns "true" if the operation was successful.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Sprite variable name or Lua Sprite nametag.</li>
+				<li><b><span class="variablemarkup">prop</span></b> - Uniform variable name.</li>
+				<li><b><span class="variablemarkup">value</span></b> - Value to set.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="setShaderFloat">setShaderFloat</h2>
+			<p class="methodbox">setShaderFloat(<span class="variablemarkup">tag</span>:String, <span class="variablemarkup">prop</span>:String, <span class="variablemarkup">value</span>:Float):Bool</p>
+			<p>Sets an "uniform float" shader variable's value.
+			<br>Returns "true" if the operation was successful.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Sprite variable name or Lua Sprite nametag.</li>
+				<li><b><span class="variablemarkup">prop</span></b> - Uniform variable name.</li>
+				<li><b><span class="variablemarkup">value</span></b> - Value to set.</li>
+			</ul>
+			<hr>
+
+			<h2 id="setShaderFloatArray">setShaderFloatArray</h2>
+			<p class="methodbox">setShaderFloatArray(<span class="variablemarkup">tag</span>:String, <span class="variablemarkup">prop</span>:String, <span class="variablemarkup">value</span>:Array&lt;Float&gt;):Bool</p>
+			<p>Sets an "uniform float", "uniform vec2", "uniform vec3" or "uniform vec4" shader variable's array values.
+			<br>Returns "true" if the operation was successful.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Sprite variable name or Lua Sprite nametag.</li>
+				<li><b><span class="variablemarkup">prop</span></b> - Uniform variable name.</li>
+				<li><b><span class="variablemarkup">value</span></b> - Value to set.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="setShaderFloat">setShaderSampler2D</h2>
+			<p class="methodbox">setShaderFloat(<span class="variablemarkup">tag</span>:String, <span class="variablemarkup">prop</span>:String, <span class="variablemarkup">bitmapPath</span>:Float):Bool</p>
+			<p>Imports a Bitmap to an "uniform sampler2D" shader variable.
+			<br>Returns "true" if the operation was successful.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Sprite variable name or Lua Sprite nametag.</li>
+				<li><b><span class="variablemarkup">prop</span></b> - Uniform variable name.</li>
+				<li><b><span class="variablemarkup">bitmapPath</span></b> - Image path, don't include the extension!</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">setShaderBool('mySprite', 'iVar', 'myImage')</span> - Imports "mods/My-Mod/images/myImage.png" to the Sampler2D variable.</li>
+			</ul>
+	</body>
+</html>

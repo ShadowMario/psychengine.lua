@@ -1,0 +1,68 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Psych Engine - Translations Functions</title>
+		<link rel="stylesheet" href="../css/main.css">
+		<link rel="stylesheet" href="../css/header.css">
+		<link rel="stylesheet" href="../css/search.css">
+		<link rel="stylesheet" href="../css/theme.css">
+		<link rel="icon" href="../assets/icon.ico" type="image/x-icon">
+	</head>
+
+	<body>
+		<!-- Create Search Bar and Theme Boxes-->
+		<div class="sidebar"></div>
+		<div class="themeBox" onclick="switchTheme()">
+			<div class="themeDot"></div>
+			<div class="themeDot" style="margin-left: 70px"></div>
+			<button class="themeBtn" id="themeSelector"></button>
+		</div>
+
+		<!-- Load JavaScript-->
+		<script src="../js/selector.js"></script>
+		<script>createSidebarContent();</script>
+		<script src="../js/searchbar.js"></script>
+		<script src="../js/theme.js"></script>
+
+		<!-- Header -->
+		<div class="headerbox">
+			<div class="header">
+				<a href="../index.html">
+					<img width="64" src="../assets/icon.ico" alt="Psych Engine Logo" draggable="false">
+					<div class="headertext">Psych Engine - Lua Script API</div>
+				</a>
+			</div>
+		</div>
+
+		<!-- Page Info -->
+		<div class="infobox">
+			<h1>Language/Translations Functions</h1><hr>
+			<h2 id="getTranslationPhrase">getTranslationPhrase</h2>
+			<p class="methodbox">getTranslationPhrase(<span class="variablemarkup">key</span>:String, <span class="isoptional">?</span><span class="variablemarkup">defaultPhrase</span>:String, <span class="isoptional">?</span></span><span class="variablemarkup">args</span>:Array&lt;Dynamic&gt; = null):String</p>
+			<p>Returns the translation key for phrases.</p>
+			<ul>
+				<li><b><span class="variablemarkup">key</span></b> - Translation key name.</li>
+				<li><b><span class="variablemarkup">defaultPhrase</span> (Optional)</b> - String for a default text used when missing translation, if missing, it will use the "key" as the text.</li>
+				<li><b><span class="variablemarkup">values</span> (Optional)</b> - Table with data for the translations.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">getTranslationPhrase('This is a Test')</span> - This will load translation phrase "this_is_a_test".</li>
+				<li class="exampleitem"><span class="methodexample">getTranslationPhrase('test_phrase', 'This is a Test')</span> - This will load translation phrase "test_phrase", if missing, it will use "This is a Test".</li>
+				<li class="exampleitem"><span class="methodexample">getTranslationPhrase('test_phrase', 'Test: {1}', {someVariableHere})</span> - This will load translation phrase "this_is_a_test", and replace "{1}", "{2}"... with the values inside the table.</li>
+			</ul>
+			<hr>
+
+			<h2 id="getFileTranslation">getFileTranslation</h2>
+			<p class="methodbox">getFileTranslation(<span class="variablemarkup">key</span>:String):String</p>
+			<p>Returns the translation key for assets path.</p>
+			<ul>
+				<li><b><span class="variablemarkup">key</span></b> - Original asset path for English (Default) language.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">getFileTranslation('images/mainmenu/menu_story_mode')</span> - If your game is in Portuguese, it should return "images/pt-BR/mainmenu/menu_story_mode".</li>
+			</ul>
+	</body>
+</html>

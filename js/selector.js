@@ -17,6 +17,7 @@ function createSidebarContent(prefix) {
 
 	// List items
 	const items = {
+		// Reflection
 		'getProperty': 'reflection.html',
 		'getPropertyFromGroup': 'reflection.html',
 		'getPropertyFromClass': 'reflection.html',
@@ -28,9 +29,25 @@ function createSidebarContent(prefix) {
 		'instanceArg': 'reflection.html',
 		'createInstance': 'reflection.html',
 		'addInstance': 'reflection.html',
+
+		// Substate
+		'openCustomSubstate': 'substate.html',
+		'closeCustomSubstate': 'substate.html',
+		'insertToCustomSubstate': 'substate.html',
 		
+		// Discord
 		'changeDiscordPresence': 'discord.html',
-		'changeDiscordClientID': 'discord.html'
+		'changeDiscordClientID': 'discord.html',
+
+		// Language
+		'getTranslationPhrase': 'translations.html',
+		'getFileTranslation': 'translations.html',
+
+		// Precache
+		'precacheImage': 'precache.html',
+		'precacheSound': 'precache.html',
+		'precacheMusic': 'precache.html',
+		'addCharacterToList': 'precache.html'
 	};
 
 	// Create list elements and append to itemList

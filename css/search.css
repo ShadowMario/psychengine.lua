@@ -19,7 +19,7 @@
 
 .selectables
 {
-	max-height: max(calc(100% - 100px), 150px);
+	max-height: max(calc(100vh - 250px), 150px);
 	overflow-y: auto;
 	margin: 10px 0px 0px 0px;
 	border-radius: 6px;

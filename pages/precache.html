@@ -1,0 +1,94 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Psych Engine - Precache Functions</title>
+		<link rel="stylesheet" href="../css/main.css">
+		<link rel="stylesheet" href="../css/header.css">
+		<link rel="stylesheet" href="../css/search.css">
+		<link rel="stylesheet" href="../css/theme.css">
+		<link rel="icon" href="../assets/icon.ico" type="image/x-icon">
+	</head>
+
+	<body>
+		<!-- Create Search Bar and Theme Boxes-->
+		<div class="sidebar"></div>
+		<div class="themeBox" onclick="switchTheme()">
+			<div class="themeDot"></div>
+			<div class="themeDot" style="margin-left: 70px"></div>
+			<button class="themeBtn" id="themeSelector"></button>
+		</div>
+
+		<!-- Load JavaScript-->
+		<script src="../js/selector.js"></script>
+		<script>createSidebarContent();</script>
+		<script src="../js/searchbar.js"></script>
+		<script src="../js/theme.js"></script>
+
+		<!-- Header -->
+		<div class="headerbox">
+			<div class="header">
+				<a href="../index.html">
+					<img width="64" src="../assets/icon.ico" alt="Psych Engine Logo" draggable="false">
+					<div class="headertext">Psych Engine - Lua Script API</div>
+				</a>
+			</div>
+		</div>
+
+		<!-- Page Info -->
+		<div class="infobox">
+			<h1>Precache Functions</h1><hr>
+			<h2 id="precacheImage">precacheImage</h2>
+			<p class="methodbox">precacheImage(<span class="variablemarkup">file</span>:String, <span class="isoptional">?</span><span class="variablemarkup">allowGPU</span>:Bool = true):Void</p>
+			<p>Precaches a file in "images/" folder.</p>
+			<ul>
+				<li><b><span class="variablemarkup">file</span></b> - File name path, don't include the extension!</li>
+				<li><b><span class="variablemarkup">allowGPU</span> (Optional)</b> - Force disable GPU Caching if you set to false.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">precacheImage('myImage')</span> - Precaches "mods/My-Mod/images/myImage.png".</li>
+				<li class="exampleitem"><span class="methodexample">precacheImage('myImage', false)</span> - The same as above, but it disables GPU Caching, this is necessary for specific shaders or it might display as a black box.</li>
+			</ul>
+			<hr>
+
+			<h2 id="precacheSound">precacheSound</h2>
+			<p class="methodbox">precacheSound(<span class="variablemarkup">file</span>:String):Void</p>
+			<p>Precaches a file in "sounds/" folder.</p>
+			<ul>
+				<li><b><span class="variablemarkup">file</span></b> - File name path, don't include the extension!</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">precacheMusic('mySound')</span> - Precaches "mods/My-Mod/sounds/mySound.ogg".</li>
+			</ul>
+			<hr>
+
+			<h2 id="precacheMusic">precacheMusic</h2>
+			<p class="methodbox">precacheMusic(<span class="variablemarkup">file</span>:String):Void</p>
+			<p>Precaches a file in "music/" folder.</p>
+			<ul>
+				<li><b><span class="variablemarkup">file</span></b> - File name path, don't include the extension!</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">precacheMusic('myMusic')</span> - Precaches "mods/My-Mod/music/myMusic.ogg".</li>
+			</ul>
+			<hr>
+
+			<h2 id="addCharacterToList">addCharacterToList</h2>
+			<p class="methodbox">addCharacterToList(<span class="variablemarkup">name</span>:String, <span class="variablemarkup">type</span>:String):Void</p>
+			<p>Precaches a character, best used in conjunction with <a href="playstate.html#triggerEvent">"triggerEvent"</a> of
+				"Change Character" to allow you to change characters through a Lua Script for custom mechanics.</p>
+			<ul>
+				<li><b><span class="variablemarkup">name</span></b> - Character .JSON name.</li>
+				<li><b><span class="variablemarkup">type</span></b> - Character type: "bf", "dad" or "gf".</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">addCharacterToList('pico-playable', 'bf')</span> - Precaches "pico-playable" as a Player Character.</li>
+				<li class="exampleitem"><span class="methodexample">addCharacterToList('tankman', 'dad')</span> - Precaches "tankman" as an Opponent Character.</li>
+				<li class="exampleitem"><span class="methodexample">addCharacterToList('gf-pixel', 'gf')</span> - Precaches "gf-pixel" as a GF Character.</li>
+			</ul>
+	</body>
+</html>

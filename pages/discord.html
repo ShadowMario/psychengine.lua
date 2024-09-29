@@ -1,4 +1,4 @@
-<html lang="en"></html>
+<html lang="en">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,42 +37,41 @@
 
 		<!-- Page Info -->
 		<div class="infobox">
-			<h1>Reflection Functions</h1><hr>
+			<h1>Discord Functions</h1><hr>
 			<h2 id="changeDiscordPresence">changeDiscordPresence</h2>
-			<p class="methodbox">changeDiscordPresence(<span style="color:#6666CF">details</span>:String = 'In the Menus',
-				<span style="color:#999999">?</span><span style="color:#6666CF">state</span>:String,
-				<span style="color:#999999">?</span><span style="color:#6666CF">smallImageKey</span>:String,
-				<span style="color:#999999">?</span><span style="color:#6666CF">hasStartTimestamp</span>:Bool,
-				<span style="color:#999999">?</span><span style="color:#6666CF">endTimestamp</span>:Float,
-				<span style="color:#999999">?</span><span style="color:#6666CF">largeImageKey</span>:String
-				):Void</p>
+			<p class="methodbox">changeDiscordPresence(<span class="variablemarkup">details</span>:String = 'In the Menus',
+				<span class="isoptional">?</span><span class="variablemarkup">state</span>:String,
+				<span class="isoptional">?</span><span class="variablemarkup">smallImageKey</span>:String,
+				<span class="isoptional">?</span><span class="variablemarkup">hasStartTimestamp</span>:Bool,
+				<span class="isoptional">?</span><span class="variablemarkup">endTimestamp</span>:Float,
+				<span class="isoptional">?</span><span class="variablemarkup">largeImageKey</span>:String):Void</p>
 			<p>Change Discord Rich Presence current details, allows you to also set up a timestamp for a timer.</p>
 			<ul>
-				<li><b><span style="color: #6666CF">details</span></b> - Title of the Rich Presence.</li>
-				<li><b><span style="color: #6666CF">state</span> (Optional)</b> - An optional subtitle for the Rich Presence.</li>
-				<li><b><span style="color: #6666CF">smallImageKey</span> (Optional)</b> - Small/Secondary Icon, normally used for having the Opponent's Health Icon on Rich Presence.</li>
-				<li><b><span style="color: #6666CF">hasStartTimestamp</span> (Optional)</b> - Shows a time counter in the Rich Presence.</li>
-				<li><b><span style="color: #6666CF">endTimestamp</span> (Optional)</b> - Requires "hasStartTimestamp" to be "true", counts down starting from this time (in milliseconds).</li>
-				<li><b><span style="color: #6666CF">largeImageKey</span> (Optional)</b> - Rich Presence Main icon.</li>
+				<li><b><span class="variablemarkup">details</span></b> - Title of the Rich Presence.</li>
+				<li><b><span class="variablemarkup">state</span> (Optional)</b> - An optional subtitle for the Rich Presence.</li>
+				<li><b><span class="variablemarkup">smallImageKey</span> (Optional)</b> - Small/Secondary Icon, normally used for having the Opponent's Health Icon on Rich Presence.</li>
+				<li><b><span class="variablemarkup">hasStartTimestamp</span> (Optional)</b> - Shows a time counter in the Rich Presence.</li>
+				<li><b><span class="variablemarkup">endTimestamp</span> (Optional)</b> - Requires "hasStartTimestamp" to be "true", counts down starting from this time (in milliseconds).</li>
+				<li><b><span class="variablemarkup">largeImageKey</span> (Optional)</b> - Rich Presence Main icon.</li>
 			</ul>
 			<h4>Examples:</h4>
 			<ul class="methoddiv">
-				<li style="padding-bottom: 8px"><span class="methodexample">changeDiscordPresence('Waiting...')</span> - Change RPC to "Waiting...", with no subtitles or anything.</li>
-				<li style="padding-bottom: 8px"><span class="methodexample">changeDiscordPresence('Counting Down...', 'Three. Two. One. GO!', 'gf', true, 3000)</span> - Counts down 3 seconds (3000ms)</li>
+				<li class="exampleitem"><span class="methodexample">changeDiscordPresence('Waiting...')</span> - Change RPC to "Waiting...", with no subtitles or anything.</li>
+				<li class="exampleitem"><span class="methodexample">changeDiscordPresence('Counting Down...', 'Three. Two. One. GO!', 'gf', true, 3000)</span> - Counts down 3 seconds (3000ms)</li>
 			</ul>
 			<p style="color: gray">Note: To upload custom images to use on "smallImageKey" and "largeImageKey" you will need to <a href="#changeDiscordClientID">change the Application ID</a>.</p>
 			<hr>
 
 			<h2 id="changeDiscordClientID">changeDiscordClientID</h2>
-			<p class="methodbox">changeDiscordClientID(<span style="color:#999999">?</span><span style="color:#6666CF">newID</span>:String):Void</p>
+			<p class="methodbox">changeDiscordClientID(<span class="isoptional">?</span><span class="variablemarkup">newID</span>:String):Void</p>
 			<p>Changes Discord Rich Presence's Application ID, necessary to change the "Psych Engine" Logo from the RPC.</p>
 			<ul>
-				<li><b><span style="color: #6666CF">newID</span> (Optional)</b> - Application ID, you can get it from an <a href="https://discord.com/developers/applications">application you create</a>.</li>
+				<li><b><span class="variablemarkup">newID</span> (Optional)</b> - Application ID, you can get it from an <a href="https://discord.com/developers/applications">application you create</a>.</li>
 			</ul>
 			<h4>Examples:</h4>
 			<ul class="methoddiv">
-				<li style="padding-bottom: 8px"><span class="methodexample">changeDiscordClientID()</span> - Set Discord Client ID to Psych Engine's default.</li>
-				<li style="padding-bottom: 8px"><span class="methodexample">changeDiscordClientID('843895042442657792')</span> - Set Discord Client ID to Mind Games Mod's.</li>
+				<li class="exampleitem"><span class="methodexample">changeDiscordClientID()</span> - Set Discord Client ID to Psych Engine's default.</li>
+				<li class="exampleitem"><span class="methodexample">changeDiscordClientID('843895042442657792')</span> - Set Discord Client ID to Mind Games Mod's.</li>
 			</ul>
 	</body>
 </html>

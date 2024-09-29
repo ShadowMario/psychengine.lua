@@ -1,0 +1,76 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Psych Engine - Substate Functions</title>
+		<link rel="stylesheet" href="../css/main.css">
+		<link rel="stylesheet" href="../css/header.css">
+		<link rel="stylesheet" href="../css/search.css">
+		<link rel="stylesheet" href="../css/theme.css">
+		<link rel="icon" href="../assets/icon.ico" type="image/x-icon">
+	</head>
+
+	<body>
+		<!-- Create Search Bar and Theme Boxes-->
+		<div class="sidebar"></div>
+		<div class="themeBox" onclick="switchTheme()">
+			<div class="themeDot"></div>
+			<div class="themeDot" style="margin-left: 70px"></div>
+			<button class="themeBtn" id="themeSelector"></button>
+		</div>
+
+		<!-- Load JavaScript-->
+		<script src="../js/selector.js"></script>
+		<script>createSidebarContent();</script>
+		<script src="../js/searchbar.js"></script>
+		<script src="../js/theme.js"></script>
+
+		<!-- Header -->
+		<div class="headerbox">
+			<div class="header">
+				<a href="../index.html">
+					<img width="64" src="../assets/icon.ico" alt="Psych Engine Logo" draggable="false">
+					<div class="headertext">Psych Engine - Lua Script API</div>
+				</a>
+			</div>
+		</div>
+
+		<!-- Page Info -->
+		<div class="infobox">
+			<h1>Substate Functions</h1><hr>
+			<h2 id="openCustomSubstate">openCustomSubstate</h2>
+			<p class="methodbox">openCustomSubstate(<span class="variablemarkup">name</span>:String, <span class="isoptional">?</span><span class="variablemarkup">pauseGame</span>:Bool = false):Void</p>
+			<p>Returns the translation key for phrases.</p>
+			<ul>
+				<li><b><span class="variablemarkup">name</span></b> - Identifier used for the Lua/HScript callbacks.</li>
+				<li><b><span class="variablemarkup">pauseGame</span> (Optional)</b> - Game stays paused while substate is open.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">openCustomSubstate('custom_substate')</span> - Opens a substate.</li>
+				<li class="exampleitem"><span class="methodexample">openCustomSubstate('custom_pause_menu', true)</span> - Pauses game and open a substate.</li>
+			</ul>
+			<p style="color: gray">Note: By default, the substate is completely blank when open, you can add Objects to it with <a href="#insertToCustomSubstate">"insertToCustomSubstate"</a>.</p>
+			<hr>
+
+			<h2 id="getFileTranslation">closeCustomSubstate</h2>
+			<p class="methodbox">Usage: closeCustomSubstate()</p>
+			<p>Closes the custom substate.</p>
+			<hr>
+
+			<h2 id="insertToCustomSubstate">insertToCustomSubstate</h2>
+			<p class="methodbox">insertToCustomSubstate(<span class="variablemarkup">tag</span>:String, <span class="isoptional">?</span><span class="variablemarkup">pos</span>:Int = -1):Void</p>
+			<p>Returns the translation key for phrases.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Lua Object tag to add.</li>
+				<li><b><span class="variablemarkup">pos</span> (Optional)</b> - Layering, default value is -1 and it inserts on top of everything.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">insertToCustomSubstate('mySprite')</span> - Insert Lua Sprite with tag "mySprite" at the top.</li>
+				<li class="exampleitem"><span class="methodexample">insertToCustomSubstate('mySprite', 0)</span> - Insert Lua Sprite with tag "mySprite" at the bottom.</li>
+			</ul>
+			<p style="color: gray">Note: By default, the substate is completely blank when open, you can add Objects to it with <a href="#insertToCustomSubstate">"insertToCustomSubstate"</a>.</p>
+			<hr>
+	</body>
+</html>

@@ -53,3 +53,18 @@ hr
 	background-color: #7F7F7F5F;
 	width: fit-content;
 }
+
+.exampleitem
+{
+	padding-bottom: 8px;
+}
+
+.variablemarkup
+{
+	color: #6666CF;
+}
+
+.isoptional
+{
+	color: #999999;
+}
