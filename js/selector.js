@@ -31,6 +31,12 @@ function createSidebarContent(prefix) {
 		'createInstance': 'reflection.html',
 		'addInstance': 'reflection.html',
 
+		// FlxAnimate
+		'makeFlxAnimateSprite': 'flxanimate.html',
+		'loadAnimateAtlas': 'flxanimate.html',
+		'addAnimationBySymbol': 'flxanimate.html',
+		'addAnimationBySymbolIndices': 'flxanimate.html',
+
 		// Text
 		'makeLuaText': 'text.html',
 		'addLuaText': 'text.html',
@@ -117,6 +123,21 @@ function createSidebarContent(prefix) {
 		'precacheMusic': 'precache.html',
 		'addCharacterToList': 'precache.html',
 
+		// Score
+		'addScore': 'score.html',
+		'setScore': 'score.html',
+		'addMisses': 'score.html',
+		'setMisses': 'score.html',
+		'addHits': 'score.html',
+		'setHits': 'score.html',
+		'getHealth': 'score.html',
+		'addHealth': 'score.html',
+		'setHealth': 'score.html',
+		'setRatingPercent': 'score.html',
+		'setRatingName': 'score.html',
+		'setRatingFC': 'score.html',
+		'updateScoreText': 'score.html',
+
 		// Save Data
 		'initSaveData': 'savedata.html',
 		'flushSaveData': 'savedata.html',
@@ -146,7 +167,9 @@ function createSidebarContent(prefix) {
 		'setOnHScript': 'script.html',
 		'callOnScripts': 'script.html',
 		'callOnHScript': 'script.html',
-		'callOnLuas': 'script.html'
+		'callOnLuas': 'script.html',
+		'runHaxeCode': 'script.html',
+		'runHaxeFunction': 'script.html'
 	};
 
 	// Create list elements and append to itemList

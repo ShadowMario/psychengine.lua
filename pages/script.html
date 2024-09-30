@@ -38,9 +38,8 @@
 		<!-- Page Info -->
 		<div class="infobox">
 			<h1>Script Functions</h1>
-			<p><b>For clarification, this page includes all functions that allow you to "communicate" between scripts.</b></p>
+			<p><b>Functions that allow you to "communicate" between scripts and HScript.</b></p>
 			<hr>
-
 			<h2 id="getRunningScripts">getRunningScripts</h2>
 			<p class="methodbox">Usage: <b>getRunningScripts()</b></p>
 			<p>Returns a table with the path of all Lua Scripts running.</p>
@@ -227,5 +226,39 @@
 				<span class="isoptional">?</span><span class="variablemarkup">ignoreSelf</span>:Bool = false,
 				<span class="isoptional">?</span><span class="variablemarkup">exclusions</span>:Array&lt;String&gt; = null):Void</p>
 			<p>Structurally identical to <a href="#callOnScripts">"callOnScripts"</a>, but it does not call the function in Lua Scripts.</p>
+			<hr>
+
+			<h2 id="runHaxeCode">runHaxeCode</h2>
+			<p class="methodbox">runHaxeCode(<span class="variablemarkup">codeToRun</span>:Dynamic,
+				<span class="isoptional">?</span><span class="variablemarkup">varsToBring</span>:Any = null,
+				<span class="isoptional">?</span><span class="variablemarkup">funcToRun</span>:String = null,
+				<span class="isoptional">?</span><span class="variablemarkup">funcArgs</span>:Array&lt;Dynamic&gt; = null):Void</p>
+			<p>Runs HScript code inside a Lua Script by initializing a HScript Interpreter for the Lua Script.</p>
+			<ul>
+				<li><b><span class="variablemarkup">codeToRun</span></b> - Variable name to save.</li>
+				<li><b><span class="variablemarkup">varsToBring</span> (Optional)</b> - Table with values to bring to the code.</li>
+				<li><b><span class="variablemarkup">funcToRun</span> (Optional)</b> - Function to run once the code is initialized.</li>
+				<li><b><span class="variablemarkup">funcArgs</span> (Optional)</b> - Table with arguments for the previously mentioned function.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">runHaxeCode(<span class="haxecode">'game.boyfriend.color = FlxColor.RED;'</span>)</span> - Simple HScript code to make the Player get red.</li>
+				<li class="exampleitem"><span class="methodexample">runHaxeCode(<span class="haxecode">'game.boyfriend.scale.y = myValue;'</span>, {myValue = 1.5})</span> - Brings "myValue" to the Haxe Code and use it to change Player's Scale Y.</li>
+			</ul>
+			<p style="color: gray">Note: Do not use "runHaxeCode" every frame! Instead, put your code in functions and call them with <a href="#runHaxeFunction">"runHaxeFunction"</a> after running runHaxeCode atleast once.</p>
+			<hr>
+
+			<h2 id="runHaxeFunction">runHaxeFunction</h2>
+			<p class="methodbox">runHaxeFunction(<span class="variablemarkup">funcToRun</span>:String = null,
+				<span class="isoptional">?</span><span class="variablemarkup">funcArgs</span>:Array&lt;Dynamic&gt; = null):Void</p>
+			<p>Calls a function inside a code ran previously with <a href="#runHaxeCode">"runHaxeCode"</a>.</p>
+			<ul>
+				<li><b><span class="variablemarkup">funcToRun</span></b> - Function to run.</li>
+				<li><b><span class="variablemarkup">funcArgs</span> (Optional)</b> - Table with arguments for the function.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">runHaxeFunction('myFunction', {1, 999})</span> - Will call <span class="methodexample">function myFunction(1, 999)</span> in the Haxe Code.</li>
+			</ul>
 	</body>
 </html>

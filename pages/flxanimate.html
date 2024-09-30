@@ -1,0 +1,113 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Psych Engine - FlxAnimate Functions</title>
+		<link rel="stylesheet" href="../css/main.css">
+		<link rel="stylesheet" href="../css/header.css">
+		<link rel="stylesheet" href="../css/search.css">
+		<link rel="stylesheet" href="../css/theme.css">
+		<link rel="icon" href="../assets/icon.ico" type="image/x-icon">
+	</head>
+
+	<body>
+		<!-- Create Search Bar and Theme Boxes-->
+		<div class="sidebar"></div>
+		<div class="themeBox" onclick="switchTheme()">
+			<div class="themeDot"></div>
+			<div class="themeDot" style="margin-left: 70px"></div>
+			<button class="themeBtn" id="themeSelector"></button>
+		</div>
+
+		<!-- Load JavaScript-->
+		<script src="../js/selector.js"></script>
+		<script>createSidebarContent();</script>
+		<script src="../js/searchbar.js"></script>
+		<script src="../js/theme.js"></script>
+
+		<!-- Header -->
+		<div class="headerbox">
+			<div class="header">
+				<a href="../index.html">
+					<img width="64" src="../assets/icon.ico" alt="Psych Engine Logo" draggable="false">
+					<div class="headertext">Psych Engine - Lua Script API</div>
+				</a>
+			</div>
+		</div>
+
+		<!-- Page Info -->
+		<div class="infobox">
+			<h1>FlxAnimate Functions</h1>
+			<p><b>Functions for creating special Lua Sprites that can use Animate Atlas.</b></p>
+			<hr>
+			<h2 id="makeFlxAnimateSprite">makeFlxAnimateSprite</h2>
+			<p class="methodbox">makeFlxAnimateSprite(<span class="variablemarkup">tag</span>:String, <span class="isoptional">?</span><span class="variablemarkup">x</span>:Float = 0, <span class="isoptional">?</span><span class="variablemarkup">y</span>:Float = 0, <span class="isoptional">?</span><span class="variablemarkup">loadFolder</span>:String = null):Void</p>
+			<p>Creates a Lua FlxAnimate Sprite.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Lua FlxAnimate Sprite nametag.</li>
+				<li><b><span class="variablemarkup">x</span> (Optional)</b> - Defaults to 0.</li>
+				<li><b><span class="variablemarkup">y</span> (Optional)</b> - Defaults to 0.</li>
+				<li><b><span class="variablemarkup">loadFolder</span> (Optional)</b> - Loads the atlas from this path.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">makeFlxAnimateSprite('mySprite')</span> - Creates an Atlas sprite with no Animate Atlas loaded, which can be loaded later on with <a href="#loadAnimateAtlas">"loadAnimateAtlas"</a>.</li>
+				<li class="exampleitem"><span class="methodexample">runTimer('mySprite', 500, 300, 'characters/atlasTest')</span> - Loads the Atlas folder <span class="methodexample">mods/My-Mod/images/characters/atlasTest</span>.</li>
+			</ul>
+			<hr>
+
+			<h2 id="loadAnimateAtlas">loadAnimateAtlas</h2>
+			<p class="methodbox">loadAnimateAtlas(<span class="variablemarkup">tag</span>:String, <span class="variablemarkup">folderOrImg</span>:String, <span class="isoptional">?</span><span class="variablemarkup">spriteJson</span>:String = null, <span class="isoptional">?</span><span class="variablemarkup">animationJson</span>:String = null):Void</p>
+			<p>Creates a Lua FlxAnimate Sprite.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Lua FlxAnimate Sprite nametag.</li>
+				<li><b><span class="variablemarkup">folderOrImg</span></b> - Spritemap .PNG file path.</li>
+				<li><b><span class="variablemarkup">spriteJson</span> (Optional)</b> - Spritemap .JSON file path, will use the value in "folderOrImg" if missing.</li>
+				<li><b><span class="variablemarkup">animationJson</span> (Optional)</b> - Animation .JSON file path, will use the value in "folderOrImg" if missing.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">loadAnimateAtlas('mySprite', 'characters/atlasTest')</span> - Loads the Atlas folder <span class="methodexample">mods/My-Mod/images/characters/atlasTest</span>.</li>
+				<li class="exampleitem"><span class="methodexample">loadAnimateAtlas('mySprite', 'characters/atlasTest/spritemap1', 'characters/atlasTest/spritemap1', 'characters/atlasTest/Animation')</span> - This will load the following Animate Atlas files consecutively: <span class="methodexample">mods/My-Mod/images/characters/spritemap1.png</span>,  <span class="methodexample">mods/My-Mod/images/characters/spritemap1.json</span>, <span class="methodexample">mods/My-Mod/images/characters/Animation.json</span>.</li>
+			</ul>
+			<hr>
+
+			<h2 id="addAnimationBySymbol">addAnimationBySymbol</h2>
+			<p class="methodbox">addAnimationBySymbol(<span class="variablemarkup">tag</span>:String, <span class="variablemarkup">name</span>:String, <span class="variablemarkup">symbol</span>:String, <span class="isoptional">?</span><span class="variablemarkup">framerate</span>:Float = 24, <span class="isoptional">?</span><span class="variablemarkup">loop</span>:Bool = false, <span class="isoptional">?</span><span class="variablemarkup">matX</span>:Float = 0, <span class="isoptional">?</span><span class="variablemarkup">matY</span>:Float = 0):Void</p>
+			<p>Adds an animation from a symbol.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Lua FlxAnimate Sprite nametag.</li>
+				<li><b><span class="variablemarkup">name</span></b> - Animation name.</li>
+				<li><b><span class="variablemarkup">symbol</span></b> - Symbol name in Adobe Animate (Folder should be included in this!).</li>
+				<li><b><span class="variablemarkup">framerate</span> (Optional)</b> - Animation FPS.</li>
+				<li><b><span class="variablemarkup">loop</span> (Optional)</b> - Should the animation loop?</li>
+				<li><b><span class="variablemarkup">matX</span> (Optional)</b> - Matrix Offset X.</li>
+				<li><b><span class="variablemarkup">matY</span> (Optional)</b> - Matrix Offset Y.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">addAnimationBySymbol('mySprite', 'idle', 'Test Anim Idle')</span> - Adds an animation named "idle", symbol is named "Test Anim Idle" on Animate, running at 24 FPS and loop disabled.</li>
+				<li class="exampleitem"><span class="methodexample">addAnimationBySymbol('mySprite', 'spin', 'Test Spin', 30, true)</span> - Adds an animation named "spin", symbol is named "Test Spin" on Animate, running at 30 FPS and loop enabled.</li>
+			</ul>
+			<hr>
+
+			<h2 id="addAnimationBySymbol">addAnimationBySymbolIndices</h2>
+			<p class="methodbox">addAnimationBySymbolIndices(<span class="variablemarkup">tag</span>:String, <span class="variablemarkup">name</span>:String, <span class="variablemarkup">symbol</span>:String, <span class="isoptional">?</span><span class="variablemarkup">indices</span>:Dynamic = null, <span class="isoptional">?</span><span class="variablemarkup">framerate</span>:Float = 24, <span class="isoptional">?</span><span class="variablemarkup">loop</span>:Bool = false, <span class="isoptional">?</span><span class="variablemarkup">matX</span>:Float = 0, <span class="isoptional">?</span><span class="variablemarkup">matY</span>:Float = 0):Void</p>
+			<p>Adds an animation from a symbol.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Lua FlxAnimate Sprite nametag.</li>
+				<li><b><span class="variablemarkup">name</span></b> - Animation name.</li>
+				<li><b><span class="variablemarkup">symbol</span></b> - Symbol name in Adobe Animate (Folder should be included in this!).</li>
+				<li><b><span class="variablemarkup">indices</span></b> - Can be formatted either as a string separated by commas or as a table.</li>
+				<li><b><span class="variablemarkup">framerate</span> (Optional)</b> - Animation FPS.</li>
+				<li><b><span class="variablemarkup">loop</span> (Optional)</b> - Should the animation loop?</li>
+				<li><b><span class="variablemarkup">matX</span> (Optional)</b> - Matrix Offset X.</li>
+				<li><b><span class="variablemarkup">matY</span> (Optional)</b> - Matrix Offset Y.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">addAnimationBySymbolIndices('mySprite', 'idle', 'Test Anim Idle', '0, 1, 2, 3, 4, 5, 6, 7')</span> - Adds "idle" using string indices.</li>
+				<li class="exampleitem"><span class="methodexample">addAnimationBySymbolIndices('mySprite', 'idle', 'Test Anim Idle', {0, 1, 2, 3, 4, 5, 6, 7})</span> - Adds "idle" using table indices.</li>
+			</ul>
+	</body>
+</html>

@@ -1,0 +1,143 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Psych Engine - Score Functions</title>
+		<link rel="stylesheet" href="../css/main.css">
+		<link rel="stylesheet" href="../css/header.css">
+		<link rel="stylesheet" href="../css/search.css">
+		<link rel="stylesheet" href="../css/theme.css">
+		<link rel="icon" href="../assets/icon.ico" type="image/x-icon">
+	</head>
+
+	<body>
+		<!-- Create Search Bar and Theme Boxes-->
+		<div class="sidebar"></div>
+		<div class="themeBox" onclick="switchTheme()">
+			<div class="themeDot"></div>
+			<div class="themeDot" style="margin-left: 70px"></div>
+			<button class="themeBtn" id="themeSelector"></button>
+		</div>
+
+		<!-- Load JavaScript-->
+		<script src="../js/selector.js"></script>
+		<script>createSidebarContent();</script>
+		<script src="../js/searchbar.js"></script>
+		<script src="../js/theme.js"></script>
+
+		<!-- Header -->
+		<div class="headerbox">
+			<div class="header">
+				<a href="../index.html">
+					<img width="64" src="../assets/icon.ico" alt="Psych Engine Logo" draggable="false">
+					<div class="headertext">Psych Engine - Lua Script API</div>
+				</a>
+			</div>
+		</div>
+
+		<!-- Page Info -->
+		<div class="infobox">
+			<h1>Score Functions</h1>
+			<p><b>Functions made for creating Custom HUDs.</b></p>
+			<hr>
+			<h2 id="addScore">addScore</h2>
+			<p class="methodbox">addScore(<span class="variablemarkup">value</span>:Int):Void</p>
+			<p>Adds to the Score.</p>
+			<ul>
+				<li><b><span class="variablemarkup">value</span></b> - How much to add.</li>
+			</ul>
+			<hr>
+
+			<h2 id="setScore">setScore</h2>
+			<p class="methodbox">setScore(<span class="variablemarkup">value</span>:Int):Void</p>
+			<p>Sets the Score.</p>
+			<ul>
+				<li><b><span class="variablemarkup">value</span></b> - New score.</li>
+			</ul>
+			<hr>
+
+			<h2 id="addMisses">addMisses</h2>
+			<p class="methodbox">addMisses(<span class="variablemarkup">value</span>:Int):Void</p>
+			<p>Adds to the Misses.</p>
+			<ul>
+				<li><b><span class="variablemarkup">value</span></b> - How much to add.</li>
+			</ul>
+			<hr>
+
+			<h2 id="setMisses">setMisses</h2>
+			<p class="methodbox">setMisses(<span class="variablemarkup">value</span>:Int):Void</p>
+			<p>Sets the Misses.</p>
+			<ul>
+				<li><b><span class="variablemarkup">value</span></b> - New misses.</li>
+			</ul>
+			<hr>
+
+			<h2 id="addHits">addHits</h2>
+			<p class="methodbox">addHits(<span class="variablemarkup">value</span>:Int):Void</p>
+			<p>Adds to the Hits.</p>
+			<ul>
+				<li><b><span class="variablemarkup">value</span></b> - How much to add.</li>
+			</ul>
+			<hr>
+
+			<h2 id="setHits">setHits</h2>
+			<p class="methodbox">setHits(<span class="variablemarkup">value</span>:Int):Void</p>
+			<p>Sets the Hits.</p>
+			<ul>
+				<li><b><span class="variablemarkup">value</span></b> - New hits.</li>
+			</ul>
+			<hr>
+
+			<h2 id="getScore">getHealth</h2>
+			<p class="methodbox">Usage: <b>getHealth()</b></p>
+			<p>Returns current health, max of 2 (Which is 100% health).
+			<hr>
+
+			<h2 id="addHealth">addHealth</h2>
+			<p class="methodbox">addHealth(<span class="variablemarkup">value</span>:Float):Void</p>
+			<p>Adds health.</p>
+			<ul>
+				<li><b><span class="variablemarkup">value</span></b> - How much to add.</li>
+			</ul>
+			<hr>
+
+			<h2 id="setHealth">setHealth</h2>
+			<p class="methodbox">setHealth(<span class="variablemarkup">value</span>:Float):Void</p>
+			<p>Sets health.</p>
+			<ul>
+				<li><b><span class="variablemarkup">value</span></b> - New health, 0 will kill you, 2 is full health.</li>
+			</ul>
+			<hr>
+
+			<h2 id="setRatingPercent">setRatingPercent</h2>
+			<p class="methodbox">setRatingPercent(<span class="variablemarkup">value</span>:Float):Void</p>
+			<p>Changes Rating Percentage.</p>
+			<ul>
+				<li><b><span class="variablemarkup">value</span></b> - Sets Rating percent (normally ranges from 0 to 1).</li>
+			</ul>
+			<p style="color: gray">Note: For optimization sake, you have to call <a href="#flushSaveData">updateScoreText()</a> after changing it.</p>
+			<hr>
+
+			<h2 id="setRatingName">setRatingName</h2>
+			<p class="methodbox">setRatingName(<span class="variablemarkup">value</span>:String):Void</p>
+			<p>Changes Rating Name (Good, Meh, Shit, etc.)</p>
+			<ul>
+				<li><b><span class="variablemarkup">value</span></b> - Sets Rating name.</li>
+			</ul>
+			<p style="color: gray">Note: For optimization sake, you have to call <a href="#flushSaveData">updateScoreText()</a> after changing it.</p>
+			<hr>
+
+			<h2 id="setRatingFC">setRatingFC</h2>
+			<p class="methodbox">setRatingFC(<span class="variablemarkup">value</span>:String):Void</p>
+			<p>Changes Rating FC (Clear, SDCB, FC, GFC, SFC).</p>
+			<ul>
+				<li><b><span class="variablemarkup">value</span></b> - Sets Rating FC string.</li>
+			</ul>
+			<p style="color: gray">Note: For optimization sake, you have to call <a href="#flushSaveData">updateScoreText()</a> after changing it.</p>
+			<hr>
+
+			<h2 id="updateScoreText">updateScoreText</h2>
+			<p class="methodbox">Usage: <b>updateScoreText()</b></p>
+			<p>Updates displayed score text.</p>
+	</body>
+</html>
