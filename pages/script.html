@@ -1,0 +1,231 @@
+<html lang="en"></html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Psych Engine - Script Functions</title>
+		<link rel="stylesheet" href="../css/main.css">
+		<link rel="stylesheet" href="../css/header.css">
+		<link rel="stylesheet" href="../css/search.css">
+		<link rel="stylesheet" href="../css/theme.css">
+		<link rel="icon" href="../assets/icon.ico" type="image/x-icon">
+	</head>
+
+	<body>
+		<!-- Create Search Bar and Theme Boxes-->
+		<div class="sidebar"></div>
+		<div class="themeBox" onclick="switchTheme()">
+			<div class="themeDot"></div>
+			<div class="themeDot" style="margin-left: 70px"></div>
+			<button class="themeBtn" id="themeSelector"></button>
+		</div>
+
+		<!-- Load JavaScript-->
+		<script src="../js/selector.js"></script>
+		<script>createSidebarContent();</script>
+		<script src="../js/searchbar.js"></script>
+		<script src="../js/theme.js"></script>
+
+		<!-- Header -->
+		<div class="headerbox">
+			<div class="header">
+				<a href="../index.html">
+					<img width="64" src="../assets/icon.ico" alt="Psych Engine Logo" draggable="false">
+					<div class="headertext">Psych Engine - Lua Script API</div>
+				</a>
+			</div>
+		</div>
+
+		<!-- Page Info -->
+		<div class="infobox">
+			<h1>Script Functions</h1>
+			<p><b>For clarification, this page includes all functions that allow you to "communicate" between scripts.</b></p>
+			<hr>
+
+			<h2 id="getRunningScripts">getRunningScripts</h2>
+			<p class="methodbox">Usage: <b>getRunningScripts()</b></p>
+			<p>Returns a table with the path of all Lua Scripts running.</p>
+			<hr>
+
+			<h2 id="callScript">callScript</h2>
+			<p class="methodbox">callScript(<span class="variablemarkup">luaFile</span>:String, <span class="variablemarkup">funcName</span>:String, <span class="isoptional">?</span><span class="variablemarkup">args</span>:Array&lt;Dynamic&gt; = null):Dynamic</p>
+			<p>Calls a function only in a specific Lua Script.
+			<br>Returns the value returned by the function called (Could be literally anything depending on context).</p>
+			<ul>
+				<li><b><span class="variablemarkup">luaFile</span></b> - Lua Script path.</li>
+				<li><b><span class="variablemarkup">funcName</span></b> - Function name to call.</li>
+				<li><b><span class="variablemarkup">args</span> (Optional)</b> - Optional table of arguments.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">callScript('mods/scripts/test.lua', 'customFunction', {0, 999})</span> - This will call <span class="methodexample">customFunction(0, 999)</span> in the script at <span class="methodexample">mods/scripts/test.lua</span>.</li>
+			</ul>
+			<hr>
+
+			<h2 id="addLuaScript">addLuaScript</h2>
+			<p class="methodbox">addLuaScript(<span class="variablemarkup">luaFile</span>:String, <span class="isoptional">?</span><span class="variablemarkup">ignoreAlreadyRunning</span>:Bool = false):Void</p>
+			<p>Initializes a specific Lua Script found at the path.</p>
+			<ul>
+				<li><b><span class="variablemarkup">luaFile</span></b> - Lua Script path.</li>
+				<li><b><span class="variablemarkup">ignoreAlreadyRunning</span> (Optional)</b> - If true, it will allow you to run duplicates of the same script, although this might cause unexpected behavior in other functions, use it at your own risk!</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">callScript('mods/scripts/disabled/test.lua')</span> - This will initialize the script at <span class="methodexample">mods/scripts/disabled/test.lua</span>.</li>
+			</ul>
+			<hr>
+
+			<h2 id="addHScript">addHScript</h2>
+			<p class="methodbox">addHScript(<span class="variablemarkup">scriptFile</span>:String, <span class="isoptional">?</span><span class="variablemarkup">ignoreAlreadyRunning</span>:Bool = false):Void</p>
+			<p>Initializes a specific HScript found at the path.</p>
+			<ul>
+				<li><b><span class="variablemarkup">scriptFile</span></b> - HScript path.</li>
+				<li><b><span class="variablemarkup">ignoreAlreadyRunning</span> (Optional)</b> - If true, it will allow you to run duplicates of the same script, although this might cause unexpected behavior in other functions, use it at your own risk!</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">callScript('mods/scripts/disabled/test.hx')</span> - This will initialize the script at <span class="methodexample">mods/scripts/disabled/test.hx</span>.</li>
+			</ul>
+			<hr>
+
+			<h2 id="removeLuaScript">removeLuaScript</h2>
+			<p class="methodbox">removeLuaScript(<span class="variablemarkup">luaFile</span>:String):Bool</p>
+			<p>Stops a specific Lua Script running.
+			<br>Returns true if the Script was found and was running.</p>
+			<ul>
+				<li><b><span class="variablemarkup">luaFile</span></b> - Lua Script path.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">removeLuaScript('mods/scripts/test.lua')</span> - Stops the Lua script at <span class="methodexample">mods/scripts/test.lua</span>.</li>
+			</ul>
+			<hr>
+
+			<h2 id="removeHScript">removeHScript</h2>
+			<p class="methodbox">removeHScript(<span class="variablemarkup">scriptFile</span>:String):Bool</p>
+			<p>Stops a specific HScript running.
+			<br>Returns true if the Script was found and was running.</p>
+			<ul>
+				<li><b><span class="variablemarkup">scriptFile</span></b> - HScript path.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">removeHScript('mods/scripts/test.hx')</span> - Stops HScript at <span class="methodexample">mods/scripts/test.hx</span>.</li>
+			</ul>
+			<hr>
+
+			<h2 id="isRunning">isRunning</h2>
+			<p class="methodbox">isRunning(<span class="variablemarkup">scriptFile</span>:String):Bool</p>
+			<p>Checks if a specific Lua Script/HScript is running.</p>
+			<ul>
+				<li><b><span class="variablemarkup">scriptFile</span></b> - Lua Script/HScript path.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">isRunning('mods/scripts/test.lua')</span> - For Lua Scripts.</li>
+				<li class="exampleitem"><span class="methodexample">isRunning('mods/scripts/test.hx')</span> - For HScript.</li>
+			</ul>
+			<hr>
+
+			<h2 id="setVar">setVar</h2>
+			<p class="methodbox">setVar(<span class="variablemarkup">varName</span>:String, <span class="variablemarkup">value</span>:Dynamic):Dynamic</p>
+			<p>Stores a variable, allowing all Lua Scripts and HScript to access it through <a href="#getVar">"getVar"</a>.
+			<br>Returns the value that was insert.</p>
+			<ul>
+				<li><b><span class="variablemarkup">varName</span></b> - Variable name to save.</li>
+				<li><b><span class="variablemarkup">value</span></b> - Value to save to variable.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">setVar('storedValue', 10.5)</span> - Saves "10.5" into a variable named "storedValue"</a>.</li>
+			</ul>
+			<hr>
+
+			<h2 id="getVar">getVar</h2>
+			<p class="methodbox">getVar(<span class="variablemarkup">varName</span>:String):Dynamic</p>
+			<p>Returns the named stored variable.</p>
+			<ul>
+				<li><b><span class="variablemarkup">varName</span></b> - Variable name to get.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">getVar('storedValue')</span> - Returns the value saved from using <a href="#setVar">"setVar"</a>.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="setOnScripts">setOnScripts</h2>
+			<p class="methodbox">setOnScripts(<span class="variablemarkup">varName</span>:String,
+				<span class="variablemarkup">value</span>:Dynamic,
+				<span class="isoptional">?</span><span class="variablemarkup">ignoreSelf</span>:Bool = false,
+				<span class="isoptional">?</span><span class="variablemarkup">exclusions</span>:Array&lt;String&gt; = null):Void</p>
+			<p>Saves/Overwrites a global variable to all Lua Script/HScript running currently.
+			<br>This differs from <a href="#setVar">"setVar"</a> because you won't need a function like <a href="#getVar">"getVar"</a> to get the variable and it will not have its value shared between scripts.</p>
+			<ul>
+				<li><b><span class="variablemarkup">varName</span></b> - Variable name to save.</li>
+				<li><b><span class="variablemarkup">value</span></b> - Value to save to variable.</li>
+				<li><b><span class="variablemarkup">ignoreSelf</span> (Optional)</b> - Does not insert this variable into the current Script.</li>
+				<li><b><span class="variablemarkup">exclusions</span> (Optional)</b> - Scripts to ignore.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">setOnScripts('myCounter', 10)</span> - This will add a global called "myCounter" with value "10".<br>This can be accessed in lua through <span class="methodexample">if myCounter == 10 then</span>, for example.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="setOnLuas">setOnLuas</h2>
+			<p class="methodbox">setOnLuas(<span class="variablemarkup">varName</span>:String,
+				<span class="variablemarkup">value</span>:Dynamic,
+				<span class="isoptional">?</span><span class="variablemarkup">ignoreSelf</span>:Bool = false,
+				<span class="isoptional">?</span><span class="variablemarkup">exclusions</span>:Array&lt;String&gt; = null):Void</p>
+			<p>Structurally identical to <a href="#setOnScripts">"setOnScripts"</a>, but it does not insert the variable into HScripts running.</p>
+			<hr>
+			
+			<h2 id="setOnHScript">setOnHScript</h2>
+			<p class="methodbox">setOnHScript(<span class="variablemarkup">varName</span>:String,
+				<span class="variablemarkup">value</span>:Dynamic,
+				<span class="isoptional">?</span><span class="variablemarkup">ignoreSelf</span>:Bool = false,
+				<span class="isoptional">?</span><span class="variablemarkup">exclusions</span>:Array&lt;String&gt; = null):Void</p>
+			<p>Structurally identical to <a href="#setOnScripts">"setOnScripts"</a>, but it does not insert the variable into Lua Scripts running.</p>
+			<hr>
+			
+			(funcName:String, ?args:Array<Dynamic> = null, ?ignoreStops=false, ?ignoreSelf:Bool = true, ?excludeScripts:Array<String> = null, ?excludeValues:Array<Dynamic> = null)
+			<h2 id="callOnScripts">callOnScripts</h2>
+			<p class="methodbox">callOnScripts(<span class="variablemarkup">varName</span>:String,
+				<span class="variablemarkup">funcName</span>:String,
+				<span class="isoptional">?</span><span class="variablemarkup">args</span>:Array&lt;Dynamic&gt; = null,
+				<span class="isoptional">?</span><span class="variablemarkup">ignoreStops</span>:Bool = false,
+				<span class="isoptional">?</span><span class="variablemarkup">ignoreSelf</span>:Bool = true,
+				<span class="isoptional">?</span><span class="variablemarkup">excludeScripts</span>:Array&lt;String&gt; = null,
+				<span class="isoptional">?</span><span class="variablemarkup">excludeValues</span>:Array&lt;Dynamic&gt; = null):Bool</p>
+			<p>Calls a function in all Lua Scripts and HScript running.
+			<br>Returns the value in the function, unless you add this value to "excludeValues".</p>
+			<ul>
+				<li><b><span class="variablemarkup">funcName</span></b> - Function name to call.</li>
+				<li><b><span class="variablemarkup">args</span> (Optional)</b> - Optional table of arguments.</li>
+				<li><b><span class="variablemarkup">ignoreStops</span> (Optional)</b> - Ignore all "Function_Stop" variations.</li>
+				<li><b><span class="variablemarkup">ignoreSelf</span> (Optional)</b> - Does not call this function on itself, this is an infinite loop prevention in the case you accidentally call the same function that runs this.</li>
+				<li><b><span class="variablemarkup">excludeScripts</span> (Optional)</b> - Scripts not to call the function on.</li>
+				<li><b><span class="variablemarkup">excludeValues</span> (Optional)</b> - Values to ignore from returning.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">setOnScripts('myCounter', 10)</span> - This will add a global called "myCounter" with value "10".<br>This can be accessed in lua through <span class="methodexample">if myCounter == 10 then</span>, for example.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="callOnLuas">callOnLuas</h2>
+			<p class="methodbox">callOnLuas(<span class="variablemarkup">varName</span>:String,
+				<span class="variablemarkup">value</span>:Dynamic,
+				<span class="isoptional">?</span><span class="variablemarkup">ignoreSelf</span>:Bool = false,
+				<span class="isoptional">?</span><span class="variablemarkup">exclusions</span>:Array&lt;String&gt; = null):Void</p>
+			<p>Structurally identical to <a href="#callOnScripts">"callOnScripts"</a>, but it does not call the function in HScripts.</p>
+			<hr>
+			
+			
+			<h2 id="callOnHScript">callOnHScript</h2>
+			<p class="methodbox">callOnHScript(<span class="variablemarkup">varName</span>:String,
+				<span class="variablemarkup">value</span>:Dynamic,
+				<span class="isoptional">?</span><span class="variablemarkup">ignoreSelf</span>:Bool = false,
+				<span class="isoptional">?</span><span class="variablemarkup">exclusions</span>:Array&lt;String&gt; = null):Void</p>
+			<p>Structurally identical to <a href="#callOnScripts">"callOnScripts"</a>, but it does not call the function in Lua Scripts.</p>
+	</body>
+</html>

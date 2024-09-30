@@ -1,0 +1,232 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Psych Engine - Input Functions</title>
+		<link rel="stylesheet" href="../css/main.css">
+		<link rel="stylesheet" href="../css/header.css">
+		<link rel="stylesheet" href="../css/search.css">
+		<link rel="stylesheet" href="../css/theme.css">
+		<link rel="icon" href="../assets/icon.ico" type="image/x-icon">
+	</head>
+
+	<body>
+		<!-- Create Search Bar and Theme Boxes-->
+		<div class="sidebar"></div>
+		<div class="themeBox" onclick="switchTheme()">
+			<div class="themeDot"></div>
+			<div class="themeDot" style="margin-left: 70px"></div>
+			<button class="themeBtn" id="themeSelector"></button>
+		</div>
+
+		<!-- Load JavaScript-->
+		<script src="../js/selector.js"></script>
+		<script>createSidebarContent();</script>
+		<script src="../js/searchbar.js"></script>
+		<script src="../js/theme.js"></script>
+
+		<!-- Header -->
+		<div class="headerbox">
+			<div class="header">
+				<a href="../index.html">
+					<img width="64" src="../assets/icon.ico" alt="Psych Engine Logo" draggable="false">
+					<div class="headertext">Psych Engine - Lua Script API</div>
+				</a>
+			</div>
+		</div>
+
+		<!-- Page Info -->
+		<div class="infobox">
+			<h1>Input Functions</h1><hr>
+			<h2 id="mouseClicked">mouseClicked</h2>
+			<p class="methodbox">mouseClicked(<span class="isoptional"?></span><span class="variablemarkup">button</span>:String = 'left'):Bool</p>
+			<p>Returns if the Mouse button just got clicked in this frame.</p>
+			<ul>
+				<li><b><span class="variablemarkup">button</span></b> - Can be: "left", "middle" or "right". Defaults to "left"</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">mouseClicked()</span> - Checks for Left click.</li>
+				<li class="exampleitem"><span class="methodexample">mouseClicked('right')</span> - Checks for Right click.</li>
+			</ul>
+			<hr>
+
+			<h2 id="mousePressed">mousePressed</h2>
+			<p class="methodbox">mousePressed(<span class="isoptional"?></span><span class="variablemarkup">button</span>:String = 'left'):Bool</p>
+			<p>Returns if the Mouse button is being held currently.</p>
+			<ul>
+				<li><b><span class="variablemarkup">button</span></b> - Can be: "left", "middle" or "right". Defaults to "left"</li>
+			</ul>
+			<hr>
+
+			<h2 id="mouseReleased">mouseReleased</h2>
+			<p class="methodbox">mouseReleased(<span class="isoptional"?></span><span class="variablemarkup">button</span>:String = 'left'):Bool</p>
+			<p>Returns if the Mouse button was just released in this frame.</p>
+			<ul>
+				<li><b><span class="variablemarkup">button</span></b> - Can be: "left", "middle" or "right". Defaults to "left"</li>
+			</ul>
+			<hr>
+
+			<h2 id="getMouseX">getMouseX</h2>
+			<p class="methodbox">getMouseX(<span class="isoptional"?></span><span class="variablemarkup">camera</span>:String = 'game'):Bool</p>
+			<p>Returns Mouse's Screen X from a Camera.</p>
+			<ul>
+				<li><b><span class="variablemarkup">camera</span></b> - Can be "game", "hud" or "other".</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">getMouseX()</span> - Mouse X on Game Camera.</li>
+				<li class="exampleitem"><span class="methodexample">getMouseX('hud')</span> - Mouse X on HUD Camera.</li>
+			</ul>
+			<hr>
+
+			<h2 id="getMouseY">getMouseY</h2>
+			<p class="methodbox">getMouseY(<span class="isoptional"?></span><span class="variablemarkup">camera</span>:String = 'game'):Bool</p>
+			<p>Returns Mouse's Screen Y from a Camera.</p>
+			<ul>
+				<li><b><span class="variablemarkup">camera</span></b> - Can be "game", "hud" or "other".</li>
+			</ul>
+			<hr>
+			
+			<h2 id="keyJustPressed">keyJustPressed</h2>
+			<p class="methodbox">keyJustPressed(<span class="variablemarkup">button</span>:String):Bool</p>
+			<p>Returns if a keybind button just got pressed on a controller or keyboard.</p>
+			<ul>
+				<li><b><span class="variablemarkup">button</span></b> - Buttons: "left", "down", "up", "right", "ui_left", "ui_down", "ui_up", "ui_right", "accept", "back", "pause", "reset", "volume_mute", "volume_up_down", "debug_1", "debug_2".</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">keyJustPressed('up')</span> - Pressed <b>Up Note</b> button.</li>
+				<li class="exampleitem"><span class="methodexample">keyJustPressed('ui_up')</span> - Pressed <b>Menu Up</b> button, this is a different keybind from Up Note despite the default keys being the same.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="keyJustPressed">keyPressed</h2>
+			<p class="methodbox">keyPressed(<span class="variablemarkup">button</span>:String):Bool</p>
+			<p>Returns if a keybind button is being held on a controller or keyboard.</p>
+			<ul>
+				<li><b><span class="variablemarkup">button</span></b> - Same as <a href="#keyJustPressed">"keyJustPressed"</a>.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="keyReleased">keyReleased</h2>
+			<p class="methodbox">keyReleased(<span class="variablemarkup">button</span>:String):Bool</p>
+			<p>Returns if a keybind button was just released on a controller or keyboard.</p>
+			<ul>
+				<li><b><span class="variablemarkup">button</span></b> - Same as <a href="#keyJustPressed">"keyJustPressed"</a>.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="keyboardJustPressed">keyboardJustPressed</h2>
+			<p class="methodbox">keyboardJustPressed(<span class="variablemarkup">button</span>:String):Bool</p>
+			<p>Returns if a specific keyboard button just got pressed.</p>
+			<ul>
+				<li><b><span class="variablemarkup">button</span></b> - <a href="https://api.haxeflixel.com/flixel/input/keyboard/FlxKey.html">Click here for the full list of buttons</a>.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv"></ul>
+				<li class="exampleitem"><span class="methodexample">keyboardJustPressed('ENTER')</span> - Pressed Enter in your keyboard.</li>
+				<li class="exampleitem"><span class="methodexample">keyboardJustPressed('F5')</span> - Pressed F5 in your keyboard.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="keyboardPressed">keyboardPressed</h2>
+			<p class="methodbox">keyboardPressed(<span class="variablemarkup">button</span>:String):Bool</p>
+			<p>Returns if a specific keyboard button is being pressed.</p>
+			<ul>
+				<li><b><span class="variablemarkup">button</span></b> - <a href="https://api.haxeflixel.com/flixel/input/keyboard/FlxKey.html">Click here for the full list of buttons</a>.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="keyboardReleased">keyboardReleased</h2>
+			<p class="methodbox">keyboardReleased(<span class="variablemarkup">button</span>:String):Bool</p>
+			<p>Returns if a specific keyboard button was just released.</p>
+			<ul>
+				<li><b><span class="variablemarkup">button</span></b> - <a href="https://api.haxeflixel.com/flixel/input/keyboard/FlxKey.html">Click here for the full list of buttons</a>.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="anyGamepadJustPressed">anyGamepadJustPressed</h2>
+			<p class="methodbox">anyGamepadJustPressed(<span class="variablemarkup">button</span>:String):Bool</p>
+			<p>Returns if a specific gamepad button just got pressed in any controllers.</p>
+			<ul>
+				<li><b><span class="variablemarkup">button</span></b> - <a href="https://api.haxeflixel.com/flixel/input/gamepad/FlxGamepadInputID.html">Click here for the full list of buttons</a>.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv"></ul>
+				<li class="exampleitem"><span class="methodexample">anyGamepadJustPressed('DPAD_LEFT')</span> - Pressed Arrow Left in any gamepad.</li>
+				<li class="exampleitem"><span class="methodexample">anyGamepadJustPressed('X')</span> - Pressed X in any gamepad.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="anyGamepadPressed">anyGamepadPressed</h2>
+			<p class="methodbox">anyGamepadPressed(<span class="variablemarkup">button</span>:String):Bool</p>
+			<p>Returns if a specific gamepad button is being pressed in any controllers.</p>
+			<ul>
+				<li><b><span class="variablemarkup">button</span></b> - <a href="https://api.haxeflixel.com/flixel/input/gamepad/FlxGamepadInputID.html">Click here for the full list of buttons</a>.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="anyGamepadReleased">anyGamepadReleased</h2>
+			<p class="methodbox">anyGamepadReleased(<span class="variablemarkup">button</span>:String):Bool</p>
+			<p>Returns if a specific gamepad button was just released in any controllers.</p>
+			<ul>
+				<li><b><span class="variablemarkup">button</span></b> - <a href="https://api.haxeflixel.com/flixel/input/gamepad/FlxGamepadInputID.html">Click here for the full list of buttons</a>.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="gamepadJustPressed">gamepadJustPressed</h2>
+			<p class="methodbox">gamepadJustPressed(<span class="variablemarkup">id</span>:Int, <span class="variablemarkup">button</span>:String):Bool</p>
+			<p>Returns if a specific gamepad button just got pressed in a specific controller.</p>
+			<ul>
+				<li><b><span class="variablemarkup">id</span></b> - Controller ID, by detection order.</li>
+				<li><b><span class="variablemarkup">button</span></b> - <a href="https://api.haxeflixel.com/flixel/input/gamepad/FlxGamepadInputID.html">Click here for the full list of buttons</a>.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv"></ul>
+				<li class="exampleitem"><span class="methodexample">gamepadJustPressed(0, 'DPAD_LEFT')</span> - Pressed Arrow Left in controller #1.</li>
+				<li class="exampleitem"><span class="methodexample">gamepadJustPressed(1, 'X')</span> - Pressed X in in controller #2.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="gamepadPressed">gamepadPressed</h2>
+			<p class="methodbox">gamepadPressed(<span class="variablemarkup">button</span>:String):Bool</p>
+			<p>Returns if a specific gamepad button is being pressed in a specific controller.</p>
+			<ul>
+				<li><b><span class="variablemarkup">id</span></b> - Controller ID, by detection order.</li>
+				<li><b><span class="variablemarkup">button</span></b> - <a href="https://api.haxeflixel.com/flixel/input/gamepad/FlxGamepadInputID.html">Click here for the full list of buttons</a>.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="gamepadReleased">gamepadReleased</h2>
+			<p class="methodbox">gamepadReleased(<span class="variablemarkup">button</span>:String):Bool</p>
+			<p>Returns if a specific gamepad button was just released in a specific controller.</p>
+			<ul>
+				<li><b><span class="variablemarkup">id</span></b> - Controller ID, by detection order.</li>
+				<li><b><span class="variablemarkup">button</span></b> - <a href="https://api.haxeflixel.com/flixel/input/gamepad/FlxGamepadInputID.html">Click here for the full list of buttons</a>.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="gamepadAnalogX">gamepadAnalogX</h2>
+			<p class="methodbox">gamepadAnalogX(<span class="variablemarkup">id</span>:Int, <span class="isoptional">?</span><span class="variablemarkup">leftStick</span>:Bool = true):Float</p>
+			<p>Returns the Analog X value in a specific controller, ranges from -1 to 1.</p>
+			<ul>
+				<li><b><span class="variablemarkup">id</span></b> - Controller ID, by detection order.</li>
+				<li><b><span class="variablemarkup">button</span></b> - Left or Right analog? Default is Left (true).</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv"></ul>
+				<li class="exampleitem"><span class="methodexample">gamepadAnalogX(0)</span> - Returns Left Analog X of controller #1.</li>
+				<li class="exampleitem"><span class="methodexample">gamepadAnalogX(1, false)</span> - Returns Right X Analog of controller #2.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="gamepadAnalogY">gamepadAnalogY</h2>
+			<p class="methodbox">gamepadAnalogY(<span class="variablemarkup">id</span>:Int, <span class="isoptional">?</span><span class="variablemarkup">leftStick</span>:Bool = true):Float</p>
+			<p>Returns the Analog Y value in a specific controller, ranges from -1 to 1.</p>
+			<ul>
+				<li><b><span class="variablemarkup">id</span></b> - Controller ID, by detection order.</li>
+				<li><b><span class="variablemarkup">button</span></b> - Left or Right analog? Default is Left (true).</li>
+			</ul>
+	</body>
+</html>

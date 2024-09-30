@@ -1,0 +1,106 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Psych Engine - Save Data Functions</title>
+		<link rel="stylesheet" href="../css/main.css">
+		<link rel="stylesheet" href="../css/header.css">
+		<link rel="stylesheet" href="../css/search.css">
+		<link rel="stylesheet" href="../css/theme.css">
+		<link rel="icon" href="../assets/icon.ico" type="image/x-icon">
+	</head>
+
+	<body>
+		<!-- Create Search Bar and Theme Boxes-->
+		<div class="sidebar"></div>
+		<div class="themeBox" onclick="switchTheme()">
+			<div class="themeDot"></div>
+			<div class="themeDot" style="margin-left: 70px"></div>
+			<button class="themeBtn" id="themeSelector"></button>
+		</div>
+
+		<!-- Load JavaScript-->
+		<script src="../js/selector.js"></script>
+		<script>createSidebarContent();</script>
+		<script src="../js/searchbar.js"></script>
+		<script src="../js/theme.js"></script>
+
+		<!-- Header -->
+		<div class="headerbox">
+			<div class="header">
+				<a href="../index.html">
+					<img width="64" src="../assets/icon.ico" alt="Psych Engine Logo" draggable="false">
+					<div class="headertext">Psych Engine - Lua Script API</div>
+				</a>
+			</div>
+		</div>
+
+		<!-- Page Info -->
+		<div class="infobox">
+			<h1>Save Data Functions</h1><hr>
+			<h2 id="initSaveData">initSaveData</h2>
+			<p class="methodbox">initSaveData(<span class="variablemarkup">save</span>:String, <span class="isoptional">?</span><span class="variablemarkup">folder</span>:String = 'psychenginemods'):Void</p>
+			<p>Initializes a Save Data.</p>
+			<ul>
+				<li><b><span class="variablemarkup">save</span></b> - Save Data Name, make it unique to avoid overwriting!</li>
+				<li><b><span class="variablemarkup">folder</span> (Optional)</b> - Folder in "%appdata%/ShadowMario/PsychEngine/".</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">initSaveData('my_mod_savedata')</span> - Initializes "my_mod_savedata.sol".</li>
+			</ul>
+			<p style="color: gray">Note: Save Data do NOT save automatically! Use <a href="#flushSaveData">"flushSaveData"</a> in moderation for saving it.</p>
+			<hr>
+
+			<h2 id="flushSaveData">flushSaveData</h2>
+			<p class="methodbox">flushSaveData(<span class="variablemarkup">save</span>:String):Void</p>
+			<p>Flushes (Saves) the Save Data, recommended to call this on "function onDestroy" in your Lua Script to avoid any changes from being lost.</p>
+			<ul>
+				<li><b><span class="variablemarkup">save</span></b> - Save Data Name, make it unique to avoid overwriting!</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">flushSaveData('my_mod_savedata')</span> - Saves "my_mod_savedata.sol".</li>
+			</ul>
+			<hr>
+
+			<h2 id="flushSaveData">eraseSaveData</h2>
+			<p class="methodbox">eraseSaveData(<span class="variablemarkup">save</span>:String):Void</p>
+			<p>Erases the save file specified.</p>
+			<ul>
+				<li><b><span class="variablemarkup">save</span></b> - Save Data Name.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">eraseSaveData('my_mod_savedata')</span> - Erases "my_mod_savedata.sol".</li>
+			</ul>
+			<hr>
+
+			<h2 id="getDataFromSave">getDataFromSave</h2>
+			<p class="methodbox">getDataFromSave(<span class="variablemarkup">save</span>:String, <span class="variablemarkup">field</span>:String, <span class="isoptional">?</span><span class="variablemarkup">defaultValue</span>:Dynamic = null):Dynamic</p>
+			<p>Returns a field data from the Save file specified.</p>
+			<ul>
+				<li><b><span class="variablemarkup">save</span></b> - Save Data Name.</li>
+				<li><b><span class="variablemarkup">field</span></b> - Field/Property to get from the.</li>
+				<li><b><span class="variablemarkup">defaultValue</span> (Optional)</b> - Default value to use in case the field isn't available in the Save Data.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">getDataFromSave('my_mod_savedata', 'score', 0)</span> - Returns "score" from "my_mod_savedata.sol", in case it's missing, it will use 0.</li>
+			</ul>
+			<hr>
+
+			<h2 id="setDataFromSave">setDataFromSave</h2>
+			<p class="methodbox">setDataFromSave(<span class="variablemarkup">save</span>:String, <span class="variablemarkup">field</span>:String, <span class="variablemarkup">value</span>:String):Void</p>
+			<p>Sets a field data to the Save file specified.</p>
+			<ul>
+				<li><b><span class="variablemarkup">save</span></b> - Save Data Name.</li>
+				<li><b><span class="variablemarkup">field</span></b> - Field/Property to get from the.</li>
+				<li><b><span class="variablemarkup">defaultValue</span> (Optional)</b> - Default value to use in case the field isn't available in the Save Data.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">setDataFromSave('my_mod_savedata', 'score', 1000)</span> - Saves "score" to "my_mod_savedata.sol".</li>
+			</ul>
+	</body>
+</html>

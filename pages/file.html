@@ -1,0 +1,107 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Psych Engine - File I/O Functions</title>
+		<link rel="stylesheet" href="../css/main.css">
+		<link rel="stylesheet" href="../css/header.css">
+		<link rel="stylesheet" href="../css/search.css">
+		<link rel="stylesheet" href="../css/theme.css">
+		<link rel="icon" href="../assets/icon.ico" type="image/x-icon">
+	</head>
+
+	<body>
+		<!-- Create Search Bar and Theme Boxes-->
+		<div class="sidebar"></div>
+		<div class="themeBox" onclick="switchTheme()">
+			<div class="themeDot"></div>
+			<div class="themeDot" style="margin-left: 70px"></div>
+			<button class="themeBtn" id="themeSelector"></button>
+		</div>
+
+		<!-- Load JavaScript-->
+		<script src="../js/selector.js"></script>
+		<script>createSidebarContent();</script>
+		<script src="../js/searchbar.js"></script>
+		<script src="../js/theme.js"></script>
+
+		<!-- Header -->
+		<div class="headerbox">
+			<div class="header">
+				<a href="../index.html">
+					<img width="64" src="../assets/icon.ico" alt="Psych Engine Logo" draggable="false">
+					<div class="headertext">Psych Engine - Lua Script API</div>
+				</a>
+			</div>
+		</div>
+
+		<!-- Page Info -->
+		<div class="infobox">
+			<h1>File I/O Functions</h1><hr>
+			<h2 id="getTextFromFile">getTextFromFile</h2>
+			<p class="methodbox">getTextFromFile(<span class="variablemarkup">path</span>:String, <span class="isoptional">?</span><span class="variablemarkup">ignoreModFolders</span>:Bool = false):String</p>
+			<p>Loads a File as text and returns its content.
+			<br>If the file couldn't be found, it will return null.</p>
+			<ul>
+				<li><b><span class="variablemarkup">file</span></b> - File name path.</li>
+				<li><b><span class="variablemarkup">ignoreModFolders</span> (Optional)</b> - Ignore all files that are not compiled (softcoded files).</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">getTextFromFile('data/textFile.txt')</span> - Will try to load "mods/My-Mod/data/textFile.txt".</li>
+				<li class="exampleitem"><span class="methodexample">getTextFromFile('mods/My-Mod/data/textFile.txt', true)</span> - Same as above but with absolute path.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="saveFile">saveFile</h2>
+			<p class="methodbox">saveFile(<span class="variablemarkup">file</span>:String, <span class="variablemarkup">content</span>:String, <span class="isoptional">?</span><span class="variablemarkup">absolute</span>:Bool = false):Bool</p>
+			<p>Returns true if the file was saved successfully.</p>
+			<ul>
+				<li><b><span class="variablemarkup">file</span></b> - File name path</li>
+				<li><b><span class="variablemarkup">content</span></b> - Data to save.</li>
+				<li><b><span class="variablemarkup">absolute</span> (Optional)</b> - Toggles absolute path.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">saveFile('data/textFile.txt', 'Hello World!')</span> - Saves "Hello World!" into a text file in "mods/My-Mod/data/textFile.txt".</li>
+				<li class="exampleitem"><span class="methodexample">saveFile('mods/My-Mod/data/textFile.txt', 'Hello World!', true)</span> - Same as above but with absolute path.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="deleteFile">deleteFile</h2>
+			<p class="methodbox">deleteFile(<span class="variablemarkup">file</span>:String, <span class="isoptional">?</span><span class="variablemarkup">ignoreModFolders</span>:Bool = false, <span class="isoptional">?</span><span class="variablemarkup">absolute</span>:Bool = false):Bool</p>
+			<p>Returns true if the file existed and was deleted successfully.</p>
+			<ul>
+				<li><b><span class="variablemarkup">file</span></b> - File name path</li>
+				<li><b><span class="variablemarkup">ignoreModFolders</span> (Optional)</b> - Ignore all files that are not compiled (softcoded files), does nothing when "absolute" is true.</li>
+				<li><b><span class="variablemarkup">absolute</span> (Optional)</b> - Toggles absolute path.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">deleteFile('data/textFile.txt')</span> - Deletes file "mods/My-Mod/data/textFile.txt".</li>
+				<li class="exampleitem"><span class="methodexample">deleteFile('mods/My-Mod/data/textFile.txt', _, true)</span> - Same as above but with absolute path.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="directoryFileList">directoryFileList</h2>
+			<p class="methodbox">directoryFileList(<span class="variablemarkup">folder</span>:String):Array&lt;String&gt;</p>
+			<p>Returns a table with the name of all files inside a mentioned path.</p>
+			<ul>
+				<li><b><span class="variablemarkup">folder</span></b> - Absolute folder path.</li>
+			</ul>
+			<hr>
+
+			<h2 id="checkFileExists">checkFileExists</h2>
+			<p class="methodbox">checkFileExists(<span class="variablemarkup">file</span>:String, <span class="isoptional">?</span><span class="variablemarkup">absolute</span>:Bool = false):Bool</p>
+			<p>Returns true if the file input exists.</p>
+			<ul>
+				<li><b><span class="variablemarkup">file</span></b> - File name path</li>
+				<li><b><span class="variablemarkup">absolute</span> (Optional)</b> - Toggles absolute path.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">checkFileExists('data/myFile.json')</span> - Checks for "mods/My-Mod/data/myFile.json".</li>
+				<li class="exampleitem"><span class="methodexample">checkFileExists('mods/My-Mod/data/myFile.json', true)</span> - Same as above but with absolute path.</li>
+			</ul>
+	</body>
+</html>
