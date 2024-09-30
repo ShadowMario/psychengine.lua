@@ -1,0 +1,86 @@
+<html lang="en"></html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Psych Engine - Character Functions</title>
+		<link rel="stylesheet" href="../css/main.css">
+		<link rel="stylesheet" href="../css/header.css">
+		<link rel="stylesheet" href="../css/search.css">
+		<link rel="stylesheet" href="../css/theme.css">
+		<link rel="icon" href="../assets/icon.ico" type="image/x-icon">
+	</head>
+
+	<body>
+		<!-- Create Search Bar and Theme Boxes-->
+		<div class="sidebar"></div>
+		<div class="themeBox" onclick="switchTheme()">
+			<div class="themeDot"></div>
+			<div class="themeDot" style="margin-left: 70px"></div>
+			<button class="themeBtn" id="themeSelector"></button>
+		</div>
+
+		<!-- Load JavaScript-->
+		<script src="../js/selector.js"></script>
+		<script>createSidebarContent();</script>
+		<script src="../js/searchbar.js"></script>
+		<script src="../js/theme.js"></script>
+
+		<!-- Header -->
+		<div class="headerbox">
+			<div class="header">
+				<a href="../index.html">
+					<img width="64" src="../assets/icon.ico" alt="Psych Engine Logo" draggable="false">
+					<div class="headertext">Psych Engine - Lua Script API</div>
+				</a>
+			</div>
+		</div>
+
+		<!-- Page Info -->
+		<div class="infobox">
+			<h1>Character Functions</h1>
+			<p><b>Functions to change a Character Group's position and make them dance.</b></p>
+			<hr>
+			<h2 id="characterDance">characterDance</h2>
+			<p class="methodbox">characterDance(<span class="variablemarkup">character</span>:String):Void</p>
+			<p>Makes a character play their idle animation if possible.
+			<br>This is different from <a href="objects.html#playAnim">"playAnim"</a> because it cycles through "danceLeft" and "danceRight" automatically for characters.</p>
+			<ul>
+				<li><b><span class="variablemarkup">character</span></b> - "bf", "dad" or "gf".</li>
+			</ul>
+			<hr>
+
+			<h2 id="getCharacterX">getCharacterX</h2>
+			<p class="methodbox">getCharacterX(<span class="variablemarkup">character</span>:String):Float</p>
+			<p>Returns a Character Group's X, this will affect all character positions, even if you use "Change Character" event.</p>
+			<ul>
+				<li><b><span class="variablemarkup">character</span></b> - "bf", "dad" or "gf".</li>
+			</ul>
+			<hr>
+
+			<h2 id="getCharacterY">getCharacterY</h2>
+			<p class="methodbox">getCharacterY(<span class="variablemarkup">character</span>:String):Float</p>
+			<p>Returns a Character Group's Y, this will affect all character positions, even if you use "Change Character" event.</p>
+			<ul>
+				<li><b><span class="variablemarkup">character</span></b> - "bf", "dad" or "gf".</li>
+			</ul>
+			<hr>
+
+			<h2 id="setCharacterX">setCharacterX</h2>
+			<p class="methodbox">setCharacterX(<span class="variablemarkup">character</span>:String, <span class="variablemarkup">value</span>:Float):Void</p>
+			<p>Sets a Character Group's X, this will affect all character positions, even if you use "Change Character" event.</p>
+			<ul>
+				<li><b><span class="variablemarkup">character</span></b> - "bf", "dad" or "gf".</li>
+				<li><b><span class="variablemarkup">value</span></b> - Value to set it to.</li>
+			</ul>
+			<hr>
+
+			<h2 id="setCharacterY">setCharacterY</h2>
+			<p class="methodbox">setCharacterY(<span class="variablemarkup">character</span>:String, <span class="variablemarkup">value</span>:Float):Void</p>
+			<p>Sets a Character Group's Y, this will affect all character positions, even if you use "Change Character" event.</p>
+			<ul>
+				<li><b><span class="variablemarkup">character</span></b> - "bf", "dad" or "gf".</li>
+				<li><b><span class="variablemarkup">value</span></b> - Value to set it to.</li>
+			</ul>
+		</div>
+	</body>
+</html>

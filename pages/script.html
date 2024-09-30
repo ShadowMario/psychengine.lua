@@ -57,6 +57,7 @@
 			<h4>Examples:</h4>
 			<ul class="methoddiv">
 				<li class="exampleitem"><span class="methodexample">callScript('mods/scripts/test.lua', 'customFunction', {0, 999})</span> - This will call <span class="methodexample">customFunction(0, 999)</span> in the script at <span class="methodexample">mods/scripts/test.lua</span>.</li>
+				<li class="exampleitem"><span class="methodexample">callScript('scripts/test', 'customFunction', {0, 999})</span> - Same as above, but without absolute path.</li>
 			</ul>
 			<hr>
 
@@ -70,6 +71,7 @@
 			<h4>Examples:</h4>
 			<ul class="methoddiv">
 				<li class="exampleitem"><span class="methodexample">callScript('mods/scripts/disabled/test.lua')</span> - This will initialize the script at <span class="methodexample">mods/scripts/disabled/test.lua</span>.</li>
+				<li class="exampleitem"><span class="methodexample">callScript('scripts/disabled/test')</span> - Same as above, but without absolute path.</li>
 			</ul>
 			<hr>
 
@@ -83,6 +85,7 @@
 			<h4>Examples:</h4>
 			<ul class="methoddiv">
 				<li class="exampleitem"><span class="methodexample">callScript('mods/scripts/disabled/test.hx')</span> - This will initialize the script at <span class="methodexample">mods/scripts/disabled/test.hx</span>.</li>
+				<li class="exampleitem"><span class="methodexample">callScript('scripts/disabled/test')</span> - Same as above, but without absolute path.</li>
 			</ul>
 			<hr>
 
@@ -96,6 +99,7 @@
 			<h4>Examples:</h4>
 			<ul class="methoddiv">
 				<li class="exampleitem"><span class="methodexample">removeLuaScript('mods/scripts/test.lua')</span> - Stops the Lua script at <span class="methodexample">mods/scripts/test.lua</span>.</li>
+				<li class="exampleitem"><span class="methodexample">removeLuaScript('scripts/test')</span> - Same as above, but without absolute path.</li>
 			</ul>
 			<hr>
 
@@ -109,6 +113,7 @@
 			<h4>Examples:</h4>
 			<ul class="methoddiv">
 				<li class="exampleitem"><span class="methodexample">removeHScript('mods/scripts/test.hx')</span> - Stops HScript at <span class="methodexample">mods/scripts/test.hx</span>.</li>
+				<li class="exampleitem"><span class="methodexample">removeHScript('scripts/test')</span> - Same as above, but without absolute path.</li>
 			</ul>
 			<hr>
 
@@ -122,6 +127,7 @@
 			<ul class="methoddiv">
 				<li class="exampleitem"><span class="methodexample">isRunning('mods/scripts/test.lua')</span> - For Lua Scripts.</li>
 				<li class="exampleitem"><span class="methodexample">isRunning('mods/scripts/test.hx')</span> - For HScript.</li>
+				<li class="exampleitem"><span class="methodexample">isRunning('scripts/test')</span> - Without absolute path, it could end up detecting any of both.</li>
 			</ul>
 			<hr>
 

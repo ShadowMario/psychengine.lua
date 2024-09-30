@@ -1,0 +1,267 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Psych Engine - Tween Functions</title>
+		<link rel="stylesheet" href="../css/main.css">
+		<link rel="stylesheet" href="../css/header.css">
+		<link rel="stylesheet" href="../css/search.css">
+		<link rel="stylesheet" href="../css/theme.css">
+		<link rel="icon" href="../assets/icon.ico" type="image/x-icon">
+	</head>
+
+	<body>
+		<!-- Create Search Bar and Theme Boxes-->
+		<div class="sidebar"></div>
+		<div class="themeBox" onclick="switchTheme()">
+			<div class="themeDot"></div>
+			<div class="themeDot" style="margin-left: 70px"></div>
+			<button class="themeBtn" id="themeSelector"></button>
+		</div>
+
+		<!-- Load JavaScript-->
+		<script src="../js/selector.js"></script>
+		<script>createSidebarContent();</script>
+		<script src="../js/searchbar.js"></script>
+		<script src="../js/theme.js"></script>
+
+		<!-- Header -->
+		<div class="headerbox">
+			<div class="header">
+				<a href="../index.html">
+					<img width="64" src="../assets/icon.ico" alt="Psych Engine Logo" draggable="false">
+					<div class="headertext">Psych Engine - Lua Script API</div>
+				</a>
+			</div>
+		</div>
+
+		<!-- Page Info -->
+		<div class="infobox">
+			<h1>Tween Functions</h1>
+			<p><b>Functions to start tweens for visual effects.</b></p>
+			<hr>
+			<h2 id="startTween">startTween</h2>
+			<p class="methodbox">startTween(<span class="variablemarkup">twnTag</span>:String, <span class="variablemarkup">objTag</span>:String, <span class="variablemarkup">values</span>:Any, <span class="variablemarkup">duration</span>:Float, <span class="isoptional">?</span><span class="variablemarkup">options</span>:Any = null):String</p>
+			<p>Starts a complex tween and call function "onTweenCompleted" when it ends.
+			<br>Returns the formatted Tween tag.</p>
+			<ul>
+				<li><b><span class="variablemarkup">twnTag</span></b> - Tween tag for the "onTweenCompleted" function, it should be unique or it will overwrite the previous one with the same name.</li>
+				<li><b><span class="variablemarkup">objTag</span></b> - Sprite variable name or Lua Sprite nametag.</li>
+				<li><b><span class="variablemarkup">values</span></b> - A table with the properties to change and its target values at the end of the tween.</li>
+				<li><b><span class="variablemarkup">duration</span></b> - Tween duration.</li>
+				<li><b><span class="variablemarkup">options</span> (Optional)</b> - Tween options, it's a table with all optional values you can set: "type", "ease", "startDelay", "loopDelay", "onUpdate", "onStart", "onComplete".</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">startTween('someBFtween', 'boyfriend.scale', {x = 1.5, y = 1.5}, 0.5, {ease = 'sineOut'})</span> - Starts a tween for Player's Scale.</li>
+				<li class="exampleitem"><span class="methodexample">startTween('mySpriteTween', 'mySprite', {x = 1000, y = 500}, 0.5, {ease = 'quadOut', onComplete = 'myTween'})</span> - Starts a tween on the Position of "mySprite" Lua Sprite, calls <span class="methodexample">function myTween('mySpriteTween', 'mySprite')</span> on complete.</li>
+			</ul>
+			<p style="color: gray">Note: For optimization sake, if you're changing a single value, you should use the other tween functions when possible.</p>
+			<hr>
+
+			<h2 id="doTweenX">doTweenX</h2>
+			<p class="methodbox">doTweenX(<span class="variablemarkup">twnTag</span>:String, <span class="variablemarkup">objTag</span>:String, <span class="variablemarkup">value</span>:Dynamic, <span class="variablemarkup">duration</span>:Float, <span class="isoptional">?</span><span class="variablemarkup">ease</span>:String = 'linear'):String</p>
+			<p>Starts a simple tween to change the Sprite's X and call function "onTweenCompleted" when it ends.
+			<br>Returns the formatted Tween tag.</p>
+			<ul>
+				<li><b><span class="variablemarkup">twnTag</span></b> - Tween tag for the "onTweenCompleted" function, it should be unique or it will overwrite the previous one with the same name.</li>
+				<li><b><span class="variablemarkup">objTag</span></b> - Sprite variable name or Lua Sprite nametag.</li>
+				<li><b><span class="variablemarkup">value</span></b> - Target value at the end of the tween.</li>
+				<li><b><span class="variablemarkup">duration</span></b> - Tween duration.</li>
+				<li><b><span class="variablemarkup">ease</span> (Optional)</b> - <a href="https://api.haxeflixel.com/flixel/tweens/FlxEase.html">Tween ease</a>, defaults to "linear".</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">doTweenX('mySpriteTween', 'mySprite', 1000, 0.5, 'quadOut')</span> - Starts a tween on the X Position of "mySprite" Lua Sprite.</li>
+			</ul>
+			<hr>
+
+			<h2 id="doTweenY">doTweenY</h2>
+			<p class="methodbox">doTweenY(<span class="variablemarkup">twnTag</span>:String, <span class="variablemarkup">objTag</span>:String, <span class="variablemarkup">value</span>:Dynamic, <span class="variablemarkup">duration</span>:Float, <span class="isoptional">?</span><span class="variablemarkup">ease</span>:String = 'linear'):String</p>
+			<p>Starts a simple tween to change the Sprite's Y and call function "onTweenCompleted" when it ends.
+			<br>Returns the formatted Tween tag.</p>
+			<ul>
+				<li><b><span class="variablemarkup">twnTag</span></b> - Tween tag for the "onTweenCompleted" function, it should be unique or it will overwrite the previous one with the same name.</li>
+				<li><b><span class="variablemarkup">objTag</span></b> - Sprite variable name or Lua Sprite nametag.</li>
+				<li><b><span class="variablemarkup">value</span></b> - Target value at the end of the tween.</li>
+				<li><b><span class="variablemarkup">duration</span></b> - Tween duration.</li>
+				<li><b><span class="variablemarkup">ease</span> (Optional)</b> - <a href="https://api.haxeflixel.com/flixel/tweens/FlxEase.html">Tween ease</a>, defaults to "linear".</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">doTweenY('mySpriteTween', 'mySprite', 500, 0.5, 'quadOut')</span> - Starts a tween on the Y Position of "mySprite" Lua Sprite.</li>
+			</ul>
+			<hr>
+
+			<h2 id="doTweenAngle">doTweenAngle</h2>
+			<p class="methodbox">doTweenAngle(<span class="variablemarkup">twnTag</span>:String, <span class="variablemarkup">objTag</span>:String, <span class="variablemarkup">value</span>:Dynamic, <span class="variablemarkup">duration</span>:Float, <span class="isoptional">?</span><span class="variablemarkup">ease</span>:String = 'linear'):String</p>
+			<p>Starts a simple tween to change the Sprite's Angle and call function "onTweenCompleted" when it ends.
+			<br>Returns the formatted Tween tag.</p>
+			<ul>
+				<li><b><span class="variablemarkup">twnTag</span></b> - Tween tag for the "onTweenCompleted" function, it should be unique or it will overwrite the previous one with the same name.</li>
+				<li><b><span class="variablemarkup">objTag</span></b> - Sprite variable name or Lua Sprite nametag.</li>
+				<li><b><span class="variablemarkup">value</span></b> - Target value at the end of the tween.</li>
+				<li><b><span class="variablemarkup">duration</span></b> - Tween duration.</li>
+				<li><b><span class="variablemarkup">ease</span> (Optional)</b> - <a href="https://api.haxeflixel.com/flixel/tweens/FlxEase.html">Tween ease</a>, defaults to "linear".</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">doTweenAngle('mySpriteTween', 'mySprite', 90, 0.5, 'quadOut')</span> - Starts a tween on Angle of "mySprite" Lua Sprite to set it to 90°.</li>
+			</ul>
+			<hr>
+
+			<h2 id="doTweenAlpha">doTweenAlpha</h2>
+			<p class="methodbox">doTweenAlpha(<span class="variablemarkup">twnTag</span>:String, <span class="variablemarkup">objTag</span>:String, <span class="variablemarkup">value</span>:Dynamic, <span class="variablemarkup">duration</span>:Float, <span class="isoptional">?</span><span class="variablemarkup">ease</span>:String = 'linear'):String</p>
+			<p>Starts a simple tween to change the Sprite's Alpha and call function "onTweenCompleted" when it ends.
+			<br>Returns the formatted Tween tag.</p>
+			<ul>
+				<li><b><span class="variablemarkup">twnTag</span></b> - Tween tag for the "onTweenCompleted" function, it should be unique or it will overwrite the previous one with the same name.</li>
+				<li><b><span class="variablemarkup">objTag</span></b> - Sprite variable name or Lua Sprite nametag.</li>
+				<li><b><span class="variablemarkup">value</span></b> - Target value at the end of the tween, ranges from 0 to 1.</li>
+				<li><b><span class="variablemarkup">duration</span></b> - Tween duration.</li>
+				<li><b><span class="variablemarkup">ease</span> (Optional)</b> - <a href="https://api.haxeflixel.com/flixel/tweens/FlxEase.html">Tween ease</a>, defaults to "linear".</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">doTweenAlpha('mySpriteTween', 'mySprite', 0.25, 0.5, 'quadOut')</span> - Starts a tween on the Alpha of "mySprite" Lua Sprite.</li>
+			</ul>
+			<hr>
+
+			<h2 id="doTweenColor">doTweenColor</h2>
+			<p class="methodbox">doTweenColor(<span class="variablemarkup">twnTag</span>:String, <span class="variablemarkup">objTag</span>:String, <span class="variablemarkup">targetColor</span>:String, <span class="variablemarkup">duration</span>:Float, <span class="isoptional">?</span><span class="variablemarkup">ease</span>:String = 'linear'):String</p>
+			<p>Starts a simple tween to change the Sprite's Color and call function "onTweenCompleted" when it ends.
+			<br>Returns the formatted Tween tag.</p>
+			<ul>
+				<li><b><span class="variablemarkup">twnTag</span></b> - Tween tag for the "onTweenCompleted" function, it should be unique or it will overwrite the previous one with the same name.</li>
+				<li><b><span class="variablemarkup">objTag</span></b> - Sprite variable name or Lua Sprite nametag.</li>
+				<li><b><span class="variablemarkup">targetColor</span></b> - Color hexadecimal string or <a href="https://api.haxeflixel.com/flixel/util/FlxColor.html">color name</a>.</li>
+				<li><b><span class="variablemarkup">duration</span></b> - Tween duration.</li>
+				<li><b><span class="variablemarkup">ease</span> (Optional)</b> - <a href="https://api.haxeflixel.com/flixel/tweens/FlxEase.html">Tween ease</a>, defaults to "linear".</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">doTweenColor('mySpriteTween', 'mySprite', 'FF0000', 0.5, 'sineOut')</span> - Starts a tween on "mySprite" Lua Sprite to make it red.</li>
+				<li class="exampleitem"><span class="methodexample">doTweenColor('mySpriteTween', 'mySprite', 'blue', 0.5, 'sineOut')</span> - Starts a tween on "mySprite" Lua Sprite to make it blue.</li>
+			</ul>
+			<hr>
+
+			<h2 id="doTweenZoom">doTweenZoom</h2>
+			<p class="methodbox">doTweenZoom(<span class="variablemarkup">twnTag</span>:String, <span class="variablemarkup">camera</span>:String, <span class="variablemarkup">value</span>:Dynamic, <span class="variablemarkup">duration</span>:Float, <span class="isoptional">?</span><span class="variablemarkup">ease</span>:String = 'linear'):String</p>
+			<p>Starts a simple tween to change the Camera's Zoom and call function "onTweenCompleted" when it ends.
+			<br>Returns the formatted Tween tag.</p>
+			<ul>
+				<li><b><span class="variablemarkup">twnTag</span></b> - Tween tag for the "onTweenCompleted" function, it should be unique or it will overwrite the previous one with the same name.</li>
+				<li><b><span class="variablemarkup">camera</span></b> - Can be "game", "hud" or "other".</li>
+				<li><b><span class="variablemarkup">value</span></b> - Target value at the end of the tween.</li>
+				<li><b><span class="variablemarkup">duration</span></b> - Tween duration.</li>
+				<li><b><span class="variablemarkup">ease</span> (Optional)</b> - <a href="https://api.haxeflixel.com/flixel/tweens/FlxEase.html">Tween ease</a>, defaults to "linear".</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">doTweenZoom('testZoomTween', 'game', 1.5, 0.5, 'linear')</span></li>
+			</ul>
+			<p style="color: gray">Note: Use "setProperty('camZooming', false)" to disable the camera automatic zoom-in.</p>
+			<hr>
+
+			<h2 id="noteTweenX">noteTweenX</h2>
+			<p class="methodbox">noteTweenX(<span class="variablemarkup">twnTag</span>:String, <span class="variablemarkup">objTag</span>:String, <span class="variablemarkup">value</span>:Dynamic, <span class="variablemarkup">duration</span>:Float, <span class="isoptional">?</span><span class="variablemarkup">ease</span>:String = 'linear'):String</p>
+			<p>Starts a simple tween to change a Strum Note's X and call function "onTweenCompleted" when it ends.
+			<br>Returns the formatted Tween tag.</p>
+			<ul>
+				<li><b><span class="variablemarkup">twnTag</span></b> - Tween tag for the "onTweenCompleted" function, it should be unique or it will overwrite the previous one with the same name.</li>
+				<li><b><span class="variablemarkup">note</span></b> - Strum Note ID (0-3 = Opponent, 4-7 = Player).</li>
+				<li><b><span class="variablemarkup">value</span></b> - Target value at the end of the tween.</li>
+				<li><b><span class="variablemarkup">duration</span></b> - Tween duration.</li>
+				<li><b><span class="variablemarkup">ease</span> (Optional)</b> - <a href="https://api.haxeflixel.com/flixel/tweens/FlxEase.html">Tween ease</a>, defaults to "linear".</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">noteTweenX('mySpriteTween', 2, 600, 0.5, 'quadOut')</span> - Moves the Opponent's Up note.</li>
+				<li class="exampleitem"><span class="methodexample">noteTweenX('mySpriteTween', 7, 600, 0.5, 'quadOut')</span> - Moves the Player's Right note.</li>
+			</ul>
+			<hr>
+
+			<h2 id="noteTweenY">noteTweenY</h2>
+			<p class="methodbox">noteTweenY(<span class="variablemarkup">twnTag</span>:String, <span class="variablemarkup">objTag</span>:String, <span class="variablemarkup">value</span>:Dynamic, <span class="variablemarkup">duration</span>:Float, <span class="isoptional">?</span><span class="variablemarkup">ease</span>:String = 'linear'):String</p>
+			<p>Starts a simple tween to change a Strum Note's Y and call function "onTweenCompleted" when it ends.
+			<br>Returns the formatted Tween tag.</p>
+			<ul>
+				<li><b><span class="variablemarkup">twnTag</span></b> - Tween tag for the "onTweenCompleted" function, it should be unique or it will overwrite the previous one with the same name.</li>
+				<li><b><span class="variablemarkup">note</span></b> - Strum Note ID (0-3 = Opponent, 4-7 = Player).</li>
+				<li><b><span class="variablemarkup">value</span></b> - Target value at the end of the tween.</li>
+				<li><b><span class="variablemarkup">duration</span></b> - Tween duration.</li>
+				<li><b><span class="variablemarkup">ease</span> (Optional)</b> - <a href="https://api.haxeflixel.com/flixel/tweens/FlxEase.html">Tween ease</a>, defaults to "linear".</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv"></ul>
+				<li class="exampleitem"><span class="methodexample">noteTweenY('mySpriteTween', 2, 300, 0.5, 'quadOut')</span> - Moves the Opponent's Up note.</li>
+				<li class="exampleitem"><span class="methodexample">noteTweenY('mySpriteTween', 7, 300, 0.5, 'quadOut')</span> - Moves the Player's Right note.</li>
+			</ul>
+			<hr>
+
+			<h2 id="noteTweenAngle">noteTweenAngle</h2>
+			<p class="methodbox">noteTweenAngle(<span class="variablemarkup">twnTag</span>:String, <span class="variablemarkup">objTag</span>:String, <span class="variablemarkup">value</span>:Dynamic, <span class="variablemarkup">duration</span>:Float, <span class="isoptional">?</span><span class="variablemarkup">ease</span>:String = 'linear'):String</p>
+			<p>Starts a simple tween to change a Strum Note's Angle and call function "onTweenCompleted" when it ends.
+			<br>Returns the formatted Tween tag.</p>
+			<ul>
+				<li><b><span class="variablemarkup">twnTag</span></b> - Tween tag for the "onTweenCompleted" function, it should be unique or it will overwrite the previous one with the same name.</li>
+				<li><b><span class="variablemarkup">note</span></b> - Strum Note ID (0-3 = Opponent, 4-7 = Player).</li>
+				<li><b><span class="variablemarkup">value</span></b> - Target value at the end of the tween.</li>
+				<li><b><span class="variablemarkup">duration</span></b> - Tween duration.</li>
+				<li><b><span class="variablemarkup">ease</span> (Optional)</b> - <a href="https://api.haxeflixel.com/flixel/tweens/FlxEase.html">Tween ease</a>, defaults to "linear".</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv"></ul>
+				<li class="exampleitem"><span class="methodexample">noteTweenAngle('mySpriteTween', 2, 90, 0.5, 'quadOut')</span> - Moves the Opponent's Up note.</li>
+				<li class="exampleitem"><span class="methodexample">noteTweenAngle('mySpriteTween', 7, 150, 0.5, 'quadOut')</span> - Moves the Player's Right note.</li>
+			</ul>
+			<hr>
+
+			<h2 id="noteTweenAlpha">noteTweenAlpha</h2>
+			<p class="methodbox">noteTweenAlpha(<span class="variablemarkup">twnTag</span>:String, <span class="variablemarkup">objTag</span>:String, <span class="variablemarkup">value</span>:Dynamic, <span class="variablemarkup">duration</span>:Float, <span class="isoptional">?</span><span class="variablemarkup">ease</span>:String = 'linear'):String</p>
+			<p>Starts a simple tween to change a Strum Note's Alpha and call function "onTweenCompleted" when it ends.
+			<br>Returns the formatted Tween tag.</p>
+			<ul>
+				<li><b><span class="variablemarkup">twnTag</span></b> - Tween tag for the "onTweenCompleted" function, it should be unique or it will overwrite the previous one with the same name.</li>
+				<li><b><span class="variablemarkup">note</span></b> - Strum Note ID (0-3 = Opponent, 4-7 = Player).</li>
+				<li><b><span class="variablemarkup">value</span></b> - Target value at the end of the tween, ranges from 0 to 1.</li>
+				<li><b><span class="variablemarkup">duration</span></b> - Tween duration.</li>
+				<li><b><span class="variablemarkup">ease</span> (Optional)</b> - <a href="https://api.haxeflixel.com/flixel/tweens/FlxEase.html">Tween ease</a>, defaults to "linear".</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv"></ul>
+				<li class="exampleitem"><span class="methodexample">noteTweenAlpha('mySpriteTween', 2, 0.25, 0.5, 'quadOut')</span> - Lowers opacity of the Opponent's Up note.</li>
+				<li class="exampleitem"><span class="methodexample">noteTweenAlpha('mySpriteTween', 7, 0.25, 0.5, 'quadOut')</span> - Lowers opacity of the Player's Right note.</li>
+			</ul>
+			<hr>
+
+			<h2 id="noteTweenDirection">noteTweenDirection</h2>
+			<p class="methodbox">noteTweenDirection(<span class="variablemarkup">twnTag</span>:String, <span class="variablemarkup">objTag</span>:String, <span class="variablemarkup">value</span>:Dynamic, <span class="variablemarkup">duration</span>:Float, <span class="isoptional">?</span><span class="variablemarkup">ease</span>:String = 'linear'):String</p>
+			<p>Starts a simple tween to change a Strum Note's Direction and call function "onTweenCompleted" when it ends.
+			<br>Returns the formatted Tween tag.</p>
+			<ul>
+				<li><b><span class="variablemarkup">twnTag</span></b> - Tween tag for the "onTweenCompleted" function, it should be unique or it will overwrite the previous one with the same name.</li>
+				<li><b><span class="variablemarkup">note</span></b> - Strum Note ID (0-3 = Opponent, 4-7 = Player).</li>
+				<li><b><span class="variablemarkup">value</span></b> - Target value at the end of the tween, ranges from 0 to 1.</li>
+				<li><b><span class="variablemarkup">duration</span></b> - Tween duration.</li>
+				<li><b><span class="variablemarkup">ease</span> (Optional)</b> - <a href="https://api.haxeflixel.com/flixel/tweens/FlxEase.html">Tween ease</a>, defaults to "linear".</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv"></ul>
+			<li class="exampleitem"><span class="methodexample">noteTweenAlpha('mySpriteTween', 2, 180, 0.5, 'quadOut')</span> - Makes notes come sideways from the Opponent's Up note.</li>
+			<li class="exampleitem"><span class="methodexample">noteTweenAlpha('mySpriteTween', 7, 0, 0.5, 'quadOut')</span> - Makes notes come sideways from the Player's Right note.</li>
+			</ul>
+			<hr>
+
+			<h2 id="cancelTween">cancelTween</h2>
+			<p class="methodbox">cancelTween(<span class="variablemarkup">twnTag</span>:String):Void</p>
+			<p>Cancels a Tween created with any of the Tween functions.</p>
+			<ul>
+				<li><b><span class="variablemarkup">twnTag</span></b> - Tween's tag.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">cancelTween('myTween')</span> - Cancels the tween created with the Tween tag "myTween".</li>
+			</ul>
+	</body>
+</html>

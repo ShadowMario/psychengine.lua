@@ -1,0 +1,202 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Psych Engine - Sound Functions</title>
+		<link rel="stylesheet" href="../css/main.css">
+		<link rel="stylesheet" href="../css/header.css">
+		<link rel="stylesheet" href="../css/search.css">
+		<link rel="stylesheet" href="../css/theme.css">
+		<link rel="icon" href="../assets/icon.ico" type="image/x-icon">
+	</head>
+
+	<body>
+		<!-- Create Search Bar and Theme Boxes-->
+		<div class="sidebar"></div>
+		<div class="themeBox" onclick="switchTheme()">
+			<div class="themeDot"></div>
+			<div class="themeDot" style="margin-left: 70px"></div>
+			<button class="themeBtn" id="themeSelector"></button>
+		</div>
+
+		<!-- Load JavaScript-->
+		<script src="../js/selector.js"></script>
+		<script>createSidebarContent();</script>
+		<script src="../js/searchbar.js"></script>
+		<script src="../js/theme.js"></script>
+
+		<!-- Header -->
+		<div class="headerbox">
+			<div class="header">
+				<a href="../index.html">
+					<img width="64" src="../assets/icon.ico" alt="Psych Engine Logo" draggable="false">
+					<div class="headertext">Psych Engine - Lua Script API</div>
+				</a>
+			</div>
+		</div>
+
+		<!-- Page Info -->
+		<div class="infobox">
+			<h1>Sound Functions</h1>
+			<p><b>Functions to play sounds and music, change their volume, time and pitch.</b></p>
+			<hr>
+			<h2 id="playSound">playSound</h2>
+			<p class="methodbox">playSound(<span class="variablemarkup">sound</span>:String,
+				<span class="isoptional">?</span><span class="variablemarkup">volume</span>:Float = 1,
+				<span class="isoptional">?</span><span class="variablemarkup">tag</span>:Int = 0,
+				<span class="isoptional">?</span><span class="variablemarkup">loop</span>:Bool = false):String</p>
+			<p>Plays a sound, set a Tag to be able to use any functions on it.
+			<br>Calls function "onSoundFinished(tag)" when it finishes if "tag" isn't null.
+			<br>Returns the Sound's formatted Tag if tag isn't null, otherwise returns null.</p>
+			<ul>
+				<li><b><span class="variablemarkup">sound</span></b> - Sound path inside "sounds/" folder, don't include the extension!</li>
+				<li><b><span class="variablemarkup">volume</span> (Optional)</b> - Ranges from 0 to 1, defaults to 1.</li>
+				<li><b><span class="variablemarkup">tag</span> (Optional)</b> - Lua Sound nametag to save.</li>
+				<li><b><span class="variablemarkup">loop</span> (Optional)</b> - Should sound loop indefinitely?</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">playSound('confirmMenu', 0.4)</span> - Plays "assets/shared/sounds/confirmMenu.ogg".</li>
+				<li class="exampleitem"><span class="methodexample">playSound('custom_sound', 0.4, 'mySound')</span> - Plays "mods/My-Mod/sounds/custom_sound.ogg" and save it to "mySound" tag.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="playMusic">playMusic</h2>
+			<p class="methodbox">playMusic(<span class="variablemarkup">music</span>:String,
+				<span class="isoptional">?</span><span class="variablemarkup">volume</span>:Float = 1,
+				<span class="isoptional">?</span><span class="variablemarkup">loop</span>:Bool = false):Void</p>
+			<p>Plays a music, used for Pre/Post Song cutscenes.</p>
+			<ul>
+				<li><b><span class="variablemarkup">music</span></b> - Music path inside "music/" folder, don't include the extension!</li>
+				<li><b><span class="variablemarkup">volume</span> (Optional)</b> - Ranges from 0 to 1, defaults to 1.</li>
+				<li><b><span class="variablemarkup">loop</span> (Optional)</b> - Should sound loop indefinitely?</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">playMusic('breakfast')</span> - Plays "assets/shared/music/breakfast.ogg".</li>
+			</ul>
+			<hr>
+			
+			<h2 id="soundFadeIn">soundFadeIn</h2>
+			<p class="methodbox">soundFadeIn(<span class="variablemarkup">tag</span>:String,
+				<span class="variablemarkup">duration</span>:Float,
+				<span class="isoptional">?</span><span class="variablemarkup">fromValue</span>:Float = 1,
+				<span class="isoptional">?</span><span class="variablemarkup">toValue</span>:Float = 1):Void</p>
+			<p>Tweens the volume from a Lua Sound with a specific tag doing a Fade In.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Lua Sound nametag, use "null" for the Music from <a href="#playMusic">"playMusic"</a>.</li>
+				<li><b><span class="variablemarkup">duration</span></b> - Tween duration.</li>
+				<li><b><span class="variablemarkup">fromValue</span></b> - Tween initial volume.</li>
+				<li><b><span class="variablemarkup">toValue</span></b> - Tween target volume.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">soundFadeIn('mySound', 0.5)</span> - Fades "mySound" Lua Sound in 0.5 seconds.</li>
+				<li class="exampleitem"><span class="methodexample">soundFadeIn(_, 0.5)</span> - Fades background music in 0.5 seconds.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="soundFadeOut">soundFadeOut</h2>
+			<p class="methodbox">soundFadeOut(<span class="variablemarkup">tag</span>:String,
+				<span class="variablemarkup">duration</span>:Float,
+				<span class="isoptional">?</span><span class="variablemarkup">toValue</span>:Float = 1):Void</p>
+			<p>Tweens the volume from a Lua Sound with a specific tag doing a Fade Out.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Lua Sound nametag, use "null" for the Music from <a href="#playMusic">"playMusic"</a>.</li>
+				<li><b><span class="variablemarkup">duration</span></b> - Tween duration.</li>
+				<li><b><span class="variablemarkup">toValue</span></b> - Tween target volume.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="soundFadeCancel">soundFadeCancel</h2>
+			<p class="methodbox">soundFadeCancel(<span class="variablemarkup">tag</span>:String):Void</p>
+			<p>Stops the Fade In/Out of a Lua Sound with a specific tag.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Lua Sound nametag, use "null" for the Music from <a href="#playMusic">"playMusic"</a>.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="stopSound">stopSound</h2>
+			<p class="methodbox">stopSound(<span class="variablemarkup">tag</span>:String):Void</p>
+			<p>Interrupts and clears a Lua Sound with a specific tag.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Lua Sound nametag, use "null" for the Music from <a href="#playMusic">"playMusic"</a>.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="pauseSound">pauseSound</h2>
+			<p class="methodbox">pauseSound(<span class="variablemarkup">tag</span>:String):Void</p>
+			<p>Pauses a Lua Sound with a specific tag.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Lua Sound nametag, use "null" for the Music from <a href="#playMusic">"playMusic"</a>.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="resumeSound">resumeSound</h2>
+			<p class="methodbox">resumeSound(<span class="variablemarkup">tag</span>:String):Void</p>
+			<p>Resumes a Lua Sound with a specific tag.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Lua Sound nametag, use "null" for the Music from <a href="#playMusic">"playMusic"</a>.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="luaSoundExists">luaSoundExists</h2>
+			<p class="methodbox">luaSoundExists(<span class="variablemarkup">tag</span>:String):Bool</p>
+			<p>Returns if a Lua Sound with a specific tag exists.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Lua Sound nametag.</li>
+			</ul>
+			<hr>
+
+			<h2 id="getSoundVolume">getSoundVolume</h2>
+			<p class="methodbox">getSoundVolume(<span class="variablemarkup">tag</span>:String):Float</p>
+			<p>Returns a Lua Sound's volume, if missing, it returns 0.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Lua Sound nametag, use "null" for the Music from <a href="#playMusic">"playMusic"</a>.</li>
+			</ul>
+			<hr>
+
+			<h2 id="setSoundVolume">setSoundVolume</h2>
+			<p class="methodbox">setSoundVolume(<span class="variablemarkup">tag</span>:String, <span class="variablemarkup">value</span>:Float):Void</p>
+			<p>Sets a Lua Sound's volume.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Lua Sound nametag, use "null" for the Music from <a href="#playMusic">"playMusic"</a>.</li>
+				<li><b><span class="variablemarkup">value</span></b> - Volume to set it to, ranges from 0 to 1.</li>
+			</ul>
+			<hr>
+
+			<h2 id="getSoundTime">getSoundTime</h2>
+			<p class="methodbox">getSoundTime(<span class="variablemarkup">tag</span>:String):Float</p>
+			<p>Returns a Lua Sound's time position, if missing, it returns 0.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Lua Sound nametag, use "null" for the Music from <a href="#playMusic">"playMusic"</a>.</li>
+			</ul>
+			<hr>
+
+			<h2 id="setSoundTime">setSoundTime</h2>
+			<p class="methodbox">setSoundTime(<span class="variablemarkup">tag</span>:String, <span class="variablemarkup">value</span>:Float):Void</p>
+			<p>Sets a Lua Sound's time position.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Lua Sound nametag, use "null" for the Music from <a href="#playMusic">"playMusic"</a>.</li>
+				<li><b><span class="variablemarkup">value</span></b> - Time to set it to, in milliseconds.</li>
+			</ul>
+			<hr>
+
+			<h2 id="getSoundPitch">getSoundPitch</h2>
+			<p class="methodbox">getSoundPitch(<span class="variablemarkup">tag</span>:String):Float</p>
+			<p>Returns a Lua Sound's pitch shift, if missing, it returns 1.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Lua Sound nametag, use "null" for the Music from <a href="#playMusic">"playMusic"</a>.</li>
+			</ul>
+			<hr>
+
+			<h2 id="setSoundPitch">setSoundPitch</h2>
+			<p class="methodbox">setSoundPitch(<span class="variablemarkup">tag</span>:String, <span class="variablemarkup">value</span>:Float, <span class="isoptional">?</span><span class="variablemarkup">doPause</span>:Float):Void</p>
+			<p>Sets a Lua Sound's pitch shift.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Lua Sound nametag, use "null" for the Music from <a href="#playMusic">"playMusic"</a>.</li>
+				<li><b><span class="variablemarkup">value</span></b> - Time to set it to, in milliseconds.</li>
+				<li><b><span class="variablemarkup">doPause (Optional)</span></b> - Pauses and resumes sound while changing pitch, might be needed to update the Pitch properly unless the sound is already paused.</li>
+			</ul>
+	</body>
+</html>

@@ -18,6 +18,19 @@ function createSidebarContent(prefix) {
 
 	// List items
 	const items = {
+		// PlayState
+		'startCountdown': 'playstate.html',
+		'endSong': 'playstate.html',
+		'getSongPosition': 'playstate.html',
+		'restartSong': 'playstate.html',
+		'exitSong': 'playstate.html',
+		'loadSong': 'playstate.html',
+		'triggerEvent': 'playstate.html',
+		'setHealthBarColors': 'playstate.html',
+		'setTimeBarColors': 'playstate.html',
+		'startDialogue': 'playstate.html',
+		'startVideo': 'playstate.html',
+
 		// Reflection
 		'getProperty': 'reflection.html',
 		'getPropertyFromGroup': 'reflection.html',
@@ -58,6 +71,23 @@ function createSidebarContent(prefix) {
 		'getTextWidth': 'text.html',
 		'luaTextExists': 'text.html',
 
+		// Sound
+		'playSound': 'sound.html',
+		'playMusic': 'sound.html',
+		'soundFadeIn': 'sound.html',
+		'soundFadeOut': 'sound.html',
+		'soundFadeCancel': 'sound.html',
+		'stopSound': 'sound.html',
+		'pauseSound': 'sound.html',
+		'resumeSound': 'sound.html',
+		'getSoundVolume': 'sound.html',
+		'setSoundVolume': 'sound.html',
+		'getSoundTime': 'sound.html',
+		'setSoundTime': 'sound.html',
+		'getSoundPitch': 'sound.html',
+		'setSoundPitch': 'sound.html',
+		'luaSoundExists': 'sound.html',
+
 		// Camera
 		'setCameraScroll': 'camera.html',
 		'setCameraFollowPoint': 'camera.html',
@@ -67,6 +97,7 @@ function createSidebarContent(prefix) {
 		'getCameraScrollY': 'camera.html',
 		'getCameraFollowX': 'camera.html',
 		'getCameraFollowY': 'camera.html',
+		'cameraSetTarget': 'camera.html',
 		'cameraShake': 'camera.html',
 		'cameraFlash': 'camera.html',
 		'cameraFade': 'camera.html',
@@ -92,9 +123,31 @@ function createSidebarContent(prefix) {
 		'gamepadAnalogX': 'input.html',
 		'gamepadAnalogY': 'input.html',
 
+		// Tween
+		'startTween': 'tween.html',
+		'doTweenX': 'tween.html',
+		'doTweenY': 'tween.html',
+		'doTweenAngle': 'tween.html',
+		'doTweenAlpha': 'tween.html',
+		'doTweenColor': 'tween.html',
+		'doTweenZoom': 'tween.html',
+		'noteTweenX': 'tween.html',
+		'noteTweenY': 'tween.html',
+		'noteTweenAngle': 'tween.html',
+		'noteTweenAlpha': 'tween.html',
+		'noteTweenDirection': 'tween.html',
+		'cancelTween': 'tween.html',
+
 		// Timer
 		'runTimer': 'timer.html',
 		'cancelTimer': 'timer.html',
+
+		// Character
+		'getCharacterX': 'character.html',
+		'getCharacterY': 'character.html',
+		'setCharacterX': 'character.html',
+		'setCharacterY': 'character.html',
+		'characterDance': 'character.html',
 
 		// Substate
 		'openCustomSubstate': 'substate.html',

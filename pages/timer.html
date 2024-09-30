@@ -41,10 +41,11 @@
 			<p><b>Functions to create timers for many purposes.</b></p>
 			<hr>
 			<h2 id="runTimer">runTimer</h2>
-			<p class="methodbox">runTimer(<span class="variablemarkup">tmrTag</span>:String, <span class="isoptional">?</span><span class="variablemarkup">time</span>:Float = 1.0, <span class="isoptional">?</span><span class="variablemarkup">loops</span>:Int = 1):Void</p>
-			<p>Change Discord Rich Presence current details, allows you to also set up a timestamp for a timer.</p>
+			<p class="methodbox">runTimer(<span class="variablemarkup">tmrTag</span>:String, <span class="isoptional">?</span><span class="variablemarkup">time</span>:Float = 1.0, <span class="isoptional">?</span><span class="variablemarkup">loops</span>:Int = 1):String</p>
+			<p>Starts a timer that calls "onTimerCompleted" when it ends.
+			<br>Returns the formatted Timer tag.</p>
 			<ul>
-				<li><b><span class="variablemarkup">tmrTag</span></b> - Title of the Rich Presence.</li>
+				<li><b><span class="variablemarkup">tmrTag</span></b> - Timer tag for the "onTimerCompleted" function.</li>
 				<li><b><span class="variablemarkup">time</span> (Optional)</b> - How much time it should take per loop (in seconds).</li>
 				<li><b><span class="variablemarkup">loops</span> (Optional)</b> - How many times the Timer should loop, every loop calls onTimerCompleted, set to zero to repeat indefinitely.</li>
 			</ul>

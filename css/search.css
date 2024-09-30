@@ -1,8 +1,8 @@
 .sidebar
 {
 	float:left;
-	width: 200px;
-	margin: 100px 0px 0px 10%;
+	width: 250px;
+	margin: 100px 0px 0px calc(10% - 50px);
 	padding-top: 10px;
 	border: 2px solid lightslategray;
 	border-radius: 10px;
@@ -20,7 +20,7 @@
 
 .selectables
 {
-	max-height: max(calc(100vh - 250px), 150px);
+	max-height: max(calc(100vh - 240px), 150px);
 	overflow-y: auto;
 	margin: 10px 0px 0px 0px;
 	border-radius: 6px;
