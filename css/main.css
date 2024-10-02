@@ -1,6 +1,14 @@
-*
+@font-face
 {
 	font-family: 'Franklin Gothic Book';
+	src: url('../assets/franklin-gothic-book.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+*
+{
+ 	font-family: 'Franklin Gothic Book', 'Calibri';
 	scroll-padding-top: 90px;
 }
 
