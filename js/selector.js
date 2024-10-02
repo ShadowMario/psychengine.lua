@@ -43,6 +43,40 @@ function createSidebarContent(prefix) {
 		'instanceArg': 'reflection.html',
 		'createInstance': 'reflection.html',
 		'addInstance': 'reflection.html',
+		'getObjectOrder': 'reflection.html',
+		'setObjectOrder': 'reflection.html',
+		'addToGroup': 'reflection.html',
+		'removeFromGroup': 'reflection.html',
+		'setObjectCamera': 'reflection.html',
+		'setScrollFactor': 'reflection.html',
+		'screenCenter': 'reflection.html',
+		'scaleObject': 'reflection.html',
+		'setGraphicSize': 'reflection.html',
+		'updateHitbox': 'reflection.html',
+		'setBlendMode': 'reflection.html',
+		'getMidpointX': 'reflection.html',
+		'getMidpointY': 'reflection.html',
+		'getGraphicMidpointX': 'reflection.html',
+		'getGraphicMidpointY': 'reflection.html',
+		'getScreenPositionX': 'reflection.html',
+		'getScreenPositionY': 'reflection.html',
+		'getPixelColor': 'reflection.html',
+		'objectsOverlap': 'reflection.html',
+
+		// Spritesheet
+		'makeLuaSprite': 'spritesheet.html',
+		'makeAnimatedLuaSprite': 'spritesheet.html',
+		'makeGraphic': 'spritesheet.html',
+		'loadGraphic': 'spritesheet.html',
+		'loadFrames': 'spritesheet.html',
+		'addAnimationByPrefix': 'spritesheet.html',
+		'addAnimationByIndices': 'spritesheet.html',
+		'addAnimation': 'spritesheet.html',
+		'addOffset': 'spritesheet.html',
+		'playAnim': 'spritesheet.html',
+		'addLuaSprite': 'spritesheet.html',
+		'removeLuaSprite': 'spritesheet.html',
+		'luaSpriteExists': 'spritesheet.html',
 
 		// FlxAnimate
 		'makeFlxAnimateSprite': 'flxanimate.html',
@@ -62,7 +96,6 @@ function createSidebarContent(prefix) {
 		'setTextBorder': 'text.html',
 		'setTextColor': 'text.html',
 		'setTextFont': 'text.html',
-		'instanceArg': 'text.html',
 		'setTextItalic': 'text.html',
 		'setTextAlignment': 'text.html',
 		'getTextString': 'text.html',
@@ -222,7 +255,22 @@ function createSidebarContent(prefix) {
 		'callOnHScript': 'script.html',
 		'callOnLuas': 'script.html',
 		'runHaxeCode': 'script.html',
-		'runHaxeFunction': 'script.html'
+		'runHaxeFunction': 'script.html',
+
+		// Uncategorized
+		'FlxColor': 'uncategorized.html',
+		'getColorFromName': 'uncategorized.html',
+		'getColorFromString': 'uncategorized.html',
+		'getColorFromHex': 'uncategorized.html',
+		'stringStartsWith': 'uncategorized.html',
+		'stringEndsWith': 'uncategorized.html',
+		'stringSplit': 'uncategorized.html',
+		'stringTrim': 'uncategorized.html',
+		'getRandomBool': 'uncategorized.html',
+		'getRandomInt': 'uncategorized.html',
+		'getRandomFloat': 'uncategorized.html',
+		'debugPrint': 'uncategorized.html',
+		'getModSetting': 'uncategorized.html'
 	};
 
 	// Create list elements and append to itemList

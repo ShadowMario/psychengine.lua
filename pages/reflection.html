@@ -38,7 +38,7 @@
 		<!-- Page Info -->
 		<div class="infobox">
 			<h1>Reflection Functions</h1>
-			<p><b>Functions that allow you to change properties from objects and call methods.</b></p>
+			<p><b>Functions to get/set properties from (both Hardcoded and Lua) Objects and call their methods.</b></p>
 			<hr>
 
 			<h2 id="getProperty">getProperty</h2>
@@ -53,7 +53,8 @@
 				<li class="exampleitem"><span class="methodexample">getProperty('dad.scale.x')</span> - Can return "1.0", for example.</li>
 				<li class="exampleitem"><span class="methodexample">getProperty('singAnimations[0]')</span> - Normally returns "singLEFT".</li>
 				<li class="exampleitem"><span class="methodexample">getProperty('boyfriend.animOffsets.idle', true)</span> - Can return a table of "{0, 0}", for example.</li>
-			</ul><hr>
+			</ul>
+			<hr>
 
 			<h2 id="getPropertyFromGroup">getPropertyFromGroup</h2>
 			<p class="methodbox">getPropertyFromGroup(<span class="variablemarkup">variable</span>:String, <span class="variablemarkup">index</span>:Int, <span class="variablemarkup">property</span>:Dynamic, <span class="isoptional">?</span><span class="variablemarkup">allowMaps</span>:Bool = false):Dynamic</p>
@@ -68,7 +69,8 @@
 			<ul class="methoddiv">
 				<li class="exampleitem"><span class="methodexample">getPropertyFromGroup('playerStrums', 1, 'animation.curAnim.name')</span> - Will return the current animation name of the Player's Down Note.</li>
 				<li class="exampleitem"><span class="methodexample">getPropertyFromGroup('unspawnNotes', 0, 'extraData.testVar', true)</span> - Lua equivalent of <b>unspawnNotes[0].extraData.get('testVar')</b>.</li>
-			</ul><hr>
+			</ul>
+			<hr>
 
 			<h2 id="getPropertyFromClass">getPropertyFromClass</h2>
 			<p class="methodbox">getPropertyFromClass(<span class="variablemarkup">classVar</span>:String, <span class="variablemarkup">variable</span>:String, <span class="isoptional">?</span><span class="variablemarkup">allowMaps</span>:Bool = false):Dynamic</p>
@@ -82,7 +84,8 @@
 			<ul class="methoddiv">
 				<li class="exampleitem"><span class="methodexample">getPropertyFromClass('backend.ClientPrefs', 'data.downScroll')</span> - Will return the current Downscroll option value, either "true" or "false".</li>
 				<li class="exampleitem"><span class="methodexample">getPropertyFromClass('states.PlayState', 'SONG.player1')</span> - Will return the Player character's name from the Chart, can be "true" or "false".</li>
-			</ul><hr>
+			</ul>
+			<hr>
 
 			<h2 id="setProperty">setProperty</h2>
 			<p class="methodbox">setProperty(<span class="variablemarkup">variable</span>:String, <span class="variablemarkup">value</span>:Dynamic, </span><span class="isoptional">?</span><span class="variablemarkup">allowMaps</span>:Bool = false):Dynamic</p>
@@ -97,7 +100,8 @@
 				<li class="exampleitem"><span class="methodexample">setProperty('boyfriend.stunned', true)</span> - Stuns player.</li>
 				<li class="exampleitem"><span class="methodexample">setProperty('singAnimations[3]', 'singLEFT')</span> - Will force Right sing animation to be "singLEFT".</li>
 				<li class="exampleitem"><span class="methodexample">setProperty('boyfriend.animOffsets.idle', {-200, 100}, true)</span> - Changes Player's Idle offsets to X -200, Y 100.</li>
-			</ul><hr>
+			</ul>
+			<hr>
 
 			<h2 id="setPropertyFromGroup">setPropertyFromGroup</h2>
 			<p class="methodbox">setPropertyFromGroup(<span class="variablemarkup">variable</span>:String, <span class="variablemarkup">index</span>:Int, <span class="variablemarkup">property</span>:Dynamic, <span class="variablemarkup">value</span>:Dynamic, <span class="isoptional">?</span><span class="variablemarkup">allowMaps</span>:Bool = false):Dynamic</p>
@@ -114,7 +118,8 @@
 			<ul class="methoddiv">
 				<li class="exampleitem"><span class="methodexample">setPropertyFromGroup('playerStrums', 2, 'visible', false)</span> - Hides Player's Up note.</li>
 				<li class="exampleitem"><span class="methodexample">setPropertyFromGroup('unspawnNotes', 0, 'extraData.testVar', true)</span> - Lua equivalent of <b>unspawnNotes[0].extraData.set('testVar', true)</b>.</li>
-			</ul><hr>
+			</ul>
+			<hr>
 
 			<h2 id="setPropertyFromClass">setPropertyFromClass</h2>
 			<p class="methodbox">setPropertyFromClass(<span class="variablemarkup">classVar</span>:String, <span class="variablemarkup">variable</span>:String, <span class="variablemarkup">value</span>:Dynamic, <span class="isoptional">?</span><span class="variablemarkup">allowMaps</span>:Bool = false):Dynamic</p>
@@ -129,10 +134,11 @@
 			<h4>Examples:</h4>
 			<ul class="methoddiv">
 				<li class="exampleitem"><span class="methodexample">setPropertyFromClass('states.PlayState', 'SONG.player1', 'pico-playable')</span> - Force set Player character to "pico-playable".</li>
-			</ul><hr>
+			</ul>
+			<hr>
 
 			<h2 id="callMethod">callMethod</h2>
-			<p class="methodbox">callMethod(<span class="variablemarkup">funcToRun</span>:String, <span class="isoptional">?</span></span><span class="variablemarkup">args</span>:Array&lt;Dynamic&gt; = null):Dynamic</p>
+			<p class="methodbox">callMethod(<span class="variablemarkup">funcToRun</span>:String, <span class="isoptional">?</span><span class="variablemarkup">args</span>:Array&lt;Dynamic&gt; = null):Dynamic</p>
 			<p>Calls a function and returns its value.</p>
 			<ul>
 				<li><b><span class="variablemarkup">funcToRun</span></b> - Name of the function you want to run.</li>
@@ -143,10 +149,11 @@
 				<li class="exampleitem"><span class="methodexample">callMethod('KillNotes')</span> - Clear all notes.</li>
 				<li class="exampleitem"><span class="methodexample">callMethod('boyfriend.isAnimationNull')</span> - Returns "true" or "false" about if the Player's Animation is null.</li>
 				<li class="exampleitem"><span class="methodexample">callMethod('iconP1.changeIcon', {'bf-old'})</span> - Change Player's icon to "bf-old".</li>
-			</ul><hr>
+			</ul>
+			<hr>
 
 			<h2 id="callMethodFromClass">callMethodFromClass</h2>
-			<p class="methodbox">callMethodFromClass(<span class="variablemarkup">classVar</span>:String, <span class="variablemarkup">funcToRun</span>:String, <span class="isoptional">?</span></span><span class="variablemarkup">args</span>:Array&lt;Dynamic&gt; = null):Dynamic</p>
+			<p class="methodbox">callMethodFromClass(<span class="variablemarkup">classVar</span>:String, <span class="variablemarkup">funcToRun</span>:String, <span class="isoptional">?</span><span class="variablemarkup">args</span>:Array&lt;Dynamic&gt; = null):Dynamic</p>
 			<p>Calls a function inside a Class and returns its value.</p>
 			<ul>
 				<li><b><span class="variablemarkup">classVar</span></b> - Class variable based on the source folder structure.</li>
@@ -156,10 +163,12 @@
 			<h4>Examples:</h4>
 			<ul class="methoddiv">
 				<li class="exampleitem"><span class="methodexample">callMethodFromClass('backend.CoolUtil', 'browserLoad', {'https://ko-fi.com/shadowmario'})</span> - Opens my Ko-Fi page in browser, give me money.</li>
-			</ul><hr>
+			</ul>
+			<hr>
+
 			<h2 id="instanceArg">instanceArg</h2>
 			<p class="methodbox">instanceArg(<span class="variablemarkup">instanceName</span>:String, <span class="isoptional">?</span><span class="variablemarkup">classVar</span>:String = null):String</p>
-			<p>Meant to be used with <a href="#callMethod">"callMethod"</a> and <a href="#callMethodFromClass">"callMethodFromClass"</a>.
+			<p>Meant to be used with <a href="#callMethod">"callMethod"</a>, <a href="#callMethodFromClass">"callMethodFromClass"</a> and <a href="#setVar">"setVar"</a>.
 			<br>Formats a String in a specific way to tell the previously mentioned functions that the string is meant to be an instance.</p>
 			<ul>
 				<li><b><span class="variablemarkup">instanceName</span></b> - Self explanatory.</li>
@@ -168,13 +177,15 @@
 			<h4>Examples:</h4>
 			<ul class="methoddiv">
 				<li class="exampleitem"><span class="methodexample">callMethod('spawnNoteSplashOnNote', {instanceArg('notes.members[0]')})</span> - Will spawn a Note splash in the first note on screen.</li>
-			</ul><hr>
+				<li class="exampleitem"><span class="methodexample">setVar('leftStrum', {instanceArg('playerStrums.members[0]')})</span> - Creates a shortcut to Player's Left Note.</li>
+			</ul>
+			<hr>
 
 			<h2 id="createInstance">createInstance</h2>
-			<p class="methodbox">createInstance(<span class="variablemarkup">variableToSave</span>:String, <span class="variablemarkup">classVar</span>:String, <span class="isoptional">?</span></span><span class="variablemarkup">args</span>:Array&lt;Dynamic&gt; = null):Bool</p>
+			<p class="methodbox">createInstance(<span class="variablemarkup">variableToSave</span>:String, <span class="variablemarkup">classVar</span>:String, <span class="isoptional">?</span><span class="variablemarkup">args</span>:Array&lt;Dynamic&gt; = null):Bool</p>
 			<p>Creates an instance of a Class and saves it to a lua variable nametag that allows you to use <a href="#setProperty">setProperty</a> and other functions on it.
 			<br>Returns "true" or "false" for if it was created successfully.</p>
-			<ul></ul>
+			<ul>
 				<li><b><span class="variablemarkup">variableToSave</span></b> - Variable name to save the created instance to.</li>
 				<li><b><span class="variablemarkup">classVar</span></b> - Class variable based on the source folder structure.</li>
 				<li><b><span class="variablemarkup">args</span> (Optional)</b> - Optional table of arguments.</li>
@@ -185,11 +196,11 @@
 			</ul>
 			<p style="color: gray">Note: In most cases you still have to add the created instance with <a href="#addInstance">"addInstance"</a>.</p>
 			<hr>
-
+<
 			<h2 id="addInstance">addInstance</h2>
-			<p class="methodbox">addInstance(<span class="variablemarkup">objectName</span>:String, <span class="isoptional">?</span></span><span class="variablemarkup">inFront</span>:Bool = false):Void</p>
+			<p class="methodbox">addInstance(<span class="variablemarkup">objectName</span>:String, <span class="isoptional">>?</span><span class="variablemarkup">inFront</span>:Bool = false):Void</p>
 			<p>Adds the instance to the scene.<p>
-			<ul></ul>
+			<ul>
 				<li><b><span class="variablemarkup">objectName</span></b> - Variable name of the instance.</li>
 				<li><b><span class="variablemarkup">inFront</span> (Optional)</b> - If true, the instance is added at the top of everything in its camera, if false, it will be added behind all characters.</li>
 			</ul>
@@ -198,6 +209,261 @@
 				<li class="exampleitem"><span class="methodexample">addInstance('testIcon', true)</span> - Adds an instance with the tag "testIcon" at the top of everything.</li>
 			</ul>
 			<p style="color: gray">Note: As of 1.0, this function is redundant as it does nearly the same thing as <a href="sprite.html#addLuaSprite">"addLuaSprite"</a></p>
+			<hr>
+
+			<h2 id="getObjectOrder">getObjectOrder</h2>
+			<p class="methodbox">getObjectOrder(<span class="variablemarkup">tag</span>:String, <span class="isoptional">?</span><span class="variablemarkup">group</span>:String = null):Int</p>
+			<p>Returns the object layer in the Scene or inside a group.
+			<br>Throws an error and returns -1 if the object or group couldn't be found.<p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Variable name of the instance or Lua Object nametag.</li>
+				<li><b><span class="variablemarkup">group</span> (Optional)</b> - If true, the instance is added at the top of everything in its camera, if false, it will be added behind all characters.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">getObjectOrder('boyfriendGroup')</span> - Returns the object layer of the Player's Character Group.</li>
+				<li class="exampleitem"><span class="methodexample">getObjectOrder('scoreTxt', 'uiGroup')</span> - Returns the object layer of the Score Text in its group.</li>
+			</ul>
+			<hr>
+
+			<h2 id="setObjectOrder">setObjectOrder</h2>
+			<p class="methodbox">setObjectOrder(<span class="variablemarkup">tag</span>:String, <span class="variablemarkup">position</span>:Int, <span class="isoptional">?</span><span class="variablemarkup">group</span>:String = null):Void</p>
+			<p>Sets the object layer in the Scene or inside a group.<p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Variable name of the instance or Lua Object nametag.</li>
+				<li><b><span class="variablemarkup">position</span></b> - New position in the Scene/group.</li>
+				<li><b><span class="variablemarkup">group</span> (Optional)</b> - If true, the instance is added at the top of everything in its camera, if false, it will be added behind all characters.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">setObjectOrder('boyfriendGroup', getObjectOrder('gfGroup') - 1)</span> - Sets the Player's Character Group to be a layer behind Girlfriend.</li>
+				<li class="exampleitem"><span class="methodexample">setObjectOrder('iconP1', 0, 'uiGroup')</span> - Makes Player Icon a layer behind everything else.</li>
+			</ul>
+			<hr>
+
+			<h2 id="addToGroup">addToGroup</h2>
+			<p class="methodbox">addToGroup(<span class="variablemarkup">group</span>:String, <span class="variablemarkup">tag</span>:String, <span class="isoptional">?</span><span class="variablemarkup">index</span>:Int = -1):Void</p>
+			<p>Adds the object to a group.<p>
+			<ul>
+				<li><b><span class="variablemarkup">group</span></b> - If true, the instance is added at the top of everything in its camera, if false, it will be added behind all characters.</li>
+				<li><b><span class="variablemarkup">tag</span></b> - Variable name of the instance or Lua Object nametag.</li>
+				<li><b><span class="variablemarkup">index</span> (Optional)</b> - Position in the group, -1 is top, defaults to -1.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">addToGroup('uiGroup', 'mySprite')</span> - Adds Lua Object "mySprite" to the top of UI Group.</li>
+				<li class="exampleitem"><span class="methodexample">addToGroup('uiGroup', 'mySprite', 0)</span> - Adds Lua Object "mySprite" to the bottom of UI Group.</li>
+			</ul>
+			<hr>
+
+			<h2 id="removeFromGroup">removeFromGroup</h2>
+			<p class="methodbox">removeFromGroup(<span class="variablemarkup">group</span>:String,
+				<span class="variablemarkup">tag</span>:String,
+				<span class="isoptional">?</span><span class="variablemarkup">index</span>:Int = -1,
+				<span class="isoptional">?</span><span class="variablemarkup">destroy</span>:Bool = true):Void</p>
+			<p>Adds the object to a group.<p>
+			<ul>
+				<li><b><span class="variablemarkup">group</span></b> - If true, the instance is added at the top of everything in its camera, if false, it will be added behind all characters.</li>
+				<li><b><span class="variablemarkup">index</span></b> - Position in the group, ignored if "tag" is not null, defaults to -1.</li>
+				<li><b><span class="variablemarkup">tag</span> (Optional)</b> - Variable name of the instance or Lua Object nametag.</li>
+				<li><b><span class="variablemarkup">destroy</span> (Optional)</b> - If enabled, clears the object from memory once removed, do not disable unless you know what you're doing.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">removeFromGroup('groupName', _, 'mySprite')</span> - Removes Object named "mySprite" from the UI Group.</li>
+				<li class="exampleitem"><span class="methodexample">removeFromGroup('groupName', 0)</span> - Removes the object at the bottom of the UI Group.</li>
+			</ul>
+			<hr>
+
+			<h2 id="setObjectCamera">setObjectCamera</h2>
+			<p class="methodbox">setObjectCamera(<span class="variablemarkup">tag</span>:String,
+				<span class="isoptional">?</span><span class="variablemarkup">camera</span>:String = 'game'):Void</p>
+			<p>Changes the Object's Draw Camera.<p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Variable name of the instance or Lua Object nametag.</li>
+				<li><b><span class="variablemarkup">camera</span> (Optional)</b> - Can be "game", "hud" or "other", defaults to "game".</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">setObjectCamera('mySprite', 'hud')</span> - Moves Object named "mySprite" to HUD Camera.</li>
+			</ul>
+			<hr>
+
+			<h2 id="setScrollFactor">setScrollFactor</h2>
+			<p class="methodbox">setScrollFactor(<span class="variablemarkup">tag</span>:String,
+				<span class="variablemarkup">scrollX</span>:Float,
+				<span class="variablemarkup">scrollY</span>:Float):Void</p>
+			<p>Changes the <a href="https://en.wikipedia.org/wiki/Parallax">parallax</a> of an Object.<p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Variable name of the instance or Lua Object nametag.</li>
+				<li><b><span class="variablemarkup">scrollX</span></b> - 1 = Normal parallax.</li>
+				<li><b><span class="variablemarkup">scrollY</span></b> - 1 = Normal parallax.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">setScrollFactor('mySprite', 0, 0)</span> - Object will look like it's immobile/never gets displaced.</li>
+			</ul>
+			<hr>
+
+			<h2 id="screenCenter">screenCenter</h2>
+			<p class="methodbox">screenCenter(<span class="variablemarkup">tag</span>:String,
+				<span class="isoptional">?</span><span class="variablemarkup">axis</span>:String = 'xy'):Void</p>
+			<p>Centers an Object to the Screen on the specified axis.<p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Variable name of the instance or Lua Object nametag.</li>
+				<li><b><span class="variablemarkup">axis</span> (Optional)</b> - can be "X", "Y" or "XY", defaults to "XY".</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">screenCenter('mySprite', 'x')</span> - Objects gets only centered horizontally.</li>
+				<li class="exampleitem"><span class="methodexample">screenCenter('mySprite', 'y')</span> - Objects gets only centered vertically.</li>
+				<li class="exampleitem"><span class="methodexample">screenCenter('mySprite', 'xy')</span> - Objects gets centered on both axis.</li>
+			</ul>
+			<hr>
+
+			<h2 id="scaleObject">scaleObject</h2>
+			<p class="methodbox">scaleObject(<span class="variablemarkup">tag</span>:String,
+				<span class="variablemarkup">x</span>:Float,
+				<span class="variablemarkup">y</span>:Float,
+				<span class="isoptional">?</span><span class="variablemarkup">updateHitbox</span>:Bool = true):Void</p>
+			<p>Scales an Object by a ratio.<p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Variable name of the instance or Lua Object nametag.</li>
+				<li><b><span class="variablemarkup">x</span></b> - Scale ratio X.</li>
+				<li><b><span class="variablemarkup">y</span></b> - Scale ratio Y.</li>
+				<li><b><span class="variablemarkup">updateHitbox</span> (Optional)</b> - <a href="#updateHitbox">Updates Hitbox</a> after scaling.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">scaleObject('mySprite', 1.5, 2)</span> - Object gets stretched 1.5x larger horizontally and 2x larger vertically.</li>
+			</ul>
+			<hr>
+
+			<h2 id="setGraphicSize">setGraphicSize</h2>
+			<p class="methodbox">setGraphicSize(<span class="variablemarkup">tag</span>:String,
+				<span class="variablemarkup">x</span>:Float,
+				<span class="variablemarkup">y</span>:Float,
+				<span class="isoptional">?</span><span class="variablemarkup">updateHitbox</span>:Bool = true):Void</p>
+			<p>Scales an Object by a ratio.<p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Variable name of the instance or Lua Object nametag.</li>
+				<li><b><span class="variablemarkup">x</span></b> - Width in pixels.</li>
+				<li><b><span class="variablemarkup">y</span></b> - Height in pixels, set to 0 to keep its size constraint to the Width. Defaults to 0.</li>
+				<li><b><span class="variablemarkup">updateHitbox</span> (Optional)</b> - <a href="#updateHitbox">Updates Hitbox</a> after scaling.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">setGraphicSize('mySprite', 300, 300)</span> - Object will be 300 pixels wide and 300 pixels tall.</li>
+				<li class="exampleitem"><span class="methodexample">setGraphicSize('mySprite', 500)</span> - Object will be 500 pixels wide, height will be scaled keeping its size constraint.</li>
+			</ul>
+			<hr>
+
+			<h2 id="updateHitbox">updateHitbox</h2>
+			<p class="methodbox">updateHitbox(<span class="variablemarkup">tag</span>:String):Void</p>
+			<p>Updates the Width/Height hitboxes and the Offset of an Object, used after scaling operations.<p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Variable name of the instance or Lua Object nametag.</li>
+			</ul>
+			<hr>
+
+			<h2 id="setBlendMode">setBlendMode</h2>
+			<p class="methodbox">setBlendMode(<span class="variablemarkup">tag</span>:String,
+				<span class="isoptional">?</span><span class="variablemarkup">blend</span>:String = ''):Void</p>
+			<p>Changes the Blend Mode of an object, similarly to Photoshop and other image editors.<p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Variable name of the instance or Lua Object nametag.</li>
+				<li><b><span class="variablemarkup">blend</span></b> - <a href="https://api.haxeflixel.com/flash/display/BlendMode.html">Blend mode name</a>, leave empty for using the default blend mode.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">setBlendMode('mySprite', 'add')</span> - Changes Blend Mode to "ADD".</li>
+			</ul>
+			<p style="color: gray">Note: Some blend modes like "OVERLAY" just seem to not work at all, this is not my fault!</p>
+			<hr>
+
+			<h2 id="getMidpointX">getMidpointX</h2>
+			<p class="methodbox">getMidpointX(<span class="variablemarkup">tag</span>:String):Float</p>
+			<p>Returns the X of the center point of an Object.<p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Variable name of the instance or Lua Object nametag.</li>
+			</ul>
+			<hr>
+
+			<h2 id="getMidpointY">getMidpointY</h2>
+			<p class="methodbox">getMidpointY(<span class="variablemarkup">tag</span>:String):Float</p>
+			<p>Returns the Y of the center point of an Object.<p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Variable name of the instance or Lua Object nametag.</li>
+			</ul>
+			<hr>
+
+			<h2 id="getGraphicMidpointX">getGraphicMidpointX</h2>
+			<p class="methodbox">getGraphicMidpointX(<span class="variablemarkup">tag</span>:String):Float</p>
+			<p>Returns the Object's Graphic center X.<p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Variable name of the instance or Lua Object nametag.</li>
+			</ul>
+			<hr>
+
+			<h2 id="getGraphicMidpointY">getGraphicMidpointY</h2>
+			<p class="methodbox">getGraphicMidpointY(<span class="variablemarkup">tag</span>:String):Float</p>
+			<p>Returns the Object's Graphic center Y.<p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Variable name of the instance or Lua Object nametag.</li>
+			</ul>
+			<hr>
+
+			<h2 id="getScreenPositionX">getScreenPositionX</h2>
+			<p class="methodbox">getScreenPositionX(<span class="variablemarkup">tag</span>:String, <span class="isoptional">?</span><span class="variablemarkup">camera</span>:String = 'game'):Float</p>
+			<p>Returns the Object's On-Camera X Position.<p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Variable name of the instance or Lua Object nametag.</li>
+				<li><b><span class="variablemarkup">camera</span> (Optional)</b> - Can be "game", "hud" or "other", defaults to "game".</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">getScreenPositionX('mySprite')</span> - Object position on Game Camera.</li>
+				<li class="exampleitem"><span class="methodexample">getScreenPositionX('mySprite', 'hud')</span> - Object position on HUD Camera.</li>
+			</ul>
+			<hr>
+
+			<h2 id="getScreenPositionY">getScreenPositionY</h2>
+			<p class="methodbox">getScreenPositionY(<span class="variablemarkup">tag</span>:String, <span class="isoptional">?</span><span class="variablemarkup">camera</span>:String = 'game'):Float</p>
+			<p>Returns the Object's On-Camera Y Position.<p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Variable name of the instance or Lua Object nametag.</li>
+				<li><b><span class="variablemarkup">camera</span> (Optional)</b> - Can be "game", "hud" or "other", defaults to "game".</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">getScreenPositionY('mySprite')</span> - Object position on Game Camera.</li>
+				<li class="exampleitem"><span class="methodexample">getScreenPositionY('mySprite', 'hud')</span> - Object position on HUD Camera.</li>
+			</ul>
+			<hr>
+
+			<h2 id="getPixelColor">getPixelColor</h2>
+			<p class="methodbox">getPixelColor(<span class="variablemarkup">tag</span>:String, <span class="variablemarkup">x</span>:Int, <span class="variablemarkup">y</span>:Int):Int</p>
+			<p>Gets the color of a pixel in a Sprite's Graphic.
+			<br>Returns the color's integer value, if invalid, it returns black.<p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Variable name of the instance or Lua Object nametag.</li>
+				<li><b><span class="variablemarkup">x</span></b> - Pixel X of the Graphic.</li>
+				<li><b><span class="variablemarkup">y</span></b> - Pixel Y of the Graphic.</li>
+			</ul>
+			<p style="color: gray">Note: Sprites will require to have their <a href="precache.html#precacheImage">GPU Caching turned off</a> for it to work.</p>
+			<hr>
+
+			<h2 id="objectsOverlap">objectsOverlap</h2>
+			<p class="methodbox">objectsOverlap(<span class="variablemarkup">obj1</span>:String, <span class="variablemarkup">obj2</span>:String):Bool</p>
+			<p>Returns if two Object hitboxes are overlapping each other, useful for collision checking.<p>
+			<ul>
+				<li><b><span class="variablemarkup">obj1</span></b> - Variable name of the instance or Lua Object nametag of the first object.</li>
+				<li><b><span class="variablemarkup">obj2</span></b> - Variable name of the instance or Lua Object nametag of the second object.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">objectsOverlap('mySprite1', 'mySprite2')</span> - Checks if two Lua Sprites are colliding against each other's hitboxes.</li>
+			</ul>
 		</div>
 	</body>
 </html>

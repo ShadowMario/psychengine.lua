@@ -1,0 +1,185 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Psych Engine - Score Functions</title>
+		<link rel="stylesheet" href="../css/main.css">
+		<link rel="stylesheet" href="../css/header.css">
+		<link rel="stylesheet" href="../css/search.css">
+		<link rel="stylesheet" href="../css/theme.css">
+		<link rel="icon" href="../assets/icon.ico" type="image/x-icon">
+	</head>
+
+	<body>
+		<!-- Create Search Bar and Theme Boxes-->
+		<div class="sidebar"></div>
+		<div class="themeBox" onclick="switchTheme()">
+			<div class="themeDot"></div>
+			<div class="themeDot" style="margin-left: 70px"></div>
+			<button class="themeBtn" id="themeSelector"></button>
+		</div>
+
+		<!-- Load JavaScript-->
+		<script src="../js/selector.js"></script>
+		<script>createSidebarContent();</script>
+		<script src="../js/searchbar.js"></script>
+		<script src="../js/theme.js"></script>
+
+		<!-- Header -->
+		<div class="headerbox">
+			<div class="header">
+				<a href="../index.html">
+					<img width="64" src="../assets/icon.ico" alt="Psych Engine Logo" draggable="false">
+					<div class="headertext">Psych Engine - Lua Script API</div>
+				</a>
+			</div>
+		</div>
+
+		<!-- Page Info -->
+		<div class="infobox">
+			<h1>Variables</h1>
+			<hr>
+			<p>All of these variables can be accessed directly in Lua without the need of any functions like <a href="reflection.html#getProperty">"getProperty"</a>, changing them however, will have no direct effect in other scripts or in the game itself.</p>
+			<hr>
+			<h3>Lua Scripting Variables</h3>
+			<li class="variableitem"><span class="methodexample">luaDebugMode</span> - Toggles showing errors. Default value: false</li>
+			<li class="variableitem"><span class="methodexample">luaDeprecatedWarnings</span> - Shows functions that should be replaced by newer ones. <span class="methodexample">luaDebugMode</span> to be true. Default value: true</li>
+			<br>
+			<li class="variableitem"><span class="methodexample">scriptName</span> - Default value: scriptName</li>
+			<li class="variableitem"><span class="methodexample">modFolder</span> - Mod Folder the Lua Script is running in.</li>
+			<li class="variableitem"><span class="methodexample">currentModDirectory</span> - Default value: Mods.currentModDirectory</li>
+			<hr>
+			<h3>Psych Engine Information Variables</h3>
+			<li class="variableitem"><span class="methodexample">version</span> - Psych Engine's Version String.</li>
+			<li class="variableitem"><span class="methodexample">buildTarget</span> - What kind of build of Psych you're running, can be: "windows", "windows_x86" or "linux".</li>
+			<hr>
+			<h3>Function Return Variables</h3>
+			<li class="variableitem"><span class="methodexample">Function_StopLua</span> - Stops the function from being called only in the next Lua Scripts.</li>
+			<li class="variableitem"><span class="methodexample">Function_StopHScript</span> - Stops the function from being called only in the next HScripts.</li>
+			<li class="variableitem"><span class="methodexample">Function_StopAll</span> - Stops the function from being called in the next Lua Scripts and HScripts.</li>
+			<li class="variableitem"><span class="methodexample">Function_Stop</span> - Cancels functions like startCountdown or endSong, used mostly for cutscenes.</li>
+			<li class="variableitem"><span class="methodexample">Function_Continue</span> - Once your script runs, continues like normal.</li>
+			<hr>
+			<h3>flixel.FlxG Variables</h3>
+			<li class="variableitem"><span class="methodexample">screenWidth</span> - <a href="https://api.haxeflixel.com/flixel/FlxG.html#width">FlxG.width</a></li>
+			<li class="variableitem"><span class="methodexample">screenHeight</span> - <a href="https://api.haxeflixel.com/flixel/FlxG.html#height">FlxG.height</a></li>
+			<hr>
+			<h3>Song Variables</h3>
+			<li class="variableitem"><span class="methodexample">songName</span> - Instrumental's name, as seen in the Pause Screen.</li>
+			<li class="variableitem"><span class="methodexample">songPath</span> - Formatted version of <b>songName</b>, all letters in lowercase and replacing spaces with hyphens.</li>
+			<li class="variableitem"><span class="methodexample">loadedSongName</span> - Song name from Freeplay/Story Menu.</li>
+			<li class="variableitem"><span class="methodexample">loadedSongPath</span> - Formatted version of <b>loadedSongName</b>, all letters in lowercase and replacing spaces with hyphens.</li>
+			<br>
+			<li class="variableitem"><span class="methodexample">bpm</span> - Starting BPM.</li>
+			<li class="variableitem"><span class="methodexample">songLength</span> - Song length in milliseconds.</li>
+			<li class="variableitem"><span class="methodexample">startedCountdown</span> - If the Countdown already started, starts at false.</li>
+			<li class="variableitem"><span class="methodexample">seenCutscene</span> - Default value: PlayState.seenCutscene</li>
+			<li class="variableitem"><span class="methodexample">inGameOver</span> - Are you in Game Over Screen? Starts at false.</li>
+			<hr>
+			<h3>Chart Variables</h3>
+			<li class="variableitem"><span class="methodexample">chartPath</span> - Directory of the chart, including the file extension.</li>
+			<li class="variableitem"><span class="methodexample">curStage</span> - Song's Stage as seen in the Chart Editor.</li>
+			<li class="variableitem"><span class="methodexample">scrollSpeed</span> - Starting Scroll Speed.</li>
+			<li class="variableitem"><span class="methodexample">hasVocals</span> - Song has Vocals enabled.</li>
+			<hr>
+			<h3>Difficulty Variables</h3>
+			<li class="variableitem"><span class="methodexample">difficulty</span> - Difficulty ID.</li>
+			<li class="variableitem"><span class="methodexample">difficultyName</span> - Original Difficulty Name.</li>
+			<li class="variableitem"><span class="methodexample">difficultyPath</span> - Formats difficulty name to be in lowercase and start with an hyphen, Empty on Normal difficulty.</li>
+			<li class="variableitem"><span class="methodexample">difficultyNameTranslation</span> - Translated Difficulty Name.</li>
+			<hr>
+			<h3>Story Mode/Week Variables</h3>
+			<li class="variableitem"><span class="methodexample">isStoryMode</span> - Boolean value of the game mode.</li>
+			<li class="variableitem"><span class="methodexample">weekRaw</span> - Week ID.</li>
+			<li class="variableitem"><span class="methodexample">week</span> - Week Name as found in <span class="methodexample">weeks/</span> folder.</li>
+			<hr>
+			<h3>Section Variables</h3>
+			<li class="variableitem"><span class="methodexample">curBpm</span> - BPM at the current section.</li>
+			<li class="variableitem"><span class="methodexample">curSection</span> - Section ID.</li>
+			<li class="variableitem"><span class="methodexample">curBeat</span> - Current beat ID.</li>
+			<li class="variableitem"><span class="methodexample">curStep</span> - Current Step ID.</li>
+			<li class="variableitem"><span class="methodexample">curDecBeat</span> - Current beat ID, but it shows in its decimals cases how far away it is from the next beat.</li>
+			<li class="variableitem"><span class="methodexample">curDecStep</span> - Current step ID, but it shows in its decimals cases how far away it is from the next step.</li>
+			<li class="variableitem"><span class="methodexample">crochet</span> - How long in milliseconds a Beat takes in the current section.</li>
+			<li class="variableitem"><span class="methodexample">stepCrochet</span> - How long in milliseconds a Step takes in the current section.</li>
+			<br>
+			<li class="variableitem"><span class="methodexample">mustHitSection</span> - Default value: curSection != null ? (curSection.mustHitSection == true) : false</li>
+			<li class="variableitem"><span class="methodexample">altAnim</span> - Default value: curSection != null ? (curSection.altAnim == true) : false</li>
+			<li class="variableitem"><span class="methodexample">gfSection</span> - Default value: curSection != null ? (curSection.gfSection == true) : false</li>
+			<hr>
+			<h3>Score Variables</h3>
+			<li class="variableitem"><span class="methodexample">score</span> - Current score.</li>
+			<li class="variableitem"><span class="methodexample">misses</span> - Current notes missed.</li>
+			<li class="variableitem"><span class="methodexample">hits</span> - Current notes hit.</li>
+			<li class="variableitem"><span class="methodexample">combo</span> - Current note combo. Starts at 0.</li>
+			<li class="variableitem"><span class="methodexample">deaths</span> - How many times you died so far.</li>
+			<br>
+			<li class="variableitem"><span class="methodexample">rating</span> - Rating percentage, ranges from 0 to 1.</li>
+			<li class="variableitem"><span class="methodexample">ratingName</span> - "?", "Sick!", "Good", etc.</li>
+			<li class="variableitem"><span class="methodexample">ratingFC</span> - Can be: "Clear", "SDBC", "FC", "GFC", "SFC".</li>
+			<li class="variableitem"><span class="methodexample">totalPlayed</span> - Misses + Hits, used for rating calculation.</li>
+			<li class="variableitem"><span class="methodexample">totalNotesHit</span> - Accumulated score from hit ratings used for rating calculation, "Sick" = +1, "Good" = +0.67, "Bad" = +0.34, "Shit" = 0.</li>
+			<hr>
+			<h3>Gameplay Modifiers Variables</h3>
+			<li class="variableitem"><span class="methodexample">playbackRate</span> - Default value: 1</li>
+			<li class="variableitem"><span class="methodexample">healthGainMult</span> - Default value: 1</li>
+			<li class="variableitem"><span class="methodexample">healthLossMult</span> - Default value: 1</li>
+			<li class="variableitem"><span class="methodexample">instakillOnMiss</span> - Default value: false</li>
+			<li class="variableitem"><span class="methodexample">practice</span> - Default value: false</li>
+			<li class="variableitem"><span class="methodexample">botPlay</span> - Default value: false</li>
+			<hr>
+			<h3>Strum Notes Variables</h3>
+			<li class="variableitem"><span class="methodexample">defaultPlayerStrumX0</span> - Player's Left Note X: 732</li>
+			<li class="variableitem"><span class="methodexample">defaultPlayerStrumY0</span> - Player's Left Note Y: 50</li>
+			<li class="variableitem"><span class="methodexample">defaultPlayerStrumX1</span> - Player's Down Note X: 844</li>
+			<li class="variableitem"><span class="methodexample">defaultPlayerStrumY1</span> - Player's Down Note Y: 50</li>
+			<li class="variableitem"><span class="methodexample">defaultPlayerStrumX2</span> - Player's Up Note X: 956</li>
+			<li class="variableitem"><span class="methodexample">defaultPlayerStrumY2</span> - Player's Up Note Y: 50</li>
+			<li class="variableitem"><span class="methodexample">defaultPlayerStrumX3</span> - Player's Right Note X: 1068</li>
+			<li class="variableitem"><span class="methodexample">defaultPlayerStrumY3</span> - Player's Right Note Y: 50</li>
+			<li class="variableitem"><span class="methodexample">defaultOpponentStrumX0</span> - Opponent's Left Note X: 92</li>
+			<li class="variableitem"><span class="methodexample">defaultOpponentStrumY0</span> - Opponent's Left Note Y: 50</li>
+			<li class="variableitem"><span class="methodexample">defaultOpponentStrumX1</span> - Opponent's Down Note X: 204</li>
+			<li class="variableitem"><span class="methodexample">defaultOpponentStrumY1</span> - Opponent's Down Note Y: 50</li>
+			<li class="variableitem"><span class="methodexample">defaultOpponentStrumX2</span> - Opponent's Up Note X: 316</li>
+			<li class="variableitem"><span class="methodexample">defaultOpponentStrumY2</span> - Opponent's Up Note Y: 50</li>
+			<li class="variableitem"><span class="methodexample">defaultOpponentStrumX3</span> - Opponent's Right Note X: 428</li>
+			<li class="variableitem"><span class="methodexample">defaultOpponentStrumY3</span> - Opponent's Right Note Y: 50</li>
+			<p style="color: gray">Note: All Strum variables are only available after "onCountdownStarted" is called, otherwise their values are 0.</p>
+			<hr>
+			<h3>Character Variables</h3>
+			<li class="variableitem"><span class="methodexample">defaultBoyfriendX</span> - Player Group X, as seen in the Stage .JSON</li>
+			<li class="variableitem"><span class="methodexample">defaultBoyfriendY</span> - Player Group Y, as seen in the Stage .JSON</li>
+			<li class="variableitem"><span class="methodexample">defaultOpponentX</span> - Opponent Group X, as seen in the Stage .JSON</li>
+			<li class="variableitem"><span class="methodexample">defaultOpponentY</span> - Opponent Group Y, as seen in the Stage .JSON</li>
+			<li class="variableitem"><span class="methodexample">defaultGirlfriendX</span> - Girlfriend Group X, as seen in the Stage .JSON</li>
+			<li class="variableitem"><span class="methodexample">defaultGirlfriendY</span> - Girlfriend Group Y, as seen in the Stage .JSON</li>
+			<br>
+			<li class="variableitem"><span class="methodexample">boyfriendName</span> - Current Player Character's .JSON name (without the extension).</li>
+			<li class="variableitem"><span class="methodexample">dadName</span> - Current Opponent Character's .JSON name (without the extension).</li>
+			<li class="variableitem"><span class="methodexample">gfName</span> - Current Girlfriend Character's .JSON name (without the extension).</li>
+			<hr>
+			<h3>backend.ClientPrefs Variables</h3>
+			<li class="variableitem"><span class="methodexample">downscroll</span> - Default value: false</li>
+			<li class="variableitem"><span class="methodexample">middlescroll</span> - Default value: false</li>
+			<li class="variableitem"><span class="methodexample">framerate</span> - Default value: 60</li>
+			<li class="variableitem"><span class="methodexample">ghostTapping</span> - Default value: true</li>
+			<li class="variableitem"><span class="methodexample">hideHud</span> - Default value: false</li>
+			<li class="variableitem"><span class="methodexample">timeBarType</span> - Default value: "Time Left"</li>
+			<li class="variableitem"><span class="methodexample">scoreZoom</span> - Default value: true</li>
+			<li class="variableitem"><span class="methodexample">cameraZoomOnBeat</span> - Default value: true</li>
+			<li class="variableitem"><span class="methodexample">flashingLights</span> - Default value: true</li>
+			<li class="variableitem"><span class="methodexample">noteOffset</span> - Default value: 0</li>
+			<li class="variableitem"><span class="methodexample">healthBarAlpha</span> - Default value: 1.0</li>
+			<li class="variableitem"><span class="methodexample">noResetButton</span> - Default value: false</li>
+			<li class="variableitem"><span class="methodexample">lowQuality</span> - Default value: false</li>
+			<li class="variableitem"><span class="methodexample">shadersEnabled</span> - Default value: true</li>
+			<li class="variableitem"><span class="methodexample">guitarHeroSustains</span> - Default value: true</li>
+			<li class="variableitem"><span class="methodexample">noteSkin</span> - Default value: "Default"</li>
+			<li class="variableitem"><span class="methodexample">splashSkin</span> - Default value: "Psych"</li>
+			<li class="variableitem"><span class="methodexample">splashAlpha</span> - Default value: 0.6</li>
+			<br>
+			<li class="variableitem"><span class="methodexample">noteSkinPostfix</span> - Noteskin File Path postfix (Examples: "-future", "-chip", empty for Default).</li>
+			<li class="variableitem"><span class="methodexample">splashSkinPostfix</span> - Note Splashes File Path postfix (Examples: "-diamond", "-vanilla", empty for Psych).</li>
+	</body>
+</html>

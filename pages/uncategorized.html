@@ -1,0 +1,214 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Psych Engine - Uncategorized Functions</title>
+		<link rel="stylesheet" href="../css/main.css">
+		<link rel="stylesheet" href="../css/header.css">
+		<link rel="stylesheet" href="../css/search.css">
+		<link rel="stylesheet" href="../css/theme.css">
+		<link rel="icon" href="../assets/icon.ico" type="image/x-icon">
+	</head>
+
+	<body>
+		<!-- Create Search Bar and Theme Boxes-->
+		<div class="sidebar"></div>
+		<div class="themeBox" onclick="switchTheme()">
+			<div class="themeDot"></div>
+			<div class="themeDot" style="margin-left: 70px"></div>
+			<button class="themeBtn" id="themeSelector"></button>
+		</div>
+
+		<!-- Load JavaScript-->
+		<script src="../js/selector.js"></script>
+		<script>createSidebarContent();</script>
+		<script src="../js/searchbar.js"></script>
+		<script src="../js/theme.js"></script>
+
+		<!-- Header -->
+		<div class="headerbox">
+			<div class="header">
+				<a href="../index.html">
+					<img width="64" src="../assets/icon.ico" alt="Psych Engine Logo" draggable="false">
+					<div class="headertext">Psych Engine - Lua Script API</div>
+				</a>
+			</div>
+		</div>
+
+		<!-- Page Info -->
+		<div class="infobox">
+			<h1>Uncategorized Functions</h1>
+			<p><b>Functions without a category made strictly for them.</b></p>
+			<hr>
+			<h2 id="FlxColor">FlxColor</h2>
+			<p class="methodbox">FlxColor(<span class="variablemarkup">color</span>:String):Int</p>
+			<p>Turns a color string/hexadecimal into an Integer value usable in <a href="reflection.html#setProperty">"setProperty"</a> and other functions.</p>
+			<ul>
+				<li><b><span class="variablemarkup">color</span></b> - Color hexadecimal string or <a href="https://api.haxeflixel.com/flixel/util/FlxColor.html">color name</a>.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">FlxColor('BLUE')</span> - Returns blue color.</li>
+				<li class="exampleitem"><span class="methodexample">FlxColor('#FFFF0000')</span> - Returns Red color through hexadecimal in ARGB format, notice how it starts with "#".</li>
+			</ul>
+			<hr>
+			<h2 id="getColorFromName">getColorFromName</h2>
+			<p class="methodbox">getColorFromName(<span class="variablemarkup">color</span>:String):Int</p>
+			<p>Identical function and usage to <a href="#FlxColor">FlxColor</a>.</p>
+			<ul>
+				<li><b><span class="variablemarkup">color</span></b> - Color hexadecimal string or <a href="https://api.haxeflixel.com/flixel/util/FlxColor.html">color name</a>.</li>
+			</ul>
+			<hr>
+
+			<h2 id="getColorFromString">getColorFromString</h2>
+			<p class="methodbox">getColorFromString(<span class="variablemarkup">color</span>:String):Int</p>
+			<p>Identical function and usage to <a href="#FlxColor">FlxColor</a>.</p>
+			<ul>
+				<li><b><span class="variablemarkup">color</span></b> - Color hexadecimal string or <a href="https://api.haxeflixel.com/flixel/util/FlxColor.html">color name</a>.</li>
+			</ul>
+			<hr>
+
+			<h2 id="getColorFromHex">getColorFromHex</h2>
+			<p class="methodbox">getColorFromHex(<span class="variablemarkup">color</span>:String):Int</p>
+			<p>Turns a color hexadecimal into an Integer value usable in <a href="reflection.html#setProperty">"setProperty"</a> and other functions.
+			<br>This differs from <a href="#FlxColor">FlxColor</a> because it doesn't accept color names and doesn't require a "#" before the value.</p>
+			<ul>
+				<li><b><span class="variablemarkup">color</span></b> - Color hexadecimal string or <a href="https://api.haxeflixel.com/flixel/util/FlxColor.html">color name</a>.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">getColorFromHex('7F7F7F')</span> - Returns gray color.</li>
+				<li class="exampleitem"><span class="methodexample">getColorFromHex('FF0000')</span> - Returns red color.</li>
+			</ul>
+			<hr>
+
+			<h2 id="stringStartsWith">stringStartsWith</h2>
+			<p class="methodbox">stringStartsWith(<span class="variablemarkup">str</span>:String, <span class="variablemarkup">start</span>:String):Bool</p>
+			<p>Shortcut for <a href="https://api.haxe.org/StringTools.html#startsWith">StringTools.startsWith</a> in Lua.</p>
+			<ul>
+				<li><b><span class="variablemarkup">str</span></b> - String being checked.</li>
+				<li><b><span class="variablemarkup">start</span></b> - String to check if the previous value starts with it.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">stringStartsWith('Test', 'Te')</span> - "Test" starts with "Te", returns true.</li>
+				<li class="exampleitem"><span class="methodexample">stringStartsWith('Test', 'A')</span> - "Test" doesn't start with "A", returns false.</li>
+			</ul>
+			<hr>
+
+			<h2 id="stringEndsWith">stringEndsWith</h2>
+			<p class="methodbox">stringEndsWith(<span class="variablemarkup">str</span>:String, <span class="variablemarkup">end</span>:String):Bool</p>
+			<p>Shortcut for <a href="https://api.haxe.org/StringTools.html#endsWith">StringTools.endsWith</a> in Lua.</p>
+			<ul>
+				<li><b><span class="variablemarkup">str</span></b> - String being checked.</li>
+				<li><b><span class="variablemarkup">end</span></b> - String to check if the previous value ends with it.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">stringEndsWith('Test', 'st')</span> - "Test" ends with "st", returns true.</li>
+				<li class="exampleitem"><span class="methodexample">stringEndsWith('Test', 'Z')</span> - "Test" doesn't ends with "Z", returns false.</li>
+			</ul>
+			<hr>
+
+			<h2 id="stringSplit">stringSplit</h2>
+			<p class="methodbox">stringSplit(<span class="variablemarkup">str</span>:String, <span class="variablemarkup">split</span>:String):Array&lt;String&gt;</p>
+			<p>Shortcut for <a href="https://api.haxe.org/String.html#split">String.split</a> in Lua.</p>
+			<ul>
+				<li><b><span class="variablemarkup">str</span></b> - String being checked.</li>
+				<li><b><span class="variablemarkup">split</span></b> - String delimiter.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">stringSplit('A,B,C,D,E', ',')</span> - Separates the string through commas, returns the following table: <span class="methodexample">{'A', 'B', 'C', 'D', 'E'}</span></li>
+			</ul>
+			<hr>
+
+			<h2 id="stringTrim">stringTrim</h2>
+			<p class="methodbox">stringTrim(<span class="variablemarkup">str</span>:String):String</p>
+			<p>Clears the spaces at the start and end of a string. 
+			<br>Shortcut for <a href="https://api.haxe.org/StringTools.html#trim">StringTools.trim</a> in Lua.</p>
+			<ul>
+				<li><b><span class="variablemarkup">str</span></b> - String being checked.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">stringSplit('&nbsp;&nbsp;&nbsp;Hello World!&nbsp;&nbsp;&nbsp;')</span> - Returns "Hello World!", notice how the space between words did not get removed.</li>
+			</ul>
+			<hr>
+
+			<h2 id="getRandomBool">getRandomBool</h2>
+			<p class="methodbox">getRandomBool(<span class="variablemarkup">chance</span>:Float):Bool</p>
+			<p>Randomizer that returns either "true" or "false".</p>
+			<ul>
+				<li><b><span class="variablemarkup">chance</span></b> - Ranges from 0 to 100.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">getRandomBool(75)</span> - 75% chance of being true.</span></li>
+			</ul>
+			<hr>
+
+			<h2 id="getRandomInt">getRandomInt</h2>
+			<p class="methodbox">getRandomInt(<span class="variablemarkup">min</span>:Int,
+				<span class="isoptional">?</span><span class="variablemarkup">max</span>:Int = <a href="https://api.haxeflixel.com/flixel/math/FlxMath.html#MAX_VALUE_INT">FlxMath.MAX_VALUE_INT</a>,
+				<span class="isoptional">?</span><span class="variablemarkup">exclude</span>:String = ''):Int</p>
+			<p>Randomizer that returns an integer value.</p>
+			<ul>
+				<li><b><span class="variablemarkup">min</span></b> - Minimal number to randomize.</li>
+				<li><b><span class="variablemarkup">max</span> (Optional)</b> - Max number to randomize.</li>
+				<li><b><span class="variablemarkup">exclude</span> (Optional)</b> - Randomization exclusions, separated by commas.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">getRandomInt(1, 5)</span> - Chooses a random number between 1 and 5.</span></li>
+				<li class="exampleitem"><span class="methodexample">getRandomInt(1, 8, <span class="haxecode">'3, 4'</span>)</span> - Chooses a random number between 1 and 8 that aren't <b>3</b> or <b>4</b>.</li>
+			</ul>
+			<hr>
+
+			<h2 id="getRandomFloat">getRandomFloat</h2>
+			<p class="methodbox">getRandomFloat(<span class="variablemarkup">min</span>:Float,
+				<span class="isoptional">?</span><span class="variablemarkup">max</span>:Float = 1,
+				<span class="isoptional">?</span><span class="variablemarkup">exclude</span>:String = ''):Float</p>
+			<p>Randomizer that returns an float value.</p>
+			<ul>
+				<li><b><span class="variablemarkup">min</span></b> - Minimal number to randomize.</li>
+				<li><b><span class="variablemarkup">max</span> (Optional)</b> - Max number to randomize.</li>
+				<li><b><span class="variablemarkup">exclude</span> (Optional)</b> - Randomization exclusions, separated by commas.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">getRandomFloat(-45, 45)</span> - Chooses a random number between -45 and 45.</span></li>
+				<li class="exampleitem"><span class="methodexample">getRandomFloat(-1.5, 1.5, <span class="haxecode">'0'</span>)</span> - Chooses a random number between -1.5 and 1.5 that aren't <b>0</b>.</li>
+			</ul>
+			<hr>
+
+			<h2 id="debugPrint">debugPrint</h2>
+			<p class="methodbox">debugPrint(<span class="variablemarkup">text</span>:Dynamic,
+				<span class="isoptional">?</span><span class="variablemarkup">color</span>:String = 'WHITE'):Void</p>
+			<p>Shows a colorable text at the top left corner of the screen that fades out after 5 seconds, used for quick debugging purposes.</p>
+			<ul>
+				<li><b><span class="variablemarkup">text</span></b> - Text to display.</li>
+				<li><b><span class="variablemarkup">color</span> (Optional)</b> - Color hexadecimal string or <a href="https://api.haxeflixel.com/flixel/util/FlxColor.html">color name</a>.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">debugPrint('Hello World!')</span> - Shows "Hello World!" at the top left corner of the screen.</li>
+				<li class="exampleitem"><span class="methodexample">debugPrint('ERROR MESSAGE: Boo!', 'FF0000')</span> - Shows a red text at the top left corner of the screen.</li>
+			</ul>
+			<hr>
+
+			<h2 id="getModSetting">getModSetting</h2>
+			<p class="methodbox">getModSetting(<span class="variablemarkup">saveTag</span>:String, <span class="isoptional">?</span><span class="variablemarkup">modName</span>:String = null):Dynamic</p>
+			<p>Returns the value saved for a Mod Setting from a properly configured "settings.json".</p>
+			<ul>
+				<li><b><span class="variablemarkup">saveTag</span></b> - In settings.json, this is the "save" key in your Custom Setting.</li>
+				<li><b><span class="variablemarkup">modName</span> (Optional)</b> - Gives access to the Settings of another Mod, set to null to use the Mod this Lua Script is from.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">getModSetting('testbool')</span> - Returns the value from "testbool" setting, which is a boolean, returning either true or false.</li>
+				<li class="exampleitem"><span class="methodexample">getModSetting('testnumber')</span> - Returns the value from "testnumber" setting, which is an integer, returning a number.</li>
+				<li class="exampleitem"><span class="methodexample">getModSetting('testkey')</span> - Returns the keys from "testkey", which is a table value with Gamepad and Keyboard inputs, <a href="https://drive.google.com/file/d/1cdT9zqzuAA72xWIA26XRFS_ujlrVOLE-/view?usp=sharing">check this snippet for using it properly</a>.</li>
+			</ul>
+	</body>
+</html>

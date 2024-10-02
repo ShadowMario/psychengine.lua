@@ -1,0 +1,285 @@
+<html lang="en"></html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Psych Engine - Spritesheet Functions</title>
+		<link rel="stylesheet" href="../css/main.css">
+		<link rel="stylesheet" href="../css/header.css">
+		<link rel="stylesheet" href="../css/search.css">
+		<link rel="stylesheet" href="../css/theme.css">
+		<link rel="icon" href="../assets/icon.ico" type="image/x-icon">
+	</head>
+
+	<body>
+		<!-- Create Search Bar and Theme Boxes-->
+		<div class="sidebar"></div>
+		<div class="themeBox" onclick="switchTheme()">
+			<div class="themeDot"></div>
+			<div class="themeDot" style="margin-left: 70px"></div>
+			<button class="themeBtn" id="themeSelector"></button>
+		</div>
+
+		<!-- Load JavaScript-->
+		<script src="../js/selector.js"></script>
+		<script>createSidebarContent();</script>
+		<script src="../js/searchbar.js"></script>
+		<script src="../js/theme.js"></script>
+
+		<!-- Header -->
+		<div class="headerbox">
+			<div class="header">
+				<a href="../index.html">
+					<img width="64" src="../assets/icon.ico" alt="Psych Engine Logo" draggable="false">
+					<div class="headertext">Psych Engine - Lua Script API</div>
+				</a>
+			</div>
+		</div>
+
+		<!-- Page Info -->
+		<div class="infobox">
+			<h1>Spritesheet Functions</h1>
+			<p><b>Functions to display images on screen.</b></p>
+			<hr>
+			<h2 id="makeLuaSprite">makeLuaSprite</h2>
+			<p class="methodbox">makeLuaSprite(<span class="variablemarkup">tag</span>:String,
+				<span class="isoptional">?</span><span class="variablemarkup">image</span>:String = null,
+				<span class="isoptional">?</span><span class="variablemarkup">x</span>:Float = 0,
+				<span class="isoptional">?</span><span class="variablemarkup">y</span>:Float = 0):Void</p>
+			<p>Creates a Lua Sprite with a specific image and store it as the name input in "tag".</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Lua Sprite nametag to save.</li>
+				<li><b><span class="variablemarkup">image</span> (Optional)</b> - Image to display, don't include the extension!</li>
+				<li><b><span class="variablemarkup">x</span> (Optional)</b> - Defaults to 0.</li>
+				<li><b><span class="variablemarkup">y</span> (Optional)</b> - Defaults to 0.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">makeLuaSprite('mySprite', 'funkay')</span> - Create a Lua Sprite with tag "mySprite" displaying image <span class="methodexample">assets/shared/images/funkay.png</span>.</li>
+				<li class="exampleitem"><span class="methodexample">makeLuaSprite('mySprite', 'myStage/myImage')</span> - Create a Lua Sprite with tag "mySprite" displaying image <span class="methodexample">mods/My-Mod/images/myStage/myImage.png</span>.</li>
+			</ul>
+			<p style="color: gray">Note: You will still have to add the Lua Sprite to the scene with <a href="#addLuaSprite">addLuaSprite</a> or it won't be visible.</p>
+			<hr>
+			
+			<h2 id="makeAnimatedLuaSprite">makeAnimatedLuaSprite</h2>
+			<p class="methodbox">makeAnimatedLuaSprite(<span class="variablemarkup">tag</span>:String,
+				<span class="isoptional">?</span><span class="variablemarkup">image</span>:String = null,
+				<span class="isoptional">?</span><span class="variablemarkup">x</span>:Float = 0,
+				<span class="isoptional">?</span><span class="variablemarkup">y</span>:Float = 0,
+				<span class="isoptional">?</span><span class="variablemarkup">spriteType</span>:String = 'auto'):Void
+			<p>Creates an animated Lua Sprite with a specific image and .XML/.JSON/.TXT, then store it as the name input in "tag".</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Lua Sprite nametag to save.</li>
+				<li><b><span class="variablemarkup">image</span> (Optional)</b> - Image to display, don't include the extension!</li>
+				<li><b><span class="variablemarkup">x</span> (Optional)</b> - Defaults to 0.</li>
+				<li><b><span class="variablemarkup">y</span> (Optional)</b> - Defaults to 0.</li>
+				<li><b><span class="variablemarkup">spriteType</span> (Optional)</b> - Forces a spritesheet type, can be "sparrow" (.XML), "packer" (.TXT) or "aseprite" (.JSON). Defaults to "auto".</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">makeAnimatedLuaSprite('mySprite', 'logoBumpin')</span> - Create a Lua Sprite with tag "mySprite" displaying <span class="methodexample">assets/shared/images/logoBumpin</span>, using its .PNG and .XML files.</li>
+				<li class="exampleitem"><span class="methodexample">makeAnimatedLuaSprite('mySprite', 'aseprite-test', 'aseprite')</span> - Create a Lua Sprite with tag "mySprite" displaying <span class="methodexample">mods/My-Mod/images/aseprite-test</span>, using its .PNG and .JSON files.</li>
+			</ul>
+			<p style="color: gray">Note: You will still have to add the Lua Sprite to the scene with <a href="#addLuaSprite">addLuaSprite</a> or it won't be visible.</p>
+			<p style="color: gray">Note 2: <a href="https://github.com/ShadowMario/FNF-PsychEngine/wiki/Export-and-Import-from-Aseprite">Follow these instructions to export properly from Aseprite</a>.</p>
+			<hr>
+
+			<h2 id="makeGraphic">makeGraphic</h2>
+			<p class="methodbox">makeGraphic(<span class="variablemarkup">tag</span>:String,
+				<span class="variablemarkup">width</span>:Int,
+				<span class="variablemarkup">height</span>:Int,
+				<span class="isoptional">?</span><span class="variablemarkup">color</span>:String = 'FFFFFF'):Void</p>
+			<p>Generates a solid color square as graphic for a Lua Sprite.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Sprite variable name or Lua Sprite nametag.</li>
+				<li><b><span class="variablemarkup">width</span></b> - Graphic width in pixels.</li>
+				<li><b><span class="variablemarkup">height</span></b> - Graphic height in pixels.</li>
+				<li><b><span class="variablemarkup">color</span> (Optional)</b> - Color hexadecimal string or <a href="https://api.haxeflixel.com/flixel/util/FlxColor.html">color name</a>.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">makeGraphic('mySprite', 500, 500, 'FF0000')</span> - Turns Lua Sprite with tag "mySprite" into a 500x500 red square.</li>
+				<li class="exampleitem"><span class="methodexample">makeGraphic('mySprite', 1000, 200, 'green')</span> - Turns Lua Sprite with tag "mySprite" into a 1000x200 green square.</li>
+			</ul>
+			<hr>
+
+			<h2 id="loadGraphic">loadGraphic</h2>
+			<p class="methodbox">loadGraphic(<span class="variablemarkup">tag</span>:String,
+				<span class="variablemarkup">image</span>:String = null,
+				<span class="isoptional">?</span><span class="variablemarkup">gridX</span>:Int = 0,
+				<span class="isoptional">?</span><span class="variablemarkup">gridY</span>:Int = 0):Void</p>
+			<p>Loads an image to a Lua Sprite, this image can be divided into frames in a consistently sized grid that doesn't require a .XML/.JSON/.TXT, which can be used as animation through <a href="#addAnimation">"addAnimation"</a>.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Sprite variable name or Lua Sprite nametag.</li>
+				<li><b><span class="variablemarkup">image</span></b> - Image to display, don't include the extension!</li>
+				<li><b><span class="variablemarkup">gridX</span> (Optional)</b> - Defaults to 0.</li>
+				<li><b><span class="variablemarkup">gridY</span> (Optional)</b> - Defaults to 0.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">loadGraphic('mySprite', 'funkay')</span> - Sets graphic of the Lua Sprite named "mySprite" to <span class="methodexample">assets/shared/images/funkay.png</span>.</li>
+				<li class="exampleitem"><span class="methodexample">loadGraphic('mySprite', 'icons/icon-bf', 150, 150)</span> - Loads BF's Health Icon sprite on a Lua Sprite as a 150x150 grid.</li>
+			</ul>
+			<hr>
+			
+			<h2 id="loadFrames">loadFrames</h2>
+			<p class="methodbox">loadFrames(<span class="variablemarkup">tag</span>:String,
+				<span class="variablemarkup">image</span>:String,
+				<span class="isoptional">?</span><span class="variablemarkup">spriteType</span>:String = 'auto'):Void
+			<p>Loads a specific image and .XML/.JSON/.TXT to a Lua Sprite.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Sprite variable name or Lua Sprite nametag.</li>
+				<li><b><span class="variablemarkup">image</span></b> - Image to display, don't include the extension!</li>
+				<li><b><span class="variablemarkup">spriteType</span> (Optional)</b> - Forces a spritesheet type, can be "sparrow" (.XML), "packer" (.TXT) or "aseprite" (.JSON). Defaults to "auto".</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">loadFrames('mySprite', 'logoBumpin')</span> - Loads <span class="methodexample">assets/shared/images/logoBumpin</span> to the Lua Sprite with tag "mySprite", using its .PNG and .XML files.</li>
+				<li class="exampleitem"><span class="methodexample">loadFrames('mySprite', 'aseprite-test', 'aseprite')</span> - Loads <span class="methodexample">mods/My-Mod/images/aseprite-test</span>, using its .PNG and .JSON files.</li>
+			</ul>
+			<p style="color: gray">Note: <a href="https://github.com/ShadowMario/FNF-PsychEngine/wiki/Export-and-Import-from-Aseprite">Follow these instructions to export properly from Aseprite</a>.</p>
+			<hr>
+
+			<h2 id="addAnimationByPrefix">addAnimationByPrefix</h2>
+			<p class="methodbox">addAnimationByPrefix(<span class="variablemarkup">tag</span>:String,
+				<span class="variablemarkup">name</span>:String,
+				<span class="variablemarkup">prefix</span>:String,
+				<span class="isoptional">?</span><span class="variablemarkup">framerate</span>:Float = 24,
+				<span class="isoptional">?</span><span class="variablemarkup">loop</span>:Bool = false):Bool</p>
+			<p>Adds an animation from a symbol.
+			<br>Returns true if the operation was successful.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Sprite variable name or Lua Sprite nametag.</li>
+				<li><b><span class="variablemarkup">name</span></b> - Animation name.</li>
+				<li><b><span class="variablemarkup">prefix</span></b> - Animation name in Adobe Animate/Aseprite.</li>
+				<li><b><span class="variablemarkup">framerate</span> (Optional)</b> - Animation FPS.</li>
+				<li><b><span class="variablemarkup">loop</span> (Optional)</b> - Should the animation loop?</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">addAnimationByPrefix('mySprite', 'idle', 'Test Anim Idle')</span> - Adds an animation named "idle", symbol is named "Test Anim Idle" on Animate, running at 24 FPS and loop disabled.</li>
+				<li class="exampleitem"><span class="methodexample">addAnimationByPrefix('mySprite', 'spin', 'Test Spin', 30, true)</span> - Adds an animation named "spin", symbol is named "Test Spin" on Animate, running at 30 FPS and loop enabled.</li>
+			</ul>
+			<hr>
+
+			<h2 id="addAnimationByIndices">addAnimationByIndices</h2>
+			<p class="methodbox">addAnimationByIndices(<span class="variablemarkup">tag</span>:String,
+				<span class="variablemarkup">name</span>:String,
+				<span class="variablemarkup">prefix</span>:String,
+				<span class="variablemarkup">indices</span>:Dynamic = null,
+				<span class="isoptional">?</span><span class="variablemarkup">framerate</span>:Float = 24,
+				<span class="isoptional">?</span><span class="variablemarkup">loop</span>:Bool = false):Bool</p>
+			<p>Adds an animation from a symbol, playing only the specified frames.
+			<br>Returns true if the operation was successful.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Sprite variable name or Lua Sprite nametag.</li>
+				<li><b><span class="variablemarkup">name</span></b> - Animation name.</li>
+				<li><b><span class="variablemarkup">prefix</span></b> - Animation name in Adobe Animate/Aseprite.</li>
+				<li><b><span class="variablemarkup">indices</span></b> - Animation frames, can be formatted either as a string separated by commas or as a table.</li>
+				<li><b><span class="variablemarkup">framerate</span> (Optional)</b> - Animation FPS.</li>
+				<li><b><span class="variablemarkup">loop</span> (Optional)</b> - Should the animation loop?</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">addAnimationByIndices('mySprite', 'idle', 'Test Anim Idle', '0, 1, 2, 3, 4, 5, 6, 7')</span> - Adds "idle" using string indices.</li>
+				<li class="exampleitem"><span class="methodexample">addAnimationByIndices('mySprite', 'idle', 'Test Anim Idle', {0, 1, 2, 3, 4, 5, 6, 7})</span> - Adds "idle" using table indices.</li>
+			</ul>
+			<hr>
+
+			<h2 id="addAnimation">addAnimation</h2>
+			<p class="methodbox">addAnimation(<span class="variablemarkup">tag</span>:String,
+				<span class="variablemarkup">name</span>:String,
+				<span class="variablemarkup">frames</span>:Dynamic = null,
+				<span class="isoptional">?</span><span class="variablemarkup">framerate</span>:Float = 24,
+				<span class="isoptional">?</span><span class="variablemarkup">loop</span>:Bool = false):Bool</p>
+			<p>Adds an animation <a href="#loadGraphic">from a grid done with "loadGraphic"</a>, playing only the specified frames.
+			<br>Returns true if the operation was successful.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Sprite variable name or Lua Sprite nametag.</li>
+				<li><b><span class="variablemarkup">name</span></b> - Animation name.</li>
+				<li><b><span class="variablemarkup">frames</span></b> - Animation frames, can be formatted either as a string separated by commas or as a table.</li>
+				<li><b><span class="variablemarkup">framerate</span> (Optional)</b> - Animation FPS.</li>
+				<li><b><span class="variablemarkup">loop</span> (Optional)</b> - Should the animation loop?</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">addAnimation('mySprite', 'idle', '0, 1, 2')</span> - Adds "idle" using string indices.</li>
+				<li class="exampleitem"><span class="methodexample">addAnimation('mySprite', 'idle', {0, 1, 2})</span> - Adds "idle" using table indices.</li>
+			</ul>
+			<hr>
+
+			<h2 id="addOffset">addOffset</h2>
+			<p class="methodbox">addOffset(<span class="variablemarkup">tag</span>:String,
+				<span class="variablemarkup">name</span>:String,
+				<span class="variablemarkup">x</span>:Float,
+				<span class="variablemarkup">y</span>:Float):Bool</p>
+			<p>Adds an offset for the animation, offsets change automatically when you use <a href="#playAnim">"playAnim"</a>.
+			<br>Returns true if the operation was successful.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Sprite variable name or Lua Sprite nametag.</li>
+				<li><b><span class="variablemarkup">name</span></b> - Animation name.</li>
+				<li><b><span class="variablemarkup">x</span></b> - Offset X.</li>
+				<li><b><span class="variablemarkup">y</span></b> - Offset Y.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">addAnimation('mySprite', 'idle', 50, 38)</span> - Add offsets to "idle" animation.</li>
+			</ul>
+			<hr>
+
+			<h2 id="playAnim">playAnim</h2>
+			<p class="methodbox">playAnim(<span class="variablemarkup">tag</span>:String,
+				<span class="variablemarkup">name</span>:String,
+				<span class="isoptional">?</span><span class="variablemarkup">forced</span>:Bool = false,
+				<span class="isoptional">?</span><span class="variablemarkup">reverse</span>:Bool = false,
+				<span class="isoptional">?</span><span class="variablemarkup">startFrame</span>:Int = 0):Bool</p>
+			<p>Plays animation on a Sprite and updates offsets set with <a href="#addOffset">"addOffset"</a>.
+			<br>Returns true if the operation was successful.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Sprite variable name or Lua Sprite nametag.</li>
+				<li><b><span class="variablemarkup">name</span></b> - Animation name.</li>
+				<li><b><span class="variablemarkup">forced</span> (Optional)</b> - When false, playing the same animation again will only reset it if the animation is finished. Defaults to false.</li>
+				<li><b><span class="variablemarkup">reverse</span> (Optional)</b> - Animation plays backwards. Defaults to false.</li>
+				<li><b><span class="variablemarkup">startFrame</span> (Optional)</b> - Start animation at a specific frame. Defaults to 0.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">addAnimation('mySprite', 'idle', 50, 38)</span> - Add offsets to "idle" animation.</li>
+			</ul>
+			<hr>
+
+			<h2 id="addLuaSprite">addLuaSprite</h2>
+			<p class="methodbox">addLuaSprite(<span class="variablemarkup">tag</span>:String, <span class="isoptional">?</span></span><span class="variablemarkup">inFront</span>:Bool = false):Void</p>
+			<p>Adds the Lua Sprite to the scene.<p>
+			<ul></ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Lua Sprite nametag.</li>
+				<li><b><span class="variablemarkup">inFront</span> (Optional)</b> - If true, the instance is added at the top of everything in its camera, if false, it will be added behind all characters.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">addLuaSprite('mySprite', true)</span> - Adds a Lua Sprite with the tag "mySprite" at the top of everything.</li>
+			</ul>
+			<hr>
+
+			<h2 id="removeLuaSprite">removeLuaSprite</h2>
+			<p class="methodbox">removeLuaSprite(<span class="variablemarkup">tag</span>:String, <span class="isoptional">?</span><span class="variablemarkup">destroy</span>:Bool = true, <span class="isoptional">?</span><span class="variablemarkup">group</span>:String = null):Void</p>
+			<p>Removes a Lua Sprite from the scene.<p>
+			<ul></ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Lua Sprite nametag.</li>
+				<li><b><span class="variablemarkup">destroy</span> (Optional)</b> - If enabled, clears the sprite object from memory once removed, do not disable unless you know what you're doing.</li>
+				<li><b><span class="variablemarkup">group</span> (Optional)</b> - Group variable name to remove the sprite from.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">removeLuaSprite('mySprite')</span> - Removes the Lua Sprite with the tag "mySprite".</li>
+			</ul>
+			<hr>
+			
+			<h2 id="luaSpriteExists">luaSpriteExists</h2>
+			<p class="methodbox">luaSpriteExists(<span class="variablemarkup">tag</span>:String):Bool</p>
+			<p>Returns if a Lua Sprite with a specific tag exists.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Lua Sprite nametag.</li>
+			</ul>
+		</div>
+	</body>
+</html>
