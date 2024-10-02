@@ -1,0 +1,62 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Psych Engine - Code Snippets</title>
+		<link rel="stylesheet" href="../css/main.css">
+		<link rel="stylesheet" href="../css/header.css">
+		<link rel="stylesheet" href="../css/search.css">
+		<link rel="stylesheet" href="../css/theme.css">
+		<link rel="icon" href="../assets/icon.ico" type="image/x-icon">
+	</head>
+
+	<body>
+		<!-- Create Search Bar and Theme Boxes-->
+		<div class="sidebar"></div>
+		<div class="themeBox" onclick="switchTheme()">
+			<div class="themeDot"></div>
+			<div class="themeDot" style="margin-left: 70px"></div>
+			<button class="themeBtn" id="themeSelector"></button>
+		</div>
+
+		<!-- Load JavaScript-->
+		<script src="../js/selector.js"></script>
+		<script>createSidebarContent();</script>
+		<script src="../js/searchbar.js"></script>
+		<script src="../js/theme.js"></script>
+
+		<!-- Header -->
+		<div class="headerbox">
+			<div class="header">
+				<a href="../index.html">
+					<img width="64" src="../assets/icon.ico" alt="Psych Engine Logo" draggable="false">
+					<div class="headertext">Psych Engine - Lua Script API</div>
+				</a>
+			</div>
+		</div>
+
+		<!-- Page Info -->
+		<div class="infobox">
+			<h1>Code Snippets</h1>
+			<hr>
+			<h4>In this page, you can find many example Scripts to help you understand how Lua Scripts work.</h4>
+			<li class="exampleitem"><a href="https://github.com/ShadowMario/FNF-PsychEngine/blob/main/example_mods/modTemplate.zip">Mod Folder sample.</a></li>
+			<li class="exampleitem"><a href="https://github.com/ShadowMario/FNF-PsychEngine/blob/main/docs/TemplateScript.lua">Sample Script with all callbacks explained.</a></li>
+			<hr>
+			<h2>Cutscene Scripts:</h2>
+			<li class="exampleitem"><a href="https://drive.google.com/file/d/1o6B9Vq00a8Jo8-PtSqSo6_3PSbT5HhXg">Example Video/Dialogue that plays on Bopeebo (Story Mode).</a></li>
+			<li class="exampleitem"><a href="https://drive.google.com/file/d/15SMMmz5xpNompGne6S7GgEjfqEOu48xx">Drag 'n' Drop Dialogue Script (Story Mode) - Put it inside your chart's folder.</a></li>
+			<hr>
+			<h2>Note Types and Events:</h2>
+			<li class="exampleitem"><a href="https://drive.google.com/file/d/1ysrKh-C7u9hb-uF2HUDs2fo8ch1QszPe">Example of a Custom Event - "Opponent Fade".</a></li>
+			<li class="exampleitem"><a href="https://pastebin.com/raw/Uh3gs2db">Example of a Custom Note Type TXT - Put it in "custom_notetypes/Orange Note.txt".</a></li>
+			<hr>
+			<h2>Stages:</h2>
+			<li class="exampleitem"><a href="https://drive.google.com/file/d/1BRfDxMsImUYedF4wTRn0Y3HYU_hv7zrF"> Week 1-6 stages recreated in Lua Stage Scripts.</a></li>
+			<hr>
+			<h2>Others:</h2>
+			<li class="exampleitem"><a href="https://pastebin.com/raw/qtNwJ3vu">Tween Example - Boyfriend gets bigger on his turn.</a></li>
+			<li class="exampleitem"><a href="https://pastebin.com/raw/QcB5zXYx">Animated Sprite Example - Dad clone behind Dad that only bops his head.</a></li>
+			<li class="exampleitem"><a href="https://pastebin.com/raw/0bGRzRzA">Usage of setPropertyFromClass - Game Over Modifications.</a></li>
+	</body>
+</html>

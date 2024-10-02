@@ -46,6 +46,22 @@
 			<img width="400" src="assets/logo.png" alt="Psych Engine Logo" class="logoImage" draggable="false">
 			
 			<hr>
+			<h2>VS Code Extension</h2>
+			<p><a href="https://gamebanana.com/tools/10716">It's highly recommended for you to install it</a>, as it auto-completes function names.
+			</br>This is an unofficial tool though.</p>
+			<hr>
+			<h2>Running a script</h2>
+			<h3>There are 6 types of LUA Scripts you can run:</h3>
+
+			<ul class="methoddiv">
+				<li class="exampleitem"><b>Stage Script:</b> It will only run if the song's stage is loaded in the current chart, it should have the same name as your stage's .JSON file and should be inside <span class="methodexample">mods/My-Mod/stages/</span>.</li>
+				<li class="exampleitem"><b>Note Type Script:</b> It will only run if the named Note Type is being used in the current chart, it should be inside <span class="methodexample">mods/My-Mod/custom_notetypes/</span>.</li>
+				<li class="exampleitem"><b>Event Script:</b> It will only run if the said Event is being used on the chart, it should be located inside <span class="methodexample">mods/My-Mod/custom_events/</span>.</li>
+				<li class="exampleitem"><b>Song Script(s):</b> They should be saved inside the song's chart folder, it will only run in this specific song, no matter the Difficulty, Stage or anything else.</li>
+				<li class="exampleitem"><b>Character Script:</b> It will only be run if the specified character is used on the current Song. You can use variables <a href="pages/variables.html">dadName, boyfriendName and gfName</a> to check the current character used's name. (if dadName == 'pico' for example), should be in <span class="methodexample">mods/My-Mod/characters/</span>.</li>
+				<li class="exampleitem"><b>General Script:</b> It should be saved in <span class="methodexample">mods/My-Mod/scripts/</span>, it will always run in every Song as long as the Mod is loaded.</li>
+			</ul>
+			<hr>
 			<h2>Functions</h2>
 			<h3>There are 22 pages available with 212 functions:</h3>
 			<ul>

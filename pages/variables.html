@@ -2,7 +2,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Psych Engine - Score Functions</title>
+		<title>Psych Engine - Lua Variables</title>
 		<link rel="stylesheet" href="../css/main.css">
 		<link rel="stylesheet" href="../css/header.css">
 		<link rel="stylesheet" href="../css/search.css">
@@ -45,9 +45,9 @@
 			<li class="variableitem"><span class="methodexample">luaDebugMode</span> - Toggles showing errors. Default value: false</li>
 			<li class="variableitem"><span class="methodexample">luaDeprecatedWarnings</span> - Shows functions that should be replaced by newer ones. <span class="methodexample">luaDebugMode</span> to be true. Default value: true</li>
 			<br>
-			<li class="variableitem"><span class="methodexample">scriptName</span> - Default value: scriptName</li>
+			<li class="variableitem"><span class="methodexample">scriptName</span> - Where the Lua Script running is located.</li>
 			<li class="variableitem"><span class="methodexample">modFolder</span> - Mod Folder the Lua Script is running in.</li>
-			<li class="variableitem"><span class="methodexample">currentModDirectory</span> - Default value: Mods.currentModDirectory</li>
+			<li class="variableitem"><span class="methodexample">currentModDirectory</span> - Mod Folder of the Custom Week being played, empty on Base Game Weeks.</li>
 			<hr>
 			<h3>Psych Engine Information Variables</h3>
 			<li class="variableitem"><span class="methodexample">version</span> - Psych Engine's Version String.</li>
@@ -73,7 +73,7 @@
 			<li class="variableitem"><span class="methodexample">bpm</span> - Starting BPM.</li>
 			<li class="variableitem"><span class="methodexample">songLength</span> - Song length in milliseconds.</li>
 			<li class="variableitem"><span class="methodexample">startedCountdown</span> - If the Countdown already started, starts at false.</li>
-			<li class="variableitem"><span class="methodexample">seenCutscene</span> - Default value: PlayState.seenCutscene</li>
+			<li class="variableitem"><span class="methodexample">seenCutscene</span> - False on the first try in a Song, set to true when you Restart Song or get blueballed, used for Cutscene checking.</li>
 			<li class="variableitem"><span class="methodexample">inGameOver</span> - Are you in Game Over Screen? Starts at false.</li>
 			<hr>
 			<h3>Chart Variables</h3>
@@ -103,9 +103,9 @@
 			<li class="variableitem"><span class="methodexample">crochet</span> - How long in milliseconds a Beat takes in the current section.</li>
 			<li class="variableitem"><span class="methodexample">stepCrochet</span> - How long in milliseconds a Step takes in the current section.</li>
 			<br>
-			<li class="variableitem"><span class="methodexample">mustHitSection</span> - Default value: curSection != null ? (curSection.mustHitSection == true) : false</li>
-			<li class="variableitem"><span class="methodexample">altAnim</span> - Default value: curSection != null ? (curSection.altAnim == true) : false</li>
-			<li class="variableitem"><span class="methodexample">gfSection</span> - Default value: curSection != null ? (curSection.gfSection == true) : false</li>
+			<li class="variableitem"><span class="methodexample">mustHitSection</span> - Current section targets the Player?</li>
+			<li class="variableitem"><span class="methodexample">altAnim</span> - Current section has Alt Animation enabled?</li>
+			<li class="variableitem"><span class="methodexample">gfSection</span> - Current section targets GF?</li>
 			<hr>
 			<h3>Score Variables</h3>
 			<li class="variableitem"><span class="methodexample">score</span> - Current score.</li>
