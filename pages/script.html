@@ -193,15 +193,14 @@
 			<hr>
 			
 			<h2 id="callOnScripts">callOnScripts</h2>
-			<p class="methodbox">callOnScripts(<span class="variablemarkup">varName</span>:String,
-				<span class="variablemarkup">funcName</span>:String,
+			<p class="methodbox">callOnScripts(<span class="variablemarkup">funcName</span>:String,
 				<span class="isoptional">?</span><span class="variablemarkup">args</span>:Array&lt;Dynamic&gt; = null,
 				<span class="isoptional">?</span><span class="variablemarkup">ignoreStops</span>:Bool = false,
 				<span class="isoptional">?</span><span class="variablemarkup">ignoreSelf</span>:Bool = true,
 				<span class="isoptional">?</span><span class="variablemarkup">excludeScripts</span>:Array&lt;String&gt; = null,
-				<span class="isoptional">?</span><span class="variablemarkup">excludeValues</span>:Array&lt;Dynamic&gt; = null):Bool</p>
+				<span class="isoptional">?</span><span class="variablemarkup">excludeValues</span>:Array&lt;Dynamic&gt; = null):Dynamic</p>
 			<p>Calls a function in all Lua Scripts and HScript running.
-			<br>Returns the value in the function, unless you add this value to "excludeValues".</p>
+			<br>Returns the value returned in the function, unless you add this value to "excludeValues".</p>
 			<ul>
 				<li><b><span class="variablemarkup">funcName</span></b> - Function name to call.</li>
 				<li><b><span class="variablemarkup">args</span> (Optional)</b> - Optional table of arguments.</li>
@@ -217,19 +216,23 @@
 			<hr>
 			
 			<h2 id="callOnLuas">callOnLuas</h2>
-			<p class="methodbox">callOnLuas(<span class="variablemarkup">varName</span>:String,
-				<span class="variablemarkup">value</span>:Dynamic,
-				<span class="isoptional">?</span><span class="variablemarkup">ignoreSelf</span>:Bool = false,
-				<span class="isoptional">?</span><span class="variablemarkup">exclusions</span>:Array&lt;String&gt; = null):Void</p>
+			<p class="methodbox">callOnLuas(<span class="variablemarkup">funcName</span>:String,
+				<span class="isoptional">?</span><span class="variablemarkup">args</span>:Array&lt;Dynamic&gt; = null,
+				<span class="isoptional">?</span><span class="variablemarkup">ignoreStops</span>:Bool = false,
+				<span class="isoptional">?</span><span class="variablemarkup">ignoreSelf</span>:Bool = true,
+				<span class="isoptional">?</span><span class="variablemarkup">excludeScripts</span>:Array&lt;String&gt; = null,
+				<span class="isoptional">?</span><span class="variablemarkup">excludeValues</span>:Array&lt;Dynamic&gt; = null):Dynamic</p>
 			<p>Structurally identical to <a href="#callOnScripts">"callOnScripts"</a>, but it does not call the function in HScripts.</p>
 			<hr>
 			
 			
 			<h2 id="callOnHScript">callOnHScript</h2>
-			<p class="methodbox">callOnHScript(<span class="variablemarkup">varName</span>:String,
-				<span class="variablemarkup">value</span>:Dynamic,
-				<span class="isoptional">?</span><span class="variablemarkup">ignoreSelf</span>:Bool = false,
-				<span class="isoptional">?</span><span class="variablemarkup">exclusions</span>:Array&lt;String&gt; = null):Void</p>
+			<p class="methodbox">callOnHScript(<span class="variablemarkup">funcName</span>:String,
+				<span class="isoptional">?</span><span class="variablemarkup">args</span>:Array&lt;Dynamic&gt; = null,
+				<span class="isoptional">?</span><span class="variablemarkup">ignoreStops</span>:Bool = false,
+				<span class="isoptional">?</span><span class="variablemarkup">ignoreSelf</span>:Bool = true,
+				<span class="isoptional">?</span><span class="variablemarkup">excludeScripts</span>:Array&lt;String&gt; = null,
+				<span class="isoptional">?</span><span class="variablemarkup">excludeValues</span>:Array&lt;Dynamic&gt; = null):Dynamic</p>
 			<p>Structurally identical to <a href="#callOnScripts">"callOnScripts"</a>, but it does not call the function in Lua Scripts.</p>
 			<hr>
 
