@@ -191,7 +191,7 @@
 			<h4>Examples:</h4>
 			<ul class="methoddiv">
 				<li class="exampleitem"><span class="methodexample">callMethod('spawnNoteSplashOnNote', {instanceArg('notes.members[0]')})</span> - Will spawn a Note splash in the first note on screen.</li>
-				<li class="exampleitem"><span class="methodexample">setVar('leftStrum', {instanceArg('playerStrums.members[0]')})</span> - Creates a shortcut to Player's Left Note.</li>
+				<li class="exampleitem"><span class="methodexample">setVar('leftStrum', instanceArg('playerStrums.members[0]'))</span> - Creates a shortcut to Player's Left Note.</li>
 			</ul>
 			<hr>
 
@@ -231,7 +231,7 @@
 			<br>Throws an error and returns -1 if the object or group couldn't be found.<p>
 			<ul>
 				<li><b><span class="variablemarkup">tag</span></b> - Variable name of the instance or Lua Object nametag.</li>
-				<li><b><span class="variablemarkup">group</span> (Optional)</b> - If true, the instance is added at the top of everything in its camera, if false, it will be added behind all characters.</li>
+				<li><b><span class="variablemarkup">group</span> (Optional)</b> - Variable name of the FlxTypedGroup/FlxSpriteGroup/Array.
 			</ul>
 			<h4>Examples:</h4>
 			<ul class="methoddiv">
@@ -246,7 +246,7 @@
 			<ul>
 				<li><b><span class="variablemarkup">tag</span></b> - Variable name of the instance or Lua Object nametag.</li>
 				<li><b><span class="variablemarkup">position</span></b> - New position in the Scene/group.</li>
-				<li><b><span class="variablemarkup">group</span> (Optional)</b> - If true, the instance is added at the top of everything in its camera, if false, it will be added behind all characters.</li>
+				<li><b><span class="variablemarkup">group</span> (Optional)</b> - Variable name of the FlxTypedGroup/FlxSpriteGroup/Array.
 			</ul>
 			<h4>Examples:</h4>
 			<ul class="methoddiv">
@@ -259,7 +259,7 @@
 			<p class="methodbox">addToGroup(<span class="variablemarkup">group</span>:String, <span class="variablemarkup">tag</span>:String, <span class="isoptional">?</span><span class="variablemarkup">index</span>:Int = -1):Void</p>
 			<p>Adds the object to a group.<p>
 			<ul>
-				<li><b><span class="variablemarkup">group</span></b> - If true, the instance is added at the top of everything in its camera, if false, it will be added behind all characters.</li>
+				<li><b><span class="variablemarkup">group</span></b> - Variable name of the FlxTypedGroup/FlxSpriteGroup/Array.
 				<li><b><span class="variablemarkup">tag</span></b> - Variable name of the instance or Lua Object nametag.</li>
 				<li><b><span class="variablemarkup">index</span> (Optional)</b> - Position in the group, -1 is top, defaults to -1.</li>
 			</ul>
@@ -277,7 +277,7 @@
 				<span class="isoptional">?</span><span class="variablemarkup">destroy</span>:Bool = true):Void</p>
 			<p>Adds the object to a group.<p>
 			<ul>
-				<li><b><span class="variablemarkup">group</span></b> - If true, the instance is added at the top of everything in its camera, if false, it will be added behind all characters.</li>
+				<li><b><span class="variablemarkup">group</span></b> - Variable name of the FlxTypedGroup/FlxSpriteGroup/Array.
 				<li><b><span class="variablemarkup">index</span></b> - Position in the group, ignored if "tag" is not null, defaults to -1.</li>
 				<li><b><span class="variablemarkup">tag</span> (Optional)</b> - Variable name of the instance or Lua Object nametag.</li>
 				<li><b><span class="variablemarkup">destroy</span> (Optional)</b> - If enabled, clears the object from memory once removed, do not disable unless you know what you're doing.</li>

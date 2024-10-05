@@ -192,7 +192,6 @@
 			<p>Structurally identical to <a href="#setOnScripts">"setOnScripts"</a>, but it does not insert the variable into Lua Scripts running.</p>
 			<hr>
 			
-			(funcName:String, ?args:Array<Dynamic> = null, ?ignoreStops=false, ?ignoreSelf:Bool = true, ?excludeScripts:Array<String> = null, ?excludeValues:Array<Dynamic> = null)
 			<h2 id="callOnScripts">callOnScripts</h2>
 			<p class="methodbox">callOnScripts(<span class="variablemarkup">varName</span>:String,
 				<span class="variablemarkup">funcName</span>:String,
@@ -213,7 +212,7 @@
 			</ul>
 			<h4>Examples:</h4>
 			<ul class="methoddiv">
-				<li class="exampleitem"><span class="methodexample">setOnScripts('myCounter', 10)</span> - This will add a global called "myCounter" with value "10".<br>This can be accessed in lua through <span class="methodexample">if myCounter == 10 then</span>, for example.</li>
+				<li class="exampleitem"><span class="methodexample">callOnScripts('customFunction', {1})</span> - This will call <span class="methodexample">customFunction(1)</span> on all Lua Scripts/HScript.</li>
 			</ul>
 			<hr>
 			
