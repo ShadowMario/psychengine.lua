@@ -293,5 +293,18 @@ function createSidebarContent(prefix) {
 	// Append elements to their parents
 	selectablesDiv.appendChild(itemList);
 	sidebarNav.appendChild(searchInput);
+
+	const collapsingArrow = document.createElement('i')
+	collapsingArrow.classList.add('arrow')
+	sidebarNav.append(collapsingArrow)
+
+	collapsingArrow.addEventListener('click', function() {
+		if (sidebarNav.getAttribute('collapsed') != 'true') {
+			sidebarNav.setAttribute('collapsed', 'true')
+		} else {
+			sidebarNav.setAttribute('collapsed', 'false')
+		}
+	})
+
 	sidebarNav.appendChild(selectablesDiv);
 }
