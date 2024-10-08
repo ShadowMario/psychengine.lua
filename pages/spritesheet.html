@@ -77,7 +77,7 @@
 			<h4>Examples:</h4>
 			<ul class="methoddiv">
 				<li class="exampleitem"><span class="methodexample">makeAnimatedLuaSprite('mySprite', 'logoBumpin')</span> - Create a Lua Sprite with tag "mySprite" displaying <span class="methodexample">assets/shared/images/logoBumpin</span>, using its .PNG and .XML files.</li>
-				<li class="exampleitem"><span class="methodexample">makeAnimatedLuaSprite('mySprite', 'aseprite-test', 'aseprite')</span> - Create a Lua Sprite with tag "mySprite" displaying <span class="methodexample">mods/My-Mod/images/aseprite-test</span>, using its .PNG and .JSON files.</li>
+				<li class="exampleitem"><span class="methodexample">makeAnimatedLuaSprite('mySprite', 'aseprite-test', 0, 0, 'aseprite')</span> - Create a Lua Sprite with tag "mySprite" displaying <span class="methodexample">mods/My-Mod/images/aseprite-test</span>, using its .PNG and .JSON files.</li>
 			</ul>
 			<p style="color: gray">Note: You will still have to add the Lua Sprite to the scene with <a href="#addLuaSprite">addLuaSprite</a> or it won't be visible.</p>
 			<p style="color: gray">Note 2: <a href="https://github.com/ShadowMario/FNF-PsychEngine/wiki/Export-and-Import-from-Aseprite">Follow these instructions to export properly from Aseprite</a>.</p>
@@ -222,7 +222,7 @@
 			</ul>
 			<h4>Examples:</h4>
 			<ul class="methoddiv">
-				<li class="exampleitem"><span class="methodexample">addAnimation('mySprite', 'idle', 50, 38)</span> - Add offsets to "idle" animation.</li>
+				<li class="exampleitem"><span class="methodexample">addOffset('mySprite', 'idle', 50, 38)</span> - Add offsets (X: 50, Y: 38) to "idle" animation.</li>
 			</ul>
 			<hr>
 
@@ -243,7 +243,7 @@
 			</ul>
 			<h4>Examples:</h4>
 			<ul class="methoddiv">
-				<li class="exampleitem"><span class="methodexample">addAnimation('mySprite', 'idle', 50, 38)</span> - Add offsets to "idle" animation.</li>
+				<li class="exampleitem"><span class="methodexample">playAnim('mySprite', 'idle', true)</span> - Forces "mySprite" to play the "idle" animation.</li>
 			</ul>
 			<hr>
 

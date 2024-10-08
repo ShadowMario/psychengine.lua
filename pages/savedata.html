@@ -51,7 +51,7 @@
 			<ul class="methoddiv">
 				<li class="exampleitem"><span class="methodexample">initSaveData('my_mod_savedata')</span> - Initializes "my_mod_savedata.sol".</li>
 			</ul>
-			<p style="color: gray">Note: Save Data do NOT save automatically! Use <a href="#flushSaveData">"flushSaveData"</a> in moderation for saving it.</p>
+			<p style="color: gray">Note: Save Data does NOT save automatically! Use <a href="#flushSaveData">"flushSaveData"</a> in moderation for saving it.</p>
 			<hr>
 
 			<h2 id="flushSaveData">flushSaveData</h2>
@@ -83,7 +83,7 @@
 			<p>Returns a field data from the Save file specified.</p>
 			<ul>
 				<li><b><span class="variablemarkup">save</span></b> - Save Data Name.</li>
-				<li><b><span class="variablemarkup">field</span></b> - Field/Property to get from the.</li>
+				<li><b><span class="variablemarkup">field</span></b> - Field/Property to get from the Save Data loaded.</li>
 				<li><b><span class="variablemarkup">defaultValue</span> (Optional)</b> - Default value to use in case the field isn't available in the Save Data.</li>
 			</ul>
 			<h4>Examples:</h4>
@@ -93,11 +93,11 @@
 			<hr>
 
 			<h2 id="setDataFromSave">setDataFromSave</h2>
-			<p class="methodbox">setDataFromSave(<span class="variablemarkup">save</span>:String, <span class="variablemarkup">field</span>:String, <span class="variablemarkup">value</span>:String):Void</p>
+			<p class="methodbox">setDataFromSave(<span class="variablemarkup">save</span>:String, <span class="variablemarkup">field</span>:String, <span class="variablemarkup">defaultValue</span>:Dynamic):Void</p>
 			<p>Sets a field data to the Save file specified.</p>
 			<ul>
 				<li><b><span class="variablemarkup">save</span></b> - Save Data Name.</li>
-				<li><b><span class="variablemarkup">field</span></b> - Field/Property to get from the.</li>
+				<li><b><span class="variablemarkup">field</span></b> - Field/Property to get from the Save Data loaded.</li>
 				<li><b><span class="variablemarkup">defaultValue</span> (Optional)</b> - Default value to use in case the field isn't available in the Save Data.</li>
 			</ul>
 			<h4>Examples:</h4>

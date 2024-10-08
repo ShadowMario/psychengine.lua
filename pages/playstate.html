@@ -47,7 +47,7 @@
 			
 			<h2 id="endSong">endSong</h2>
 			<p class="methodbox">Usage: <b>endSong()</b></p>
-			<p>Starts the countdown, should be used after finishing your Post-Song Cutscene.</p>
+			<p>Ends the song, can be cancelled through the Lua/HScript callback "onEndSong" to make cutscenes.</p>
 			<hr>
 
 			<h2 id="getSongPosition">getSongPosition</h2>
@@ -142,7 +142,7 @@
 			<p>Plays a Video Cutscene.</p>
 			<ul>
 				<li><b><span class="variablemarkup">videoFile</span></b> - Video .MP4 file located inside "videos/" folder, don't include the extension!</li>
-				<li><b><span class="variablemarkup">canSkip</span> (Optional)</b> - Plays a background music inside "music/" folder.</li>
+				<li><b><span class="variablemarkup">canSkip</span> (Optional)</b> - Allows the video to be skipped by holding down Enter for a second.</li>
 			</ul>
 			<h4>Examples:</h4>
 			<ul class="methoddiv">

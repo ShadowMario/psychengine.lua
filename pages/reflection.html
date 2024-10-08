@@ -83,7 +83,7 @@
 			<h4>Examples:</h4>
 			<ul class="methoddiv">
 				<li class="exampleitem"><span class="methodexample">getPropertyFromClass('backend.ClientPrefs', 'data.downScroll')</span> - Will return the current Downscroll option value, either "true" or "false".</li>
-				<li class="exampleitem"><span class="methodexample">getPropertyFromClass('states.PlayState', 'SONG.player1')</span> - Will return the Player character's name from the Chart, can be "true" or "false".</li>
+				<li class="exampleitem"><span class="methodexample">getPropertyFromClass('states.PlayState', 'SONG.player1')</span> - Will return the Player character's name from the Chart, which is a string.</li>
 			</ul>
 			<hr>
 
@@ -127,13 +127,14 @@
 			<h4>Examples:</h4>
 			<ul class="methoddiv">
 				<li class="exampleitem"><span class="methodexample">setPropertyFromGroup('playerStrums', 2, 'visible', false)</span> - Hides Player's Up note.</li>
-				<li class="exampleitem"><span class="methodexample">setPropertyFromGroup('unspawnNotes', 0, 'extraData.testVar', true)</span> - Lua equivalent of <b>unspawnNotes[0].extraData.set('testVar', true)</b>.</li>
+				<li class="exampleitem"><span class="methodexample">setPropertyFromGroup('unspawnNotes', 0, 'extraData.testVar', true, true)</span> - Lua equivalent of <b>unspawnNotes[0].extraData.set('testVar', true)</b>.</li>
 			</ul>
 			<hr>
 
 			<h2 id="setPropertyFromClass">setPropertyFromClass</h2>
 			<p class="methodbox">setPropertyFromClass(<span class="variablemarkup">classVar</span>:String,
-				<span class="variablemarkup">variable</span>:String, <span class="variablemarkup">value</span>:Dynamic,
+				<span class="variablemarkup">variable</span>:String,
+				<span class="variablemarkup">value</span>:Dynamic,
 				<span class="isoptional">?</span><span class="variablemarkup">allowMaps</span>:Bool = false,
 				<span class="isoptional">?</span><span class="variablemarkup">allowInstances</span>:Bool = false):Dynamic</p>
 			<p>Sets the value of a property inside a class.
@@ -250,7 +251,7 @@
 			</ul>
 			<h4>Examples:</h4>
 			<ul class="methoddiv">
-				<li class="exampleitem"><span class="methodexample">setObjectOrder('boyfriendGroup', getObjectOrder('gfGroup') - 1)</span> - Sets the Player's Character Group to be a layer behind Girlfriend.</li>
+				<li class="exampleitem"><span class="methodexample">setObjectOrder('boyfriendGroup', getObjectOrder('gfGroup'))</span> - Sets the Player's Character Group to be a layer behind Girlfriend.</li>
 				<li class="exampleitem"><span class="methodexample">setObjectOrder('iconP1', 0, 'uiGroup')</span> - Makes Player Icon a layer behind everything else.</li>
 			</ul>
 			<hr>
@@ -272,13 +273,13 @@
 
 			<h2 id="removeFromGroup">removeFromGroup</h2>
 			<p class="methodbox">removeFromGroup(<span class="variablemarkup">group</span>:String,
-				<span class="variablemarkup">tag</span>:String,
 				<span class="isoptional">?</span><span class="variablemarkup">index</span>:Int = -1,
+				<span class="isoptional">?</span><span class="variablemarkup">tag</span>:String = null,
 				<span class="isoptional">?</span><span class="variablemarkup">destroy</span>:Bool = true):Void</p>
 			<p>Adds the object to a group.<p>
 			<ul>
 				<li><b><span class="variablemarkup">group</span></b> - Variable name of the FlxTypedGroup/FlxSpriteGroup/Array.
-				<li><b><span class="variablemarkup">index</span></b> - Position in the group, ignored if "tag" is not null, defaults to -1.</li>
+				<li><b><span class="variablemarkup">index</span> (Optional)</b> - Position in the group, ignored if "tag" is not null, defaults to -1.</li>
 				<li><b><span class="variablemarkup">tag</span> (Optional)</b> - Variable name of the instance or Lua Object nametag.</li>
 				<li><b><span class="variablemarkup">destroy</span> (Optional)</b> - If enabled, clears the object from memory once removed, do not disable unless you know what you're doing.</li>
 			</ul>
