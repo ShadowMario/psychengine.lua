@@ -88,3 +88,17 @@ hr
 {
 	color: #CC7733;
 }
+
+@media (max-width: 910px) {
+	.infobox {
+		box-sizing: border-box;
+		margin: 0;
+		width: 100%;
+		margin-top: 1rem;
+		padding: 1rem;
+	}
+
+	.logoImage {
+		width: 200px;
+	}
+}

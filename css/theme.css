@@ -3,8 +3,8 @@
 	width: 100px;
 	height: 50px;
 	position: fixed;
-	margin-top: calc(100vh - 120px);
-	margin-left: calc(100vw - 200px);
+	bottom: 40px;
+	right: 40px;
 	outline: 10px;
 	border: 3px solid lightslategray;
 	border-radius: 60px;
@@ -14,8 +14,8 @@
 .themeBtn
 {
 	position: fixed;
-	margin-left: 5px;
-	margin-top: 5px;
+	bottom: 48px;
+	right: 98px;
 	width: 40px;
 	height: 40px;
 	background-color: lightslategray;

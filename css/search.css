@@ -11,6 +11,53 @@
 	visibility: hidden;
 }
 
+.arrow::after {
+    left: 50%;
+    transform: rotate(-45deg);
+}
+
+.arrow::before {
+    left: calc(50% - 1px);
+    transform: rotate(45deg);
+    height: 6px;
+    background: white;
+}
+
+.arrow::before,
+.arrow::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 2px;
+    height: 9px;
+    background: currentColor;
+    transform-origin: 50% 100%;
+}
+
+.arrow.sideways {
+    transform: rotate(-90deg);
+}
+
+.arrow {
+    /* display: inline-block; */
+    vertical-align: middle;
+    position: relative;
+    width: 11px;
+    height: 11px;
+    transition: transform .2s;
+	float: right;
+	margin-right: 1rem;
+	margin-top: 5px;
+}
+
+.sidebar[collapsed="true"] .arrow {
+	transform: scaleY(-1);
+}
+
+.sidebar[collapsed="true"] .selectables #itemList {
+	display: none;
+}
+
 .selectable-link
 {
 	color: inherit;
@@ -57,4 +104,18 @@ li[class="searchbar-child"]:hover
 {
 	background-color: cornflowerblue;
 	color: white;
+}
+
+@media (max-width: 910px) {
+	.sidebar {
+		position:static;
+		width: 100%;
+		margin: 0;
+		margin-top: 5rem;
+		float: none;
+	}
+
+	.selectables {
+		max-height: 200px;
+	}
 }
