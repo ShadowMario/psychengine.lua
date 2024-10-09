@@ -70,7 +70,7 @@
 			<hr>
 
 			<h2 id="getMouseX">getMouseX</h2>
-			<p class="methodbox">getMouseX(<span class="isoptional"?></span><span class="variablemarkup">camera</span>:String = 'game'):Bool</p>
+			<p class="methodbox">getMouseX(<span class="isoptional"?></span><span class="variablemarkup">camera</span>:String = 'game'):Float</p>
 			<p>Returns Mouse's Screen X from a Camera.</p>
 			<ul>
 				<li><b><span class="variablemarkup">camera</span></b> - Can be "game", "hud" or "other".</li>
@@ -83,7 +83,7 @@
 			<hr>
 
 			<h2 id="getMouseY">getMouseY</h2>
-			<p class="methodbox">getMouseY(<span class="isoptional"?></span><span class="variablemarkup">camera</span>:String = 'game'):Bool</p>
+			<p class="methodbox">getMouseY(<span class="isoptional"?></span><span class="variablemarkup">camera</span>:String = 'game'):Float</p>
 			<p>Returns Mouse's Screen Y from a Camera.</p>
 			<ul>
 				<li><b><span class="variablemarkup">camera</span></b> - Can be "game", "hud" or "other".</li>
@@ -192,7 +192,7 @@
 			<hr>
 			
 			<h2 id="gamepadPressed">gamepadPressed</h2>
-			<p class="methodbox">gamepadPressed(<span class="variablemarkup">button</span>:String):Bool</p>
+			<p class="methodbox">gamepadPressed(<span class="variablemarkup">id</span>:Int, <span class="variablemarkup">button</span>:String):Bool</p>
 			<p>Returns if a specific gamepad button is being pressed in a specific controller.</p>
 			<ul>
 				<li><b><span class="variablemarkup">id</span></b> - Controller ID, by detection order.</li>
@@ -201,7 +201,7 @@
 			<hr>
 			
 			<h2 id="gamepadReleased">gamepadReleased</h2>
-			<p class="methodbox">gamepadReleased(<span class="variablemarkup">button</span>:String):Bool</p>
+			<p class="methodbox">gamepadReleased(<span class="variablemarkup">id</span>:Int, <span class="variablemarkup">button</span>:String):Bool</p>
 			<p>Returns if a specific gamepad button was just released in a specific controller.</p>
 			<ul>
 				<li><b><span class="variablemarkup">id</span></b> - Controller ID, by detection order.</li>

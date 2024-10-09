@@ -43,7 +43,7 @@
 			<h2 id="playSound">playSound</h2>
 			<p class="methodbox">playSound(<span class="variablemarkup">sound</span>:String,
 				<span class="isoptional">?</span><span class="variablemarkup">volume</span>:Float = 1,
-				<span class="isoptional">?</span><span class="variablemarkup">tag</span>:Int = 0,
+				<span class="isoptional">?</span><span class="variablemarkup">tag</span>:String = null,
 				<span class="isoptional">?</span><span class="variablemarkup">loop</span>:Bool = false):String</p>
 			<p>Plays a sound, set a Tag to be able to use any functions on it.
 			<br>Calls function "onSoundFinished(tag)" when it finishes if "tag" isn't null.
@@ -80,7 +80,7 @@
 			<h2 id="soundFadeIn">soundFadeIn</h2>
 			<p class="methodbox">soundFadeIn(<span class="variablemarkup">tag</span>:String,
 				<span class="variablemarkup">duration</span>:Float,
-				<span class="isoptional">?</span><span class="variablemarkup">fromValue</span>:Float = 1,
+				<span class="isoptional">?</span><span class="variablemarkup">fromValue</span>:Float = 0,
 				<span class="isoptional">?</span><span class="variablemarkup">toValue</span>:Float = 1):Void</p>
 			<p>Tweens the volume from a Lua Sound with a specific tag doing a Fade In.</p>
 			<ul>
@@ -99,7 +99,7 @@
 			<h2 id="soundFadeOut">soundFadeOut</h2>
 			<p class="methodbox">soundFadeOut(<span class="variablemarkup">tag</span>:String,
 				<span class="variablemarkup">duration</span>:Float,
-				<span class="isoptional">?</span><span class="variablemarkup">toValue</span>:Float = 1):Void</p>
+				<span class="isoptional">?</span><span class="variablemarkup">toValue</span>:Float = 0):Void</p>
 			<p>Tweens the volume from a Lua Sound with a specific tag doing a Fade Out.</p>
 			<ul>
 				<li><b><span class="variablemarkup">tag</span></b> - Lua Sound nametag, use "null" for the Music from <a href="#playMusic">"playMusic"</a>.</li>
@@ -191,7 +191,7 @@
 			<hr>
 
 			<h2 id="setSoundPitch">setSoundPitch</h2>
-			<p class="methodbox">setSoundPitch(<span class="variablemarkup">tag</span>:String, <span class="variablemarkup">value</span>:Float, <span class="isoptional">?</span><span class="variablemarkup">doPause</span>:Float):Void</p>
+			<p class="methodbox">setSoundPitch(<span class="variablemarkup">tag</span>:String, <span class="variablemarkup">value</span>:Float, <span class="isoptional">?</span><span class="variablemarkup">doPause</span>:Bool = false):Void</p>
 			<p>Sets a Lua Sound's pitch shift.</p>
 			<ul>
 				<li><b><span class="variablemarkup">tag</span></b> - Lua Sound nametag, use "null" for the Music from <a href="#playMusic">"playMusic"</a>.</li>

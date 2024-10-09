@@ -92,7 +92,7 @@
 				<span class="variablemarkup">value</span>:Dynamic,
 				<span class="isoptional">?</span><span class="variablemarkup">allowMaps</span>:Bool = false,
 				<span class="isoptional">?</span><span class="variablemarkup">allowInstances</span>:Bool = false):Dynamic</p>
-			<p>Sets the value of a property or variable inside PlayState, a variable saved through setVar or a Lua Sprite/Text.<br>Returns "value".</p>
+			<p>Sets the value of a property or variable inside PlayState, a variable saved through <a href="script.html#setVar">"setVar"</a> or a Lua Sprite/Text.<br>Returns "value".</p>
 			<ul>
 				<li><b><span class="variablemarkup">variable</span></b> - Variable or Property.</li>
 				<li><b><span class="variablemarkup">value</span></b> - Value to set.</li>
@@ -183,7 +183,7 @@
 
 			<h2 id="instanceArg">instanceArg</h2>
 			<p class="methodbox">instanceArg(<span class="variablemarkup">instanceName</span>:String, <span class="isoptional">?</span><span class="variablemarkup">classVar</span>:String = null):String</p>
-			<p>Meant to be used with <a href="#callMethod">"callMethod"</a>, <a href="#callMethodFromClass">"callMethodFromClass"</a>, <a href="#createInstance">"createInstance"</a>, <a href="#setProperty">"setProperty"</a>, <a href="#setPropertyFromGroup">"setPropertyFromGroup"</a>, <a href="#setPropertyFromClass">"setPropertyFromClass"</a> and <a href="#setVar">"setVar"</a>.
+			<p>Meant to be used with <a href="#callMethod">"callMethod"</a>, <a href="#callMethodFromClass">"callMethodFromClass"</a>, <a href="#createInstance">"createInstance"</a>, <a href="#setProperty">"setProperty"</a>, <a href="#setPropertyFromGroup">"setPropertyFromGroup"</a>, <a href="#setPropertyFromClass">"setPropertyFromClass"</a> and <a href="script.html#setVar">"setVar"</a>.
 			<br>Formats a String in a specific way to tell the previously mentioned functions that the string is meant to be an instance.</p>
 			<ul>
 				<li><b><span class="variablemarkup">instanceName</span></b> - Self explanatory.</li>
@@ -213,7 +213,7 @@
 			<hr>
 
 			<h2 id="addInstance">addInstance</h2>
-			<p class="methodbox">addInstance(<span class="variablemarkup">objectName</span>:String, <span class="isoptional">>?</span><span class="variablemarkup">inFront</span>:Bool = false):Void</p>
+			<p class="methodbox">addInstance(<span class="variablemarkup">objectName</span>:String, <span class="isoptional">?</span><span class="variablemarkup">inFront</span>:Bool = false):Void</p>
 			<p>Adds the instance to the scene.<p>
 			<ul>
 				<li><b><span class="variablemarkup">objectName</span></b> - Variable name of the instance.</li>
@@ -223,7 +223,7 @@
 			<ul class="methoddiv">
 				<li class="exampleitem"><span class="methodexample">addInstance('testIcon', true)</span> - Adds an instance with the tag "testIcon" at the top of everything.</li>
 			</ul>
-			<p style="color: gray">Note: As of 1.0, this function is redundant as it does nearly the same thing as <a href="sprite.html#addLuaSprite">"addLuaSprite"</a></p>
+			<p style="color: gray">Note: As of 1.0, this function is redundant as it does nearly the same thing as <a href="spritesheet.html#addLuaSprite">"addLuaSprite"</a></p>
 			<hr>
 
 			<h2 id="getObjectOrder">getObjectOrder</h2>
@@ -292,8 +292,9 @@
 
 			<h2 id="setObjectCamera">setObjectCamera</h2>
 			<p class="methodbox">setObjectCamera(<span class="variablemarkup">tag</span>:String,
-				<span class="isoptional">?</span><span class="variablemarkup">camera</span>:String = 'game'):Void</p>
-			<p>Changes the Object's Draw Camera.<p>
+				<span class="isoptional">?</span><span class="variablemarkup">camera</span>:String = 'game'):Bool</p>
+			<p>Changes the Object's Draw Camera.
+			<br>Returns if the operation was successful.<p>
 			<ul>
 				<li><b><span class="variablemarkup">tag</span></b> - Variable name of the instance or Lua Object nametag.</li>
 				<li><b><span class="variablemarkup">camera</span> (Optional)</b> - Can be "game", "hud" or "other", defaults to "game".</li>
@@ -383,8 +384,9 @@
 
 			<h2 id="setBlendMode">setBlendMode</h2>
 			<p class="methodbox">setBlendMode(<span class="variablemarkup">tag</span>:String,
-				<span class="isoptional">?</span><span class="variablemarkup">blend</span>:String = ''):Void</p>
-			<p>Changes the Blend Mode of an object, similarly to Photoshop and other image editors.<p>
+				<span class="isoptional">?</span><span class="variablemarkup">blend</span>:String = ''):Bool</p>
+			<p>Changes the Blend Mode of an object, similarly to Photoshop and other image editors.
+			<br>Returns if the operation was successful.<p>
 			<ul>
 				<li><b><span class="variablemarkup">tag</span></b> - Variable name of the instance or Lua Object nametag.</li>
 				<li><b><span class="variablemarkup">blend</span></b> - <a href="https://api.haxeflixel.com/flash/display/BlendMode.html">Blend mode name</a>, leave empty for using the default blend mode.</li>

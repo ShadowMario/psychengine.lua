@@ -85,14 +85,14 @@
 
 			<h2 id="makeGraphic">makeGraphic</h2>
 			<p class="methodbox">makeGraphic(<span class="variablemarkup">tag</span>:String,
-				<span class="variablemarkup">width</span>:Int,
-				<span class="variablemarkup">height</span>:Int,
+				<span class="isoptional">?</span><span class="variablemarkup">width</span>:Int = 256,
+				<span class="isoptional">?</span><span class="variablemarkup">height</span>:Int = 256,
 				<span class="isoptional">?</span><span class="variablemarkup">color</span>:String = 'FFFFFF'):Void</p>
 			<p>Generates a solid color square as graphic for a Lua Sprite.</p>
 			<ul>
 				<li><b><span class="variablemarkup">tag</span></b> - Sprite variable name or Lua Sprite nametag.</li>
-				<li><b><span class="variablemarkup">width</span></b> - Graphic width in pixels.</li>
-				<li><b><span class="variablemarkup">height</span></b> - Graphic height in pixels.</li>
+				<li><b><span class="variablemarkup">width</span></b> - Graphic width in pixels. Defaults to 256.</li>
+				<li><b><span class="variablemarkup">height</span></b> - Graphic height in pixels. Defaults to 256.</li>
 				<li><b><span class="variablemarkup">color</span> (Optional)</b> - Color hexadecimal string or <a href="https://api.haxeflixel.com/flixel/util/FlxColor.html">color name</a>.</li>
 			</ul>
 			<h4>Examples:</h4>
@@ -250,7 +250,7 @@
 			<h2 id="addLuaSprite">addLuaSprite</h2>
 			<p class="methodbox">addLuaSprite(<span class="variablemarkup">tag</span>:String, <span class="isoptional">?</span></span><span class="variablemarkup">inFront</span>:Bool = false):Void</p>
 			<p>Adds the Lua Sprite to the scene.<p>
-			<ul></ul>
+			<ul>
 				<li><b><span class="variablemarkup">tag</span></b> - Lua Sprite nametag.</li>
 				<li><b><span class="variablemarkup">inFront</span> (Optional)</b> - If true, the instance is added at the top of everything in its camera, if false, it will be added behind all characters.</li>
 			</ul>
@@ -263,7 +263,7 @@
 			<h2 id="removeLuaSprite">removeLuaSprite</h2>
 			<p class="methodbox">removeLuaSprite(<span class="variablemarkup">tag</span>:String, <span class="isoptional">?</span><span class="variablemarkup">destroy</span>:Bool = true, <span class="isoptional">?</span><span class="variablemarkup">group</span>:String = null):Void</p>
 			<p>Removes a Lua Sprite from the scene.<p>
-			<ul></ul>
+			<ul>
 				<li><b><span class="variablemarkup">tag</span></b> - Lua Sprite nametag.</li>
 				<li><b><span class="variablemarkup">destroy</span> (Optional)</b> - If enabled, clears the sprite object from memory once removed, do not disable unless you know what you're doing.</li>
 				<li><b><span class="variablemarkup">group</span> (Optional)</b> - Group variable name to remove the sprite from.</li>

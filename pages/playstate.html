@@ -123,8 +123,8 @@
 			</ul>
 			<hr>
 
-			<h2 id="playDialogue">playDialogue</h2>
-			<p class="methodbox">playDialogue(<span class="variablemarkup">dialogueFile</span>:String, <span class="isoptional">?</span><span class="variablemarkup">music</span>:String):Void</p>
+			<h2 id="startDialogue">startDialogue</h2>
+			<p class="methodbox">startDialogue(<span class="variablemarkup">dialogueFile</span>:String, <span class="isoptional">?</span><span class="variablemarkup">music</span>:String):Void</p>
 			<p>Loads a Dialogue .JSON inside the Chart folder, handles translation loading automatically.</p>
 			<ul>
 				<li><b><span class="variablemarkup">dialogueFile</span></b> - Dialogue file .JSON name.</li>
@@ -132,17 +132,17 @@
 			</ul>
 			<h4>Examples:</h4>
 			<ul class="methoddiv">
-				<li class="exampleitem"><span class="methodexample">playDialogue('dialogue')</span> - Loads "dialogue.json" inside the chart folder, will prefer "dialogue_pt-BR.json" if you're playing on Portuguese (Brazil).</li>
-				<li class="exampleitem"><span class="methodexample">playDialogue('dialogue', 'breakfast')</span> - Same as above, but plays "Breakfast" as background music.</li>
+				<li class="exampleitem"><span class="methodexample">startDialogue('dialogue')</span> - Loads "dialogue.json" inside the chart folder, will prefer "dialogue_pt-BR.json" if you're playing on Portuguese (Brazil).</li>
+				<li class="exampleitem"><span class="methodexample">startDialogue('dialogue', 'breakfast')</span> - Same as above, but plays "Breakfast" as background music.</li>
 			</ul>
 			<hr>
 
 			<h2 id="startVideo">startVideo</h2>
-			<p class="methodbox">startVideo(<span class="variablemarkup">videoFile</span>:String, <span class="isoptional">?</span><span class="variablemarkup">canSkip</span>:String):Void</p>
+			<p class="methodbox">startVideo(<span class="variablemarkup">videoFile</span>:String, <span class="isoptional">?</span><span class="variablemarkup">canSkip</span>:Bool = true):Void</p>
 			<p>Plays a Video Cutscene.</p>
 			<ul>
 				<li><b><span class="variablemarkup">videoFile</span></b> - Video .MP4 file located inside "videos/" folder, don't include the extension!</li>
-				<li><b><span class="variablemarkup">canSkip</span> (Optional)</b> - Allows the video to be skipped by holding down Enter for a second.</li>
+				<li><b><span class="variablemarkup">canSkip</span> (Optional)</b> - Allows the video to be skipped by holding down Enter for a second. Defaults to true.</li>
 			</ul>
 			<h4>Examples:</h4>
 			<ul class="methoddiv">

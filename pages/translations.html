@@ -46,13 +46,13 @@
 			<ul>
 				<li><b><span class="variablemarkup">key</span></b> - Translation key name.</li>
 				<li><b><span class="variablemarkup">defaultPhrase</span> (Optional)</b> - String for a default text used when missing translation, if missing, it will use the "key" as the text.</li>
-				<li><b><span class="variablemarkup">values</span> (Optional)</b> - Table with data for the translations.</li>
+				<li><b><span class="variablemarkup">args</span> (Optional)</b> - Table with data for the translations.</li>
 			</ul>
 			<h4>Examples:</h4>
 			<ul class="methoddiv">
 				<li class="exampleitem"><span class="methodexample">getTranslationPhrase('This is a Test')</span> - This will load translation phrase "this_is_a_test".</li>
 				<li class="exampleitem"><span class="methodexample">getTranslationPhrase('test_phrase', 'This is a Test')</span> - This will load translation phrase "test_phrase", if missing, it will use "This is a Test".</li>
-				<li class="exampleitem"><span class="methodexample">getTranslationPhrase('test_phrase', 'Test: {1}', {someVariableHere})</span> - This will load translation phrase "this_is_a_test", and replace "{1}", "{2}"... with the values inside the table.</li>
+				<li class="exampleitem"><span class="methodexample">getTranslationPhrase('test_phrase', 'Test: {1}', {someVariableHere})</span> - This will load translation phrase "this_is_a_test", and replace "{1}", "{2}"... with the values inside the table in its order.</li>
 			</ul>
 			<hr>
 
