@@ -121,21 +121,6 @@
 			</ul>
 			<hr>
 			
-			<h2 id="loadFrames">loadMultipleFrames</h2>
-			<p class="methodbox">loadMultipleFrames(<span class="variablemarkup">tag</span>:String,
-				<span class="variablemarkup">images</span>:Array&lt;String&gt;):Void
-			<p>Loads multiple spritesheets to a Lua Sprite.</p>
-			<ul>
-				<li><b><span class="variablemarkup">tag</span></b> - Sprite variable name or Lua Sprite nametag.</li>
-				<li><b><span class="variablemarkup">images</span></b> - Table with spritesheet list, don't include the extension in the file names!</li>
-			</ul>
-			<h4>Examples:</h4>
-			<ul class="methoddiv">
-				<li class="exampleitem"><span class="methodexample">loadMultipleFrames('mySprite', {'spritesheet1', 'spritesheet2', 'spritesheet3'})</span> - Loads 3 spritesheets in a single Lua Sprite named "mySprite".</li>
-				<li class="exampleitem"><a href="https://pastebin.com/raw/GTTkxV2R">Click here for a detailed use explanation.</a></li>
-			</ul>
-			<hr>
-			
 			<h2 id="loadFrames">loadFrames</h2>
 			<p class="methodbox">loadFrames(<span class="variablemarkup">tag</span>:String,
 				<span class="variablemarkup">image</span>:String,
@@ -152,6 +137,21 @@
 				<li class="exampleitem"><span class="methodexample">loadFrames('mySprite', 'aseprite-test', 'aseprite')</span> - Loads <span class="methodexample">mods/My-Mod/images/aseprite-test</span>, using its .PNG and .JSON files.</li>
 			</ul>
 			<p style="color: gray">Note: <a href="https://github.com/ShadowMario/FNF-PsychEngine/wiki/Export-and-Import-from-Aseprite">Follow these instructions to export properly from Aseprite</a>.</p>
+			<hr>
+			
+			<h2 id="loadFrames">loadMultipleFrames</h2>
+			<p class="methodbox">loadMultipleFrames(<span class="variablemarkup">tag</span>:String,
+				<span class="variablemarkup">images</span>:Array&lt;String&gt;):Void
+			<p>Loads multiple spritesheets to a Lua Sprite.</p>
+			<ul>
+				<li><b><span class="variablemarkup">tag</span></b> - Sprite variable name or Lua Sprite nametag.</li>
+				<li><b><span class="variablemarkup">images</span></b> - Table with spritesheet list, don't include the extension in the file names!</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">loadMultipleFrames('mySprite', {'spritesheet1', 'spritesheet2', 'spritesheet3'})</span> - Loads 3 spritesheets in a single Lua Sprite named "mySprite".</li>
+				<li class="exampleitem"><a href="https://pastebin.com/raw/GTTkxV2R">Click here for a detailed use explanation.</a></li>
+			</ul>
 			<hr>
 
 			<h2 id="addAnimationByPrefix">addAnimationByPrefix</h2>

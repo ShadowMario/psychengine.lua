@@ -69,6 +69,7 @@ function createSidebarContent(prefix) {
 		'makeGraphic': 'spritesheet.html',
 		'loadGraphic': 'spritesheet.html',
 		'loadFrames': 'spritesheet.html',
+		'loadMultipleFrames': 'spritesheet.html',
 		'addAnimationByPrefix': 'spritesheet.html',
 		'addAnimationByIndices': 'spritesheet.html',
 		'addAnimation': 'spritesheet.html',
