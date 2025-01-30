@@ -41,12 +41,11 @@
 			<p><b>Functions to add Shaders to sprites and change their properties.</b></p>
 			<hr>
 			<h2 id="initLuaShader">initLuaShader</h2>
-			<p class="methodbox">initLuaShader(<span class="variablemarkup">name</span>:String, <span class="isoptional">?</span><span class="variablemarkup">glslVersion</span>:Int = 120):Bool</p>
+			<p class="methodbox">initLuaShader(<span class="variablemarkup">name</span>:String):Bool</p>
 			<p>Preloads a Shader .vert/.frag inside "shaders/" folder, might be good for intensive shaders but it's generally not needed.
 			<br>Returns "true" if the operation was successful.</p>
 			<ul>
 				<li><b><span class="variablemarkup">name</span></b> - Shader .vert/.frag name, don't include the extension!</li>
-				<li><b><span class="variablemarkup">glslVersion</span> (Optional)</b> - GLSL Version Integer, defaults to 120 (GLSL 1.20, OpenGL 2.1).</li>
 			</ul>
 			<h4>Examples:</h4>
 			<ul class="methoddiv">
