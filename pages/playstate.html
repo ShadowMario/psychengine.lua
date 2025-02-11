@@ -138,11 +138,14 @@
 			<hr>
 
 			<h2 id="startVideo">startVideo</h2>
-			<p class="methodbox">startVideo(<span class="variablemarkup">videoFile</span>:String, <span class="isoptional">?</span><span class="variablemarkup">canSkip</span>:Bool = true):Void</p>
+			<p class="methodbox">startVideo(<span class="variablemarkup">videoFile</span>:String, <span class="isoptional">?</span><span class="variablemarkup">canSkip</span>:Bool = true, <span class="isoptional">?</span><span class="variablemarkup">forMidSong</span>:Bool = false, <span class="isoptional">?</span><span class="variablemarkup">shouldLoop</span>:Bool = false, <span class="isoptional">?</span><span class="variablemarkup">playOnLoad</span>:Bool = true):Void</p>
 			<p>Plays a Video Cutscene.</p>
 			<ul>
 				<li><b><span class="variablemarkup">videoFile</span></b> - Video .MP4 file located inside "videos/" folder, don't include the extension!</li>
 				<li><b><span class="variablemarkup">canSkip</span> (Optional)</b> - Allows the video to be skipped by holding down Enter for a second. Defaults to true.</li>
+				<li><b><span class="variablemarkup">forMidSong</span> (Optional)</b> - Doesn't start/finish song after the video ends, needed for mid-song cutscenes. Defaults to false.</li>
+				<li><b><span class="variablemarkup">shouldLoop</span> (Optional)</b> - Video will repeat once finished. Defaults to false.</li>
+				<li><b><span class="variablemarkup">playOnLoad</span> (Optional)</b> - Videos plays instantly after loading. Defaults to true.</li>
 			</ul>
 			<h4>Examples:</h4>
 			<ul class="methoddiv">
