@@ -242,14 +242,14 @@
 			<ul>
 				<li><b><span class="variablemarkup">twnTag</span></b> - Tween tag for the "onTweenCompleted" function, it should be unique or it will overwrite the previous one with the same name.</li>
 				<li><b><span class="variablemarkup">note</span></b> - Strum Note ID (0-3 = Opponent, 4-7 = Player).</li>
-				<li><b><span class="variablemarkup">value</span></b> - Target value at the end of the tween, ranges from 0 to 1.</li>
+				<li><b><span class="variablemarkup">value</span></b> - Target value at the end of the tween, in degrees.</li>
 				<li><b><span class="variablemarkup">duration</span></b> - Tween duration.</li>
 				<li><b><span class="variablemarkup">ease</span> (Optional)</b> - <a href="https://api.haxeflixel.com/flixel/tweens/FlxEase.html">Tween ease</a>, defaults to "linear".</li>
 			</ul>
 			<h4>Examples:</h4>
 			<ul class="methoddiv">
-			<li class="exampleitem"><span class="methodexample">noteTweenAlpha('mySpriteTween', 2, 180, 0.5, 'quadOut')</span> - Makes notes come sideways from the Opponent's Up note.</li>
-			<li class="exampleitem"><span class="methodexample">noteTweenAlpha('mySpriteTween', 7, 0, 0.5, 'quadOut')</span> - Makes notes come sideways from the Player's Right note.</li>
+			<li class="exampleitem"><span class="methodexample">noteTweenDirection('mySpriteTween', 2, 180, 0.5, 'quadOut')</span> - Makes notes come sideways from the Opponent's Up note.</li>
+			<li class="exampleitem"><span class="methodexample">noteTweenDirection('mySpriteTween', 7, 0, 0.5, 'quadOut')</span> - Makes notes come sideways from the Player's Right note.</li>
 			</ul>
 			<hr>
 

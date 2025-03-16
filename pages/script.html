@@ -240,7 +240,7 @@
 			<p class="methodbox">runHaxeCode(<span class="variablemarkup">codeToRun</span>:String,
 				<span class="isoptional">?</span><span class="variablemarkup">varsToBring</span>:Any = null,
 				<span class="isoptional">?</span><span class="variablemarkup">funcToRun</span>:String = null,
-				<span class="isoptional">?</span><span class="variablemarkup">funcArgs</span>:Array&lt;Dynamic&gt; = null):Void</p>
+				<span class="isoptional">?</span><span class="variablemarkup">funcArgs</span>:Array&lt;Dynamic&gt; = null):Dynamic</p>
 			<p>Runs HScript code inside a Lua Script by initializing a HScript Interpreter for the Lua Script.</p>
 			<ul>
 				<li><b><span class="variablemarkup">codeToRun</span></b> - Variable name to save.</li>
@@ -258,7 +258,7 @@
 
 			<h2 id="runHaxeFunction">runHaxeFunction</h2>
 			<p class="methodbox">runHaxeFunction(<span class="variablemarkup">funcToRun</span>:String = null,
-				<span class="isoptional">?</span><span class="variablemarkup">funcArgs</span>:Array&lt;Dynamic&gt; = null):Void</p>
+				<span class="isoptional">?</span><span class="variablemarkup">funcArgs</span>:Array&lt;Dynamic&gt; = null):Dynamic</p>
 			<p>Calls a function inside a code ran previously with <a href="#runHaxeCode">"runHaxeCode"</a>.</p>
 			<ul>
 				<li><b><span class="variablemarkup">funcToRun</span></b> - Function to run.</li>
@@ -268,5 +268,23 @@
 			<ul class="methoddiv">
 				<li class="exampleitem"><span class="methodexample">runHaxeFunction('myFunction', {1, 999})</span> - Will call <span class="methodexample">function myFunction(1, 999)</span> in the Haxe Code.</li>
 			</ul>
+
+			<h2 id="addHaxeLibrary">addHaxeLibrary</h2>
+			<p class="methodbox">addHaxeLibrary(<span class="variablemarkup">libName</span>:String,
+				<span class="isoptional">?</span><span class="variablemarkup">libPackage</span>:String = ''):Void</p>
+			<p>Imports a Haxe class to the HScript interpreter.</p>
+			<ul>
+				<li><b><span class="variablemarkup">libName</span></b> - Class name.</li>
+				<li><b><span class="variablemarkup">libPackage</span> (Optional)</b> - The package path of the class.</li>
+			</ul>
+			<h4>Examples:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">addHaxeLibrary('StringTools')</span> - Imports "StringTools" class.</li>
+				<li class="exampleitem"><span class="methodexample">addHaxeLibrary('FlxMath', 'flixel.math')</span> - Imports "flixel.math.FlxMath" class.</li>
+			</ul>
+
+			<h2 id="close">close</h2>
+			<p class="methodbox">close():Bool</p>
+			<p>Stops this script.</p>
 	</body>
 </html>

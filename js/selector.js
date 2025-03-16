@@ -257,6 +257,26 @@ function createSidebarContent(prefix) {
 		'callOnLuas': 'script.html',
 		'runHaxeCode': 'script.html',
 		'runHaxeFunction': 'script.html',
+		'addHaxeLibrary': 'script.html',
+		'close': 'script.html',
+
+		// Shaders
+		'initLuaShader': 'shaders.html',
+		'setSpriteShader': 'shaders.html',
+		'removeSpriteShader': 'shaders.html',
+		'getShaderBool': 'shaders.html',
+		'getShaderBoolArray': 'shaders.html',
+		'getShaderInt': 'shaders.html',
+		'getShaderIntArray': 'shaders.html',
+		'getShaderFloat': 'shaders.html',
+		'getShaderFloatArray': 'shaders.html',
+		'setShaderBool': 'shaders.html',
+		'setShaderBoolArray': 'shaders.html',
+		'setShaderInt': 'shaders.html',
+		'setShaderIntArray': 'shaders.html',
+		'setShaderFloat': 'shaders.html',
+		'setShaderFloatArray': 'shaders.html',
+		'setShaderSampler2D': 'shaders.html',
 
 		// Uncategorized
 		'FlxColor': 'uncategorized.html',
